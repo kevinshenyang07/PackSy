@@ -17,6 +17,6 @@ export const signin = user => (
 export const signout = user => (
   $.ajax({
     method: "DELETE",
-    url: "/api/session",
+    url: "/api/session"
   })
 );
