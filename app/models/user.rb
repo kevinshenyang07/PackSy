@@ -3,7 +3,8 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  username        :string           not null
+#  firstname       :string           not null
+#  lastname        :string           not null
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
@@ -16,9 +17,9 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  validates :username, :password_digest, :session_token, presence: true
+  validates :firstname, :lastname, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :session_token, :username, uniqueness: true
+  validates :session_token, :email, uniqueness: true
 
   has_many :carts
   has_many :cart_items,
@@ -32,8 +33,8 @@ class User < ApplicationRecord
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     user.is_password?(password) ? user : nil
   end
 
