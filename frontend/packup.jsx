@@ -5,8 +5,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // import { signin, signup, signout } from './util/session_api_util';
-import { receiveErrors } from './actions/session_actions';
-import merge from 'lodash/merge';
+// import { receiveErrors } from './actions/session_actions';
+// import merge from 'lodash/merge';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.receiveErrors = receiveErrors;
-  window.merge = merge;
-  ReactDOM.render(<h2>Welcome to PackUp</h2>, root);
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.receiveErrors = receiveErrors;
+  // window.merge = merge;
+  // ReactDOM.render(<h2>Welcome to PackUp</h2>, root);
 
-  // ReactDOM.render(<Root store={store} />, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
