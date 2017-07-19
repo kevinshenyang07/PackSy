@@ -1,0 +1,130 @@
+.login-form-container {
+  font-family: $raleway;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+}
+
+
+.login-form-container > .x-button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+  color: $linen;
+}
+
+.x-button > button {
+  font-family: $raleway;
+  display: flex-start;
+  color: $darker-gray;
+}
+
+.x-button > button:hover {
+  cursor: pointer;
+  color: $darkest-gray;
+}
+
+.login-form-box > h3 {
+  color: $charcoal;
+  font-size: 20px;
+  padding: 5px 0px;
+}
+
+.login-form-box > h3,
+.login-form-box > ul {
+  width: auto;
+  display: block;
+  text-align: center;
+}
+
+.login-form-box > ul {
+  font-size: 12px;
+  color: red;
+}
+
+.login-form {
+  margin: 15px;
+}
+
+.login-form label,
+.login-form input {
+  margin-bottom: 15px;
+  width: 260px;
+
+  color: $darker-gray;
+}
+
+.login-form button {
+  width: 260px;
+  margin: 15px 0px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid $darker-gray;
+
+  font-size: 11px;
+  background-color: $lighter-gray;
+  color: black;
+  text-transform: uppercase;
+  border-radius: 2px;
+  letter-spacing: 2px;
+}
+
+.login-form button:hover {
+  background-color: $light-gray;
+  color: $charcoal;
+}
+
+.login-form > label {
+}
+
+.login-form button,
+.login-form input {
+  border: none;
+  padding: 10px 0px;
+
+}
+
+.login-form input {
+  border-bottom: 2px $darker-gray solid;
+  background-color: white;
+  color: $darker-gray;
+  font-size: 14px;
+  padding: 10px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-bottom: 2px $linen solid;
+  box-shadow: rgba(0, 0, 0, 0);
+}
+
+.login-input-half {
+  width: 50%;
+  margin: 0px;
+}
+
+::-webkit-input-placeholder {
+  color: $darker-gray;
+  font-size: 16px
+}
+
+.login-form p,
+.login-form a {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  margin: 10px 0px;
+
+  color: $darker-gray;
+}
+
+.login-form a > p:hover {
+  color: black;
+}

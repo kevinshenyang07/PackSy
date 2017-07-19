@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-// import { signin, signup, signout } from './util/session_api_util';
+import { signin, signup, signout } from './util/session_api_util';
 // import { receiveErrors } from './actions/session_actions';
 // import merge from 'lodash/merge';
 
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
 
+  // window.signout = signout;
   // window.getState = store.getState;
   // window.dispatch = store.dispatch;
   // window.receiveErrors = receiveErrors;

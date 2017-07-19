@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PackUp - Travel Items Shopping Made Simple</title>
+    <title>PackUp - Travel Items, Checked</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'icon', :type => "image/x-icon" %>
+    <script src="https://use.fontawesome.com/94097fa447.js"></script>
     <script type="text/javascript">
       <% if logged_in? %>
         window.currentUser =

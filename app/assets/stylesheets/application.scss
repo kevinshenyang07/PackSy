@@ -1,0 +1,34 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+$white: #FFFFFF;
+$dark-white: #F9F9F9;
+$linen: #F8F3ED;
+$lightest-gray: #F7F7F5;
+$lighter-gray: #F0F0F0;
+$light-gray: #C0C0C0;
+$darker-gray: #797979;
+$darkest-gray: #353535;
+$charcoal: #202020;
+
+
+$sans-serif: sans-serif;
+$raleway: 'Raleway', sans-serif;
+
+@import "css_reset"; // 1
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,800'); // 2
+@import "navbar"; // 3
+@import "splash"; // 4
+@import "session_form"; // 5

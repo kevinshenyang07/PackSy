@@ -1,0 +1,36 @@
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  overflow-y: scroll;   // force vertical scrollbar
+}
+
+html, body, main, div, nav, a, ul, li,
+h1, h2, h3, h4, h5, h6, button, form,
+p, section, footer, aside, header, img {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+  
+  font-family: $raleway;
+}
+
+ul, ol {
+  list-style: none
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: -50px;
+}

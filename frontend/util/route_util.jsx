@@ -1,4 +1,5 @@
-import { withRouter } from 'react-router-dom';
+import React from 'react';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
@@ -19,7 +20,7 @@ const Protected = ({component: Component, path, loggedIn}) => (
      loggedIn ? (
       <Component {...props}/>
     ) : (
-      <Redirect to="/login"/>
+      <Redirect to="/"/>
     )
   )}/>
 );
