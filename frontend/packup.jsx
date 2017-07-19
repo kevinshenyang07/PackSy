@@ -8,11 +8,17 @@ import { signin, signup, signout } from './util/session_api_util';
 // import { receiveErrors } from './actions/session_actions';
 // import merge from 'lodash/merge';
 
+const preloadedState = {
+  session: {
+    currentUser: window.currentUser,
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
   let store;
   if (window.currentUser) {
-    const preloadedState = { session: { currentUser: window.currentUser }};
+
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {

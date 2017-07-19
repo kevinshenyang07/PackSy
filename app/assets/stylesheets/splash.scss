@@ -35,15 +35,15 @@
   margin: 30px 0px;
 }
 
-.hero-text > button {
+.hero-text button {
   padding: 10px;
   // border: 2px solid $charcoal;
   background: rgba(255, 255, 255, 0.15);
   font-family: sans-serif;
   font-size: 11px;
   width: 120px;
-  height: 35px;
-
+  height: 36px;
+  cursor: pointer;
   background-color: $charcoal;
   color: $linen;
   text-transform: uppercase;

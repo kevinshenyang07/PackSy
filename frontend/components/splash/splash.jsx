@@ -1,17 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import LoginFormContainer from '../navbar/session_form/login_form_container';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.loadDemo = this.loadDemo.bind(this);
-  }
-
-  loadDemo() {
-    // live entering after
-    const user = { email:'chuck.norris@gmail.com', password:'123456' };
-    this.props.signin(user);
   }
 
   // pic version
@@ -27,6 +21,8 @@ class Splash extends React.Component {
   //   );
   // }
 
+  // <button onClick={this.loadDemo}>Demo Login</button>
+
   // video version
   render() {
     return (
@@ -34,7 +30,7 @@ class Splash extends React.Component {
         <section className="hero-text">
             <h1>Let's go places</h1>
             <h4>the right travel items, carefully chosen for you</h4>
-            <button onClick={this.loadDemo}>Demo Login</button>
+            <LoginFormContainer />
         </section>
         <video autoPlay muted preload className="back-video">
          <source src="/assets/bg-video.mp4" type="video/mp4" />

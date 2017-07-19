@@ -60,7 +60,7 @@
   height: 20px;
   text-align: center;
 
-  background-color: $charcoal;
+  background-color: $darkest-gray;
   color: $linen;
   font-size: 10px;
   text-transform: uppercase;
@@ -79,7 +79,7 @@
 }
 
 .login-signup > button:hover {
-  background-color: $darkest-gray;
+  background-color: black;
   color: $linen;
   cursor: pointer;
 }

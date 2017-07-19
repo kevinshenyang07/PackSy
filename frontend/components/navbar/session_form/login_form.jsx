@@ -1,9 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
 import style from './modal_style';
 
-class SessionForm extends React.Component {
+import getRandomDemoUser from '../../../util/demo_util';
+
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,13 +13,13 @@ class SessionForm extends React.Component {
       modalOpen: false,
     };
 
-    this._DEMO_EMAIL = 'aaron.w@gmail.com';
-    this._DEMO_PASS = '123456';
+    const demoUser = getRandomDemoUser();
+    this._DEMO_EMAIL = demoUser.email;
+    this._DEMO_PASS = demoUser.password;
 
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.switchForms = this.switchForms.bind(this);
 
     this.loadDemo = this.loadDemo.bind(this);
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
@@ -35,17 +36,13 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    if (this.state.logIn) {
-      this.props.signin(user);
-      this.setState({ email: "", password: "" });
-    } else {
-      this.props.signup(user);
-      this.setState({ email: "", password: "" });
-    }
+    this.props.signin(user);
+    this.setState({ email: "", password: "" });
+    this.closeModal();
   }
 
   loadDemo(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.setState({ email: "", password: "", logIn: true });
     const emailChars = this._DEMO_EMAIL.split("");
     this.fillDemoEmail(emailChars);
@@ -77,18 +74,6 @@ class SessionForm extends React.Component {
     }
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) =>(
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   closeModal() {
     this.setState({ modalOpen: false });
     // style.content.opacity = 0;
@@ -101,12 +86,15 @@ class SessionForm extends React.Component {
       logIn: bool
     });
     // style.content.opacity = 100;
+    this.loadDemo();
   }
 
   render() {
     return (
-      <div>
-        <button onClick={this.loadDemo}>Demo Login</button>
+      <div className="demo-login">
+        <button onClick={this.openModal.bind(this, true)}>
+          Demo Login
+        </button>
         <Modal
           contentLabel="Modal"
           isOpen={this.state.modalOpen}
@@ -125,7 +113,6 @@ class SessionForm extends React.Component {
                 <br/>
               <h3>Log in to PackUp</h3>
                 <br/>
-              {this.renderErrors()}
 
               <div className="login-form">
 
@@ -150,7 +137,7 @@ class SessionForm extends React.Component {
                 />
                 <br/>
                 <button onClick={this.handleSubmit}>
-                  {this.formButton()}
+                  <h3>Log in</h3>
                 </button>
                 <p>or</p>
                 <button onClick={this.loadDemo}><h3>Demo LogIn</h3></button>
@@ -164,4 +151,4 @@ class SessionForm extends React.Component {
 }
 
 
-export default SessionForm;
+export default LoginForm;

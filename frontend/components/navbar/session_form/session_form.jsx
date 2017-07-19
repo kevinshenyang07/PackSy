@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import style from './modal_style';
 
+import getRandomDemoUser from '../../../util/demo_util';
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -15,8 +17,9 @@ class SessionForm extends React.Component {
       logIn: false,
     };
 
-    this._DEMO_EMAIL = 'aaron.w@gmail.com';
-    this._DEMO_PASS = '123456';
+    const demoUser = getRandomDemoUser();
+    this._DEMO_EMAIL = demoUser.email;
+    this._DEMO_PASS = demoUser.password;
 
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -44,7 +47,10 @@ class SessionForm extends React.Component {
       this.setState({ email: "", password: "" });
     } else {
       this.props.signup(user);
-      this.setState({ email: "", password: "" });
+      this.setState({
+         email: "", password: "",
+         firstname: "", lastname: ""
+      });
     }
   }
 
@@ -56,6 +62,7 @@ class SessionForm extends React.Component {
 
   loadDemo(e) {
     e.preventDefault();
+    this.props.clearErrors();
     this.setState({ email: "", password: "", logIn: true });
     const emailChars = this._DEMO_EMAIL.split("");
     this.fillDemoEmail(emailChars);
@@ -80,7 +87,7 @@ class SessionForm extends React.Component {
           password: this.state.password + pwChars.shift()
         });
         this.fillDemoPassword(pwChars);
-      }, 100);
+      }, 80);
     } else {
       const e = { preventDefault: () => {}};
       this.handleSubmit(e);
@@ -135,7 +142,6 @@ class SessionForm extends React.Component {
 
   formUserName() {
     if (!this.state.logIn) {
-      // style.content.height = '550px';
       return (
         <span className="first-last-name">
           <label htmlFor="un"></label>
@@ -158,8 +164,6 @@ class SessionForm extends React.Component {
           />
         </span>
       );
-    } else {
-      // style.content.height = '450px';
     }
   }
 
