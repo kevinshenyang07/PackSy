@@ -1,53 +1,25 @@
-.nav {
-  position: fixed;
-  z-index: 10;
-  background-color: #F7F7F5;
-  width: 100%;
-  height: 50px;
-}
-
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  margin: 3px 0px;
-  // background-color: blue;
+  background-color: $lightest-gray !important;
 }
 
-.logo {
-  display: flex;
-  justify-content: flex-start;
-  font-family: $raleway;
-  text-align: center;
-  margin-left: 0px;
+.title {
+  color: $charcoal !important;
+  cursor: pointer !important;
+}
+
+.title:hover {
+  background-color: $light-gray !important;
 }
 
 .logo:hover {
-  background-color: $light-gray;
+  background-color: $light-gray !important;
 }
 
-.logo > img {
-  height: 45px;
-  width: 50px;
-  padding: 0;
-  margin: 0;
-}
-
-.logo > h2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 35px;
-  // text-transform: uppercase;
-}
-
-.login-signup,
-.header-right,
-.home-nav-right {
-  display: flex;
-  justify-content: flex-end;
-  font-family: $raleway;
+.logo {
+  height: 45px !important;
+  width: 50px !important;
+  // padding: 0 !important;
+  // margin: 0 !important;
 }
 
 .login-signup > button {
@@ -75,7 +47,6 @@
   padding-left: 10px;
   padding-right: 10px;
   font-weight: 550;
-  // text-transform: uppercase;
 }
 
 .login-signup > button:hover {

@@ -1,38 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Root from './components/root';
 import configureStore from './store/store';
 
 import { signin, signup, signout } from './util/session_api_util';
-// import { receiveErrors } from './actions/session_actions';
 // import merge from 'lodash/merge';
 
-const preloadedState = {
-  session: {
-    currentUser: window.currentUser,
-  }
-};
+injectTapEventPlugin();
 
 document.addEventListener('DOMContentLoaded', () => {
 
   let store;
-  if (window.currentUser) {
 
-    store = configureStore(preloadedState);
+  const preloadedState = {
+    session: {
+      currentUser: null,
+      errors: []
+  }};
+
+  if (window.currentUser) {
+    preloadedState.session.currentUser = window.currentUser;
     delete window.currentUser;
-  } else {
-    store = configureStore();
   }
+  store = configureStore(preloadedState);
 
   const root = document.getElementById('root');
 
   // window.signout = signout;
   // window.getState = store.getState;
   // window.dispatch = store.dispatch;
-  // window.receiveErrors = receiveErrors;
   // window.merge = merge;
-  // ReactDOM.render(<h2>Welcome to PackUp</h2>, root);
 
   ReactDOM.render(<Root store={store} />, root);
 });

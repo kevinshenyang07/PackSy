@@ -1,17 +1,18 @@
-const getRandomDemoUser = () => {
+const getRandomDemoUserEmail = () => {
 
-  const demoUsers = [
-    { email: 'norris.k@gmail.com', password: '123456'},
-    { email: 'aaron.wayne@gmail.com', password: '123456'},
-    { email: 'dallas.tall@gmail.com', password: '123456'},
-    { email: 'debrafong@gmail.com', password: '123456'},
-    { email: 'louis.cruz@gmail.com', password: '123456'},
+  // pw all 123456
+  const demoUserEmails = [
+    'norris.k@gmail.com',
+    'aaron.wayne@gmail.com',
+    'dallas.tall@gmail.com',
+    'louis.cruz@gmail.com',
+    'debrafong@gmail.com'
   ];
 
-  const max = Math.floor(demoUsers.length - 1);
+  const max = Math.floor(demoUserEmails.length - 1);
   const idx = Math.floor(Math.random() * max);
 
-  return demoUsers[idx];
+  return demoUserEmails[idx];
 };
 
-export default getRandomDemoUser;
+export default getRandomDemoUserEmail;

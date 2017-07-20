@@ -1,43 +1,44 @@
 import React from 'react';
-import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
-import style from './modal_style';
 
-import getRandomDemoUser from '../../../util/demo_util';
+import Dialog from 'material-ui/Dialog';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import getRandomDemoUserEmail from '../../../util/demo_util';
 
 class SessionForm extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       password: '',
-      firstname: '',
-      lastname: '',
-      modalOpen: false,
+      open: false,
       logIn: false,
     };
 
-    const demoUser = getRandomDemoUser();
-    this._DEMO_EMAIL = demoUser.email;
-    this._DEMO_PASS = demoUser.password;
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
 
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
     this.switchForms = this.switchForms.bind(this);
 
-    this.loadDemo = this.loadDemo.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
-
   }
 
-  update(field) {
-    return e => {
-      this.setState({[field]: e.currentTarget.value});
-    };
+  handleOpen(logIn) {
+    this.setState({open: true, logIn});
   }
+
+  handleClose() {
+    this.setState({open: false});
+    this.props.clearErrors();
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -57,77 +58,25 @@ class SessionForm extends React.Component {
   handleSignout(e) {
     e.preventDefault();
     this.props.signout();
-    this.setState({ modalOpen: false });
+    this.setState({ open: false });
   }
 
-  loadDemo(e) {
-    e.preventDefault();
-    this.props.clearErrors();
-    this.setState({ email: "", password: "", logIn: true });
-    const emailChars = this._DEMO_EMAIL.split("");
-    this.fillDemoEmail(emailChars);
-  }
-
-  fillDemoEmail(emailChars) {
-    if (emailChars.length > 0) {
-      setTimeout(() => {
-        this.setState({ email: this.state.email + emailChars.shift()});
-        this.fillDemoEmail(emailChars);
-      }, 120);
-    } else {
-      const pwChars = this._DEMO_PASS.split("");
-      this.fillDemoPassword(pwChars);
-    }
-  }
-
-  fillDemoPassword(pwChars) {
-    if (pwChars.length > 0) {
-      setTimeout(() => {
-        this.setState({
-          password: this.state.password + pwChars.shift()
-        });
-        this.fillDemoPassword(pwChars);
-      }, 80);
-    } else {
-      const e = { preventDefault: () => {}};
-      this.handleSubmit(e);
-    }
-  }
-
-  // render multiple errors
-  // renderErrors() {
-  //   return(
-  //     <ul>
-  //       {this.props.errors.map((error, i) =>(
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
-
-  // render the first error
-  renderErrors() {
-    return (
-      <ul><li>
-        {this.props.errors[0]}
-      </li></ul>
-    );
-  }
-
-  closeModal() {
-    this.setState({ modalOpen: false });
-    // style.content.opacity = 0;
-    this.props.clearErrors();
-  }
-
-  openModal(bool) {
-    this.setState({
-      modalOpen: true,
-      logIn: bool
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
     });
-    // style.content.opacity = 100;
+  }
+
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   formHeader() {
@@ -180,31 +129,67 @@ class SessionForm extends React.Component {
         <p>Already have an account? Log in</p>;
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.clearErrors();
+    this.setState({ email: "", password: "", logIn: true });
+    const demoUserEmail = getRandomDemoUserEmail();
+    const emailChars = demoUserEmail.split("");
+    this.fillDemoEmail(emailChars);
+  }
+
+  fillDemoEmail(emailChars) {
+    if (emailChars.length > 0) {
+      setTimeout(() => {
+        this.setState({ email: this.state.email + emailChars.shift()});
+        this.fillDemoEmail(emailChars);
+      }, 120);
+    } else {
+      const pwChars = "123456".split("");
+      this.fillDemoPassword(pwChars);
+    }
+  }
+
+  fillDemoPassword(pwChars) {
+    if (pwChars.length > 0) {
+      setTimeout(() => {
+        this.setState({
+          password: this.state.password + pwChars.shift()
+        });
+        this.fillDemoPassword(pwChars);
+      }, 80);
+    } else {
+      const e = { preventDefault: () => {}};
+      this.handleSubmit(e);
+    }
+  }
+
   render() {
+    const actions = [];
+
     if (this.props.currentUser) {
       return (
         <nav className="login-signup">
           <h2>{`Hi, ${this.props.currentUser.firstname}!`}</h2>
-          <button onClick={this.handleSignout}>Log Out</button>
+          <FlatButton label="Log Out" onTouchTap={this.handleSignout} />
         </nav>
       );
-
     } else {
-
       return (
         <nav className="login-signup">
-          <button onClick={this.openModal.bind(this, true)}>Login</button>
-          <button onClick={this.openModal.bind(this, false)}>Sign up</button>
+          <FlatButton label="Log In"
+            onTouchTap={this.handleOpen.bind(this, true)} />
+          <FlatButton label="Sign Up"
+            onTouchTap={this.handleOpen.bind(this,false)} />
 
-          <Modal
-            contentLabel="Modal"
-            isOpen={this.state.modalOpen}
-            onRequestClose={this.closeModal}
-            style={style}>
+          <Dialog
+            modal={true}
+            open={this.state.open}
+            >
 
             <div className="login-form-container">
               <div className="x-button">
-                <button onClick={this.closeModal}>
+                <button onClick={this.handleClose}>
                   <i className="fa fa-times" aria-hidden="true"></i>
                 </button>
               </div>
@@ -240,23 +225,22 @@ class SessionForm extends React.Component {
                     placeholder="Password"
                   />
                   <br/>
-                  <button onClick={this.handleSubmit}>
-                    {this.formButton()}
-                  </button>
+                  <RaisedButton label={ this.state.logIn ? "Log In" : "Sign Up"}
+                    onTouchTap={this.handleSubmit} />
                   <p>or</p>
-                  <button onClick={this.loadDemo}><h3>Demo LogIn</h3></button>
+                  <RaisedButton label="Demo Login"
+                    onTouchTap={this.demoLogin} />
                   <a href="/#" onClick={this.switchForms}>
                     {this.switchButton()}
                   </a>
                 </div>
               </form>
             </div>
-          </Modal>
+          </Dialog>
         </nav>
       );
     }
   }
-
 }
 
 export default SessionForm;

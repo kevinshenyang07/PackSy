@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import LoginFormContainer from '../navbar/session_form/login_form_container';
+import DemoLoginContainer from '../navbar/session_form/demo_login_container';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -21,8 +20,6 @@ class Splash extends React.Component {
   //   );
   // }
 
-  // <button onClick={this.loadDemo}>Demo Login</button>
-
   // video version
   render() {
     return (
@@ -30,12 +27,11 @@ class Splash extends React.Component {
         <section className="hero-text">
             <h1>Let's go places</h1>
             <h4>the right travel items, carefully chosen for you</h4>
-            <LoginFormContainer />
+            <DemoLoginContainer />
         </section>
-        <video autoPlay muted preload className="back-video">
-         <source src="/assets/bg-video.mp4" type="video/mp4" />
-         <source src="/assets/bg-video.mp4" type="video/webm" />
-         <source src="/assets/bg-video.mp4" type="video/ogg" />
+        <video autoPlay muted preload className="bg-video">
+         <source src="http://res.cloudinary.com/kevinsy07
+          /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
           Your browser does not support the <code>video</code> tag.
         </video>
       </section>

@@ -1,24 +1,20 @@
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
+// import IconButton from 'material-ui/IconButton';
+
 import { Link } from 'react-router-dom';
 
 import SessionFormContainer from './session_form/session_form_container';
 
-const Logo = () => (
-  <Link to="/" className="header-link">
-    <nav className="logo">
-      <img src="/assets/logo.png" />
-      <h2>PackUp</h2>
-    </nav>
-  </Link>
-);
-
 const NavBar = () => (
-  <nav className="nav">
-    <nav className="navbar">
-      <Logo />
-      <SessionFormContainer />
-    </nav>
-  </nav>
+  <AppBar
+    title={<Link to="/" className="title">PackUp</Link>}
+    iconElementLeft={<img className="logo"
+      src="http://res.cloudinary.com/kevinsy07
+        /image/upload/v1500527172/logo_tfhzhd.png" />}
+    iconElementRight={<SessionFormContainer />}
+    className="navbar"
+  />
 );
 
 export default NavBar;

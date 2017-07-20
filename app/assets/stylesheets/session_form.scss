@@ -1,5 +1,4 @@
 .login-form-container {
-  font-family: $raleway;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +17,6 @@
 }
 
 .x-button > button {
-  font-family: $raleway;
   display: flex-start;
   color: $darker-gray;
 }

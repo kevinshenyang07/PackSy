@@ -1,27 +1,24 @@
 import React from 'react';
-import Modal from 'react-modal';
-import style from './modal_style';
 
-import getRandomDemoUser from '../../../util/demo_util';
+import Dialog from 'material-ui/Dialog';
+import RaisedButton from 'material-ui/RaisedButton';
 
-class LoginForm extends React.Component {
+import getRandomDemoUserEmail from '../../../util/demo_util';
+
+class DemoLogin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       password: '',
-      modalOpen: false,
+      open: false,
     };
 
-    const demoUser = getRandomDemoUser();
-    this._DEMO_EMAIL = demoUser.email;
-    this._DEMO_PASS = demoUser.password;
-
-    this.closeModal = this.closeModal.bind(this);
-    this.openModal = this.openModal.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    this.loadDemo = this.loadDemo.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
 
@@ -38,13 +35,14 @@ class LoginForm extends React.Component {
     const user = this.state;
     this.props.signin(user);
     this.setState({ email: "", password: "" });
-    this.closeModal();
+    this.handleClose();
   }
 
-  loadDemo(e) {
+  demoLogin(e) {
     // e.preventDefault();
     this.setState({ email: "", password: "", logIn: true });
-    const emailChars = this._DEMO_EMAIL.split("");
+    const demoUserEmail = getRandomDemoUserEmail();
+    const emailChars = demoUserEmail.split("");
     this.fillDemoEmail(emailChars);
   }
 
@@ -53,9 +51,9 @@ class LoginForm extends React.Component {
       setTimeout(() => {
         this.setState({ email: this.state.email + emailChars.shift()});
         this.fillDemoEmail(emailChars);
-      }, 120);
+      }, 80);
     } else {
-      const pwChars = this._DEMO_PASS.split("");
+      const pwChars = "123456".split("");
       this.fillDemoPassword(pwChars);
     }
   }
@@ -67,43 +65,38 @@ class LoginForm extends React.Component {
           password: this.state.password + pwChars.shift()
         });
         this.fillDemoPassword(pwChars);
-      }, 120);
+      }, 80);
     } else {
       const e = { preventDefault: () => {}};
       this.handleSubmit(e);
     }
   }
 
-  closeModal() {
-    this.setState({ modalOpen: false });
-    // style.content.opacity = 0;
-    this.props.clearErrors();
+  handleOpen() {
+    this.setState({open: true});
+    this.demoLogin();
   }
 
-  openModal(bool) {
-    this.setState({
-      modalOpen: true,
-      logIn: bool
-    });
-    // style.content.opacity = 100;
-    this.loadDemo();
+  handleClose() {
+    this.setState({open: false});
   }
 
   render() {
+    const actions = [];
+
     return (
       <div className="demo-login">
-        <button onClick={this.openModal.bind(this, true)}>
-          Demo Login
-        </button>
-        <Modal
-          contentLabel="Modal"
-          isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}
-          style={style}>
+        <RaisedButton label="Demo Login" onTouchTap={this.handleOpen} />
+        <Dialog
+          title="Log in to PackUp"
+          actions={actions}
+          modal={true}
+          open={this.state.open}
+        >
 
           <div className="login-form-container">
             <div className="x-button">
-              <button onClick={this.closeModal}>
+              <button onClick={this.handleClose}>
                 <i className="fa fa-times" aria-hidden="true"></i>
               </button>
             </div>
@@ -111,7 +104,7 @@ class LoginForm extends React.Component {
 
             <form className="login-form-box">
                 <br/>
-              <h3>Log in to PackUp</h3>
+              <h3></h3>
                 <br/>
 
               <div className="login-form">
@@ -140,15 +133,16 @@ class LoginForm extends React.Component {
                   <h3>Log in</h3>
                 </button>
                 <p>or</p>
-                <button onClick={this.loadDemo}><h3>Demo LogIn</h3></button>
+                <button onClick={this.demoLogin}><h3>Demo LogIn</h3></button>
               </div>
             </form>
           </div>
-        </Modal>
+
+        </Dialog>
       </div>
     );
   }
 }
 
 
-export default LoginForm;
+export default DemoLogin;

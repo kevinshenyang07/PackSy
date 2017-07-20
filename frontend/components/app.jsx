@@ -1,5 +1,4 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -13,7 +12,6 @@ const App = () => (
     <main className="main">
       <Route exact path="/" component={SplashContainer} />
     </main>
-
   </div>
 );
 
