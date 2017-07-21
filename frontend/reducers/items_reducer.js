@@ -15,7 +15,7 @@ const getIdsByCategoy = items => {
     const item = items[k];
     const category = item.category;
     if (category in byCategory) {
-      byCategory.category.append(k);
+      byCategory[category].push(k);
     } else {
       byCategory[category] = [k];
     }

@@ -1,14 +1,13 @@
 .navbar {
-  background-color: $lightest-gray !important;
+  // background-color: $lightest-gray !important;
+  background-color: white !important;
 }
 
 .title {
-  color: $charcoal !important;
+  color: $darker-orange !important;
   cursor: pointer !important;
-}
-
-.title:hover {
-  background-color: $light-gray !important;
+  font-size: 35px !important;
+  text-decoration: none !important;
 }
 
 .logo:hover {

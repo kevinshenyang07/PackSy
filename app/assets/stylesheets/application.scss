@@ -13,14 +13,35 @@
  *= require_self
  */
 
- $dark-white: #F9F9F9;
- $linen: #F8F3ED;
- $lightest-gray: #F7F7F5;
- $lighter-gray: #F0F0F0;
- $light-gray: #C0C0C0;
- $darker-gray: #797979;
- $darkest-gray: #353535;
- $charcoal: #202020;
+$dark-white: #F9F9F9;
+$linen: #F8F3ED;
+$lightest-gray: #F7F7F5;
+$lighter-gray: #F0F0F0;
+$light-gray: #C0C0C0;
+$darker-gray: #797979;
+$darkest-gray: #353535;
+$charcoal: #202020;
+
+$orange: #F56400;
+$darker-orange: #DA552F;
+
+$dark-red: #C23030;
+$light-red: #F1DBDD;
+
+.primary {
+ background-color: $darker-orange !important;
+ color: white !important;
+ border-radius: 4px !important;
+}
+
+.primary:hover {
+ background-color: $orange !important;
+}
+
+.secondary {
+ border: 1px solid $lighter-gray !important;
+ border-radius: 4px !important;
+}
 
 // @import "css_reset"; // 1
 @import "navbar"; // 3

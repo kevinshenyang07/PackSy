@@ -1,7 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+
 
 import getRandomDemoUserEmail from '../../../util/demo_util';
 
@@ -24,6 +26,12 @@ class DemoLogin extends React.Component {
 
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.props.history.push('/items');
+    }
+  }
+
   update(field) {
     return e => {
       this.setState({[field]: e.currentTarget.value});
@@ -36,7 +44,7 @@ class DemoLogin extends React.Component {
     this.props.signin(user);
     this.setState({ email: "", password: "" });
     this.handleClose();
-    this.props.history.push('/items');
+    // this.props.history.push('/items');
   }
 
   demoLogin(e) {
@@ -83,16 +91,15 @@ class DemoLogin extends React.Component {
   }
 
   render() {
-    const actions = [];
 
     return (
-      <div className="demo-login">
-        <RaisedButton label="Demo Login" onTouchTap={this.handleOpen} />
+      <div>
+        <FlatButton label="Demo Login" className="primary"
+          onTouchTap={this.handleOpen} />
         <Dialog
-          title="Log in to PackUp"
-          actions={actions}
           modal={true}
           open={this.state.open}
+          contentStyle={{width: "30%", minWidth: "300px"}}
         >
 
           <div className="login-form-container">
@@ -105,7 +112,7 @@ class DemoLogin extends React.Component {
 
             <form className="login-form-box">
                 <br/>
-              <h3></h3>
+              <h3>Log in to PackUp</h3>
                 <br/>
 
               <div className="login-form">
@@ -130,11 +137,9 @@ class DemoLogin extends React.Component {
                   placeholder="Password"
                 />
                 <br/>
-                <button onClick={this.handleSubmit}>
-                  <h3>Log in</h3>
-                </button>
+                <RaisedButton label="Log In" style={{width: "100%"}} />
                 <p>or</p>
-                <button onClick={this.demoLogin}><h3>Demo LogIn</h3></button>
+                <RaisedButton label="Demo Login" style={{width: "100%"}} />
               </div>
             </form>
           </div>

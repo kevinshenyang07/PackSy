@@ -1,4 +1,6 @@
 import React from 'react';
+import {Card, CardActions,
+  CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
 import DemoLoginContainer from '../navbar/session_form/demo_login_container';
 
@@ -29,7 +31,7 @@ class Splash extends React.Component {
             <h4>the right travel items, carefully chosen for you</h4>
             <DemoLoginContainer />
         </section>
-        <video autoPlay muted preload className="bg-video">
+        <video autoPlay muted preload className="back-video">
          <source src="http://res.cloudinary.com/kevinsy07
           /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
           Your browser does not support the <code>video</code> tag.

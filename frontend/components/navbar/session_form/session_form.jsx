@@ -31,6 +31,12 @@ class SessionForm extends React.Component {
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser) {
+      this.props.history.push('/items');
+    }
+  }
+
   handleOpen(logIn) {
     this.setState({open: true, logIn});
   }
@@ -45,7 +51,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.state.logIn) {
-      this.props.signin(user);
+      this.props.signin(user).then(resp => console.log("resp"));
       this.setState({ email: "", password: "" });
     } else {
       this.props.signup(user);
@@ -54,7 +60,6 @@ class SessionForm extends React.Component {
          firstname: "", lastname: ""
       });
     }
-    this.props.history.push('/items');
   }
 
   handleSignout(e) {
@@ -83,19 +88,14 @@ class SessionForm extends React.Component {
   }
 
   formHeader() {
-    return (this.state.logIn) ?
-      <h3>Log in to PackUp</h3> :
-        <h3>Join PackUp</h3>;
-  }
-
-  formButton() {
-    return (this.state.logIn) ? <h3>Log in</h3> : <h3>Sign up</h3>;
+    const formText = this.state.logIn ? "Log in to PackUp" : "Join PackUp";
+    return (<h3 className="form-header">{formText}</h3>);
   }
 
   formUserName() {
     if (!this.state.logIn) {
       return (
-        <span className="first-last-name">
+        <span>
           <label htmlFor="un"></label>
           <br/>
           <input
@@ -172,22 +172,25 @@ class SessionForm extends React.Component {
 
     if (this.props.currentUser) {
       return (
-        <nav className="login-signup">
-          <h2>{`Hi, ${this.props.currentUser.firstname}!`}</h2>
-          <FlatButton label="Log Out" onTouchTap={this.handleSignout} />
+        <nav className="navbar-right">
+          <h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4>
+          <RaisedButton label="Log Out" onTouchTap={this.handleSignout}
+            />
         </nav>
       );
     } else {
       return (
-        <nav className="login-signup">
-          <FlatButton label="Log In"
+        <nav className="navbar-right">
+          <FlatButton label="Log In" className="secondary"
             onTouchTap={this.handleOpen.bind(this, true)} />
-          <FlatButton label="Sign Up"
+          <FlatButton label="Sign Up" className="primary"
             onTouchTap={this.handleOpen.bind(this,false)} />
 
           <Dialog
             modal={true}
             open={this.state.open}
+            autoScrollBodyContent={true}
+            contentStyle={{width: "30%", minWidth: "300px"}}
             >
 
             <div className="login-form-container">
@@ -228,11 +231,12 @@ class SessionForm extends React.Component {
                     placeholder="Password"
                   />
                   <br/>
-                  <RaisedButton label={ this.state.logIn ? "Log In" : "Sign Up"}
+                  <FlatButton className="primary"
+                    label={ this.state.logIn ? "Log In" : "Sign Up"}
                     onTouchTap={this.handleSubmit} />
                   <p>or</p>
                   <RaisedButton label="Demo Login"
-                    onTouchTap={this.demoLogin} />
+                    onTouchTap={this.demoLogin} style={{width: "100%"}}/>
                   <a href="/#" onClick={this.switchForms}>
                     {this.switchButton()}
                   </a>

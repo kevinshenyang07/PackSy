@@ -1,5 +1,23 @@
 import React from 'react';
+import { GridList, GridTile } from 'material-ui/GridList';
+import Subheader from 'material-ui/Subheader';
+import IconButton from 'material-ui/IconButton';
+import ActionAddShoppingCart from 'material-ui/svg-icons/action/add-shopping-cart';
 import CircularProgress from 'material-ui/CircularProgress';
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    margin: 20
+  },
+  gridList: {
+    width: 1000,
+    height: 900,
+    overflowY: 'auto',
+  },
+};
 
 class ItemIndex extends React.Component {
 
@@ -9,16 +27,36 @@ class ItemIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchItems();
+    setTimeout(this.props.fetchItems(), 2000);
   }
 
   render() {
     const items = this.props.items.byId;
-    if (items) {
-      const itemList = Object.keys(items).map(
-        k => <div key={k}>{items[k].price}</div>);
+    const tiles = Object.keys(items).map(k => {
+      const item = items[k];
       return (
-        <div>{itemList}</div>
+        <GridTile
+          key={item.img}
+          title={item.title}
+          subtitle={<span>by <b>{item.producer}</b></span>}
+          actionIcon={<IconButton>
+            <ActionAddShoppingCart color="white" /></IconButton>}
+        >
+          <img src={item.imgUrl} />
+        </GridTile>
+      );
+    });
+
+
+    if (items) {
+      return (
+        <div style={styles.root}>
+          <GridList cellHeight={300} style={styles.gridList}
+            cols='3'>
+            <Subheader>{``}</Subheader>
+              {tiles}
+          </GridList>
+        </div>
       );
     } else {
       return (

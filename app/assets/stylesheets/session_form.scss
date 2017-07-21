@@ -1,3 +1,22 @@
+.navbar-right {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.navbar-right > h4 {
+  color: $darker-gray;
+  margin: auto;
+}
+
+.navbar-right button {
+  margin: auto;
+}
+
+.form-header {
+ color: $darkest-gray !important;
+}
+
 .login-form-container {
   display: flex;
   flex-direction: column;
@@ -12,11 +31,13 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  font-size: 20px;
   color: $linen;
 }
 
 .x-button > button {
+  border: none;
+  background-color: white;
+  font-size: 20px;
   display: flex-start;
   color: $darker-gray;
 }
@@ -27,13 +48,13 @@
 }
 
 .login-form-box > h3 {
-  color: $charcoal;
+  color: $darkest-gray;
   font-size: 20px;
-  padding: 5px 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
-.login-form-box > h3,
-.login-form-box > ul {
+.login-form-box > h3 {
   width: auto;
   display: block;
   text-align: center;
@@ -41,11 +62,15 @@
 
 .login-form-box > ul {
   font-size: 12px;
-  color: red;
+  color: $dark-red;
+  // list-style: none;
+  // background-color: $light-red;
+  // border: 1px solid $dark-red;
+  margin: 10px 30px 10px 30px
 }
 
 .login-form {
-  margin: 15px;
+  margin: 10px 40px 10px 40px;
 }
 
 .login-form label,
@@ -73,10 +98,7 @@
 
 .login-form button:hover {
   background-color: $light-gray;
-  color: $charcoal;
-}
-
-.login-form > label {
+  color: $darkest-gray;
 }
 
 .login-form button,
@@ -87,7 +109,7 @@
 }
 
 .login-form input {
-  border-bottom: 2px $darker-gray solid;
+  border-bottom: 2px $light-gray solid;
   background-color: white;
   color: $darker-gray;
   font-size: 14px;
@@ -99,13 +121,8 @@
 
 .login-form input:focus {
   outline: none;
-  border-bottom: 2px $linen solid;
+  border-bottom: 2px $darkest-gray solid;
   box-shadow: rgba(0, 0, 0, 0);
-}
-
-.login-input-half {
-  width: 50%;
-  margin: 0px;
 }
 
 ::-webkit-input-placeholder {
