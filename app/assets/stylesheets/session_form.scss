@@ -1,7 +1,8 @@
 .navbar-right {
-  display: flex;
-  justify-content: right;
-  align-items: center;
+  display: flex !important;
+  justify-content: right !important;
+  align-items: center !important;
+  margin: auto !important;
 }
 
 .navbar-right > h4 {
