@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
+gem 'pg_search'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -36,6 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'faker'
 end
 
 group :development do
@@ -53,7 +55,7 @@ group :development do
 
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
-  
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

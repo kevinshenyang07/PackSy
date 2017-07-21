@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
@@ -53,12 +54,14 @@ class SessionForm extends React.Component {
          firstname: "", lastname: ""
       });
     }
+    this.props.history.push('/items');
   }
 
   handleSignout(e) {
     e.preventDefault();
     this.props.signout();
     this.setState({ open: false });
+    this.props.history.push('/');
   }
 
   update(field) {
@@ -143,7 +146,7 @@ class SessionForm extends React.Component {
       setTimeout(() => {
         this.setState({ email: this.state.email + emailChars.shift()});
         this.fillDemoEmail(emailChars);
-      }, 120);
+      }, 60);
     } else {
       const pwChars = "123456".split("");
       this.fillDemoPassword(pwChars);
@@ -157,7 +160,7 @@ class SessionForm extends React.Component {
           password: this.state.password + pwChars.shift()
         });
         this.fillDemoPassword(pwChars);
-      }, 80);
+      }, 60);
     } else {
       const e = { preventDefault: () => {}};
       this.handleSubmit(e);
@@ -243,4 +246,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

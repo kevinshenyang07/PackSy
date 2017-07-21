@@ -20,8 +20,9 @@ class Item < ApplicationRecord
 
   has_many :reviews
 
-  # associate items with images
-
-  # include PgSearch
+  include PgSearch
+  pg_search_scope :search_by_item_details,
+    :against => [:title, :description, :category],
+    :using => { tsearch: { any_word: true }}
 
 end

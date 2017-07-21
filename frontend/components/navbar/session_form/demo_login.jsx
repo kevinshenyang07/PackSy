@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -36,6 +36,7 @@ class DemoLogin extends React.Component {
     this.props.signin(user);
     this.setState({ email: "", password: "" });
     this.handleClose();
+    this.props.history.push('/items');
   }
 
   demoLogin(e) {
@@ -51,7 +52,7 @@ class DemoLogin extends React.Component {
       setTimeout(() => {
         this.setState({ email: this.state.email + emailChars.shift()});
         this.fillDemoEmail(emailChars);
-      }, 80);
+      }, 60);
     } else {
       const pwChars = "123456".split("");
       this.fillDemoPassword(pwChars);
@@ -65,7 +66,7 @@ class DemoLogin extends React.Component {
           password: this.state.password + pwChars.shift()
         });
         this.fillDemoPassword(pwChars);
-      }, 80);
+      }, 60);
     } else {
       const e = { preventDefault: () => {}};
       this.handleSubmit(e);
@@ -145,4 +146,4 @@ class DemoLogin extends React.Component {
 }
 
 
-export default DemoLogin;
+export default withRouter(DemoLogin);
