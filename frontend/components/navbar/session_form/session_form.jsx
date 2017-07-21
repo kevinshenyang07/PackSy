@@ -13,6 +13,8 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstname: '',
+      lastname: '',
       email: '',
       password: '',
       open: false,

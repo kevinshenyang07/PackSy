@@ -2,7 +2,8 @@ import React from 'react';
 import { GridList, GridTile } from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
 import IconButton from 'material-ui/IconButton';
-import ActionAddShoppingCart from 'material-ui/svg-icons/action/add-shopping-cart';
+import ActionAddShoppingCart
+  from 'material-ui/svg-icons/action/add-shopping-cart';
 import CircularProgress from 'material-ui/CircularProgress';
 
 const styles = {
@@ -27,16 +28,17 @@ class ItemIndex extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.props.fetchItems(), 2000);
+    this.props.fetchItems();
   }
 
   render() {
     const items = this.props.items.byId;
+    console.log(items);
     const tiles = Object.keys(items).map(k => {
       const item = items[k];
       return (
         <GridTile
-          key={item.img}
+          key={k}
           title={item.title}
           subtitle={<span>by <b>{item.producer}</b></span>}
           actionIcon={<IconButton>
@@ -47,12 +49,12 @@ class ItemIndex extends React.Component {
       );
     });
 
-
-    if (items) {
+    // if empty
+    if (Object.keys(items).length !== 0) {
       return (
         <div style={styles.root}>
           <GridList cellHeight={300} style={styles.gridList}
-            cols='3'>
+            cols={4}>
             <Subheader>{``}</Subheader>
               {tiles}
           </GridList>
