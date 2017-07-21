@@ -24,6 +24,7 @@ class SessionForm extends React.Component {
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
 
+    this.handleEnter = this.handleEnter.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
     this.switchForms = this.switchForms.bind(this);
@@ -48,6 +49,11 @@ class SessionForm extends React.Component {
     this.props.clearErrors();
   }
 
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      this.handleSubmit(e);
+    }
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -229,6 +235,7 @@ class SessionForm extends React.Component {
                     type="password"
                     value={this.state.password}
                     onChange={this.update('password')}
+                    onKeyPress={this.handleEnter}
                     className="login-input"
                     placeholder="Password"
                   />

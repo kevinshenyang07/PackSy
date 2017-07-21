@@ -34,7 +34,7 @@ Item.create!([
   {
     title: 'Tiny Jewelry Making Tassels, New FALL Pantone Colors',
     producer: 'Seibels', price: 12.99, category: 'Accessories', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500613786/items/001.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613786/items/001.jpg",
     description:
       "Craft type: Hat making & hair crafts, Jewelry making, Kids' crafts, Party & gifting, Sewing
        Secondary color: Rainbow
@@ -44,7 +44,7 @@ Item.create!([
   {
     title: 'red/white striped slide',
     producer: 'WREN', price: 29.99, category: 'Shoes', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/002.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/002.jpg",
     description:
       "Handmade item
       Primary color: Red
@@ -56,7 +56,7 @@ Item.create!([
   {
     title: 'Summer Outdoors Party Turquoise Choker ',
     producer: 'MermaidBeadsJewelry', price: 24.61, category: 'Accessories', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/003.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/003.jpg",
     description:
       "Handmade item
       Occasion: Graduation
@@ -67,7 +67,7 @@ Item.create!([
   {
     title: 'Summer Outdoors Cactus Clutch Purse',
     producer: 'boejackdesigns', price: 63.25, category: 'Bags & Purses', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500613791/items/004.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613791/items/004.jpg",
     description:
       "Handmade item
       Primary color: Green
@@ -79,7 +79,7 @@ Item.create!([
   {
     title: 'Cotton Square Backpack (Mustard)',
     producer: 'BagDoRi', price: 88, category: 'Bags & Purses', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/005.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/005.jpg",
     description:
       "Handmade item
       Materials: fabric, synthetic leather, zipper
@@ -88,7 +88,7 @@ Item.create!([
   {
     title: 'Cotton Canvas Cushioned Backpack (Grey)',
     producer: 'BagDoRi', price: 88.3, category: 'Bags & Purses', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500614986/items/006.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614986/items/006.jpg",
     description:
       "Handmade item
       Materials: fabric, synthetic leather, zipper
@@ -97,7 +97,7 @@ Item.create!([
   {
     title: 'New Square Backpack (Charcoal Gray)',
     producer: 'BagDoRi', price: 98, category: 'Bags & Purses', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500614985/items/007.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614985/items/007.jpg",
     description:
       "Handmade item
       Materials: fabric, synthetic leather, zipper
@@ -106,7 +106,7 @@ Item.create!([
   {
     title: 'Rosewood Wayfarer Sunglasses',
     producer: 'Propwood', price: 75, category: 'Accessories', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500614987/items/008.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614987/items/008.jpg",
     description:
       "Handmade item
       Primary color: Bronze
@@ -118,7 +118,7 @@ Item.create!([
   {
     title: 'COTTON JERSEY EYE MASK NAVYXGRAY',
     producer: 'MUJI', price: 12, category: 'Accessories', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500614988/items/009.png",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614988/items/009.png",
     description:
       "Material: Cotton 100%
       Measurement: 9x20cm"
@@ -126,7 +126,7 @@ Item.create!([
   {
     title: 'TRU-FRAME COLLECTION 25" SPINNER',
     producer: 'Samsonite', price: 349.99, category: 'Luggages', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500614986/items/010.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614986/items/010.jpg",
     description:
       "100% Polycarbonate construction.
       Four multi-directional dual spinner wheels for effortless mobility.
@@ -137,7 +137,7 @@ Item.create!([
   {
     title: 'BLACK LABEL LITE-CUBE DLX 20" SPINNER',
     producer: 'Samsonite', price: 500, category: 'Luggages', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500614987/items/011.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614987/items/011.jpg",
     description:
       "Made in Europe from extremely strong, and incredibly light Curv® material with an innovative metalize look.
       Leather soft touch handles and details.

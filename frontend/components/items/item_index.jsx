@@ -33,7 +33,6 @@ class ItemIndex extends React.Component {
 
   render() {
     const items = this.props.items.byId;
-    console.log(items);
     const tiles = Object.keys(items).map(k => {
       const item = items[k];
       return (
