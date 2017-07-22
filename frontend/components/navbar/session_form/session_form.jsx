@@ -6,6 +6,15 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import Badge from 'material-ui/Badge';
+import IconButton from 'material-ui/IconButton';
+import ActionShoppingCart
+  from 'material-ui/svg-icons/action/shopping-cart';
+
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
 import getRandomDemoUserEmail from '../../../util/demo_util';
 
 class SessionForm extends React.Component {
@@ -35,7 +44,7 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser) {
+    if (!this.props.currentUser && nextProps.currentUser) {
       this.props.history.push('/items');
     }
   }
@@ -59,7 +68,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.state.logIn) {
-      this.props.signin(user).then(resp => console.log("resp"));
+      this.props.signin(user);
       this.setState({ email: "", password: "" });
     } else {
       this.props.signup(user);
@@ -176,21 +185,39 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const actions = [];
+    const badgeStyle = {
+      backgroundColor: "#DA552F", color: 'white',
+      top: -10, right: 30
+    };
 
     if (this.props.currentUser) {
       return (
         <nav className="navbar-right">
-          <h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4>
+          <div><h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4></div>
           <RaisedButton label="Log Out" onTouchTap={this.handleSignout}
-            />
+            labelStyle={{color: "#797979"}} />
+          <IconButton tooltip="Go to my cart">
+            <ActionShoppingCart color="#797979" />
+          </IconButton>
+          <Badge badgeContent={10} className="cart"
+            badgeStyle={badgeStyle}>
+          </Badge>
+          <IconMenu
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+          >
+            <MenuItem primaryText="Refresh" />
+            <MenuItem primaryText="Setting" />
+            <MenuItem primaryText="Sign out" />
+          </IconMenu>
         </nav>
       );
     } else {
       return (
         <nav className="navbar-right">
           <FlatButton label="Log In" className="secondary"
-            onTouchTap={this.handleOpen.bind(this, true)} />
+            onTouchTap={this.handleOpen.bind(this, true)}
+            style={{margin: '5px'}}
+            labelStyle={{color: "#DA552F"}} />
           <FlatButton label="Sign Up" className="primary"
             onTouchTap={this.handleOpen.bind(this,false)} />
 

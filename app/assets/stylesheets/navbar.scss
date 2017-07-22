@@ -3,6 +3,22 @@
   background-color: white !important;
 }
 
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.navbar-right h4 {
+  color: $darker-gray;
+  margin: 15px;
+}
+
+.navbar-right button {
+  margin: auto;
+}
+
 .title {
   color: $darker-orange !important;
   cursor: pointer !important;

@@ -14,7 +14,7 @@ const App = () => (
   <MuiThemeProvider>
   <div>
     <NavBar />
-    <main className="main">
+    <main>
       <Route exact path="/" component={SplashContainer} />
       <Route path="/items" component={ ItemIndexContainer } />
     </main>
