@@ -1,18 +1,31 @@
 .navbar {
-  // background-color: $lightest-gray !important;
   background-color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar-left > div {
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .navbar-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  margin: auto;
+  margin: -7px 0px 0px 0px;
 }
 
 .navbar-right h4 {
   color: $darker-gray;
-  margin: 15px;
+  margin: 5px;
 }
 
 .navbar-right button {
@@ -26,46 +39,29 @@
   text-decoration: none !important;
 }
 
-.logo:hover {
-  background-color: $light-gray !important;
-}
+// .login-signup > button {
+//   display: flex;
+//   justify-content: center;
+//   padding: 7px 7px;
+//   border: 1px solid $charcoal;
+//   margin: 3px 3px;
+//   width: 75px;
+//   height: 20px;
+//   text-align: center;
+//
+//   background-color: $darkest-gray;
+//   color: $linen;
+//   font-size: 10px;
+//   text-transform: uppercase;
+//   border-radius: 2px;
+//   letter-spacing: 2px;
+// }
 
-.logo {
-  height: 45px !important;
-  width: 50px !important;
-  // padding: 0 !important;
-  // margin: 0 !important;
-}
-
-.login-signup > button {
-  display: flex;
-  justify-content: center;
-  padding: 7px 7px;
-  border: 1px solid $charcoal;
-  margin: 3px 3px;
-  width: 75px;
-  height: 20px;
-  text-align: center;
-
-  background-color: $darkest-gray;
-  color: $linen;
-  font-size: 10px;
-  text-transform: uppercase;
-  border-radius: 2px;
-  letter-spacing: 2px;
-}
-
-.login-signup > h2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-weight: 550;
-}
-
-.login-signup > button:hover {
-  background-color: black;
-  color: $linen;
-  cursor: pointer;
-}
+// .login-signup > h2 {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   font-weight: 550;
+// }

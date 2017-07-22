@@ -40,7 +40,10 @@ class ItemIndex extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(this.props.fetchItems, 1000);
+    const items = this.props.items.byId;
+    if (Object.keys(items).length === 0) {
+      setTimeout(this.props.fetchItems, 1000);
+    }
   }
 
   render() {

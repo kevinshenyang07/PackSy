@@ -6,16 +6,8 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import Badge from 'material-ui/Badge';
-import IconButton from 'material-ui/IconButton';
-import ActionShoppingCart
-  from 'material-ui/svg-icons/action/shopping-cart';
-
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
 import getRandomDemoUserEmail from '../../../util/demo_util';
+import Greetings from './greetings';
 
 class SessionForm extends React.Component {
 
@@ -35,12 +27,12 @@ class SessionForm extends React.Component {
 
     this.handleEnter = this.handleEnter.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSignout = this.handleSignout.bind(this);
     this.switchForms = this.switchForms.bind(this);
 
     this.demoLogin = this.demoLogin.bind(this);
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,21 +61,14 @@ class SessionForm extends React.Component {
     const user = this.state;
     if (this.state.logIn) {
       this.props.signin(user);
-      this.setState({ email: "", password: "" });
+      this.setState({ email: "", password: "", open: false });
     } else {
       this.props.signup(user);
       this.setState({
          email: "", password: "",
-         firstname: "", lastname: ""
+         firstname: "", lastname: "", open: false
       });
     }
-  }
-
-  handleSignout(e) {
-    e.preventDefault();
-    this.props.signout();
-    this.setState({ open: false });
-    this.props.history.push('/');
   }
 
   update(field) {
@@ -105,7 +90,7 @@ class SessionForm extends React.Component {
   }
 
   formHeader() {
-    const formText = this.state.logIn ? "Log in to PackUp" : "Join PackUp";
+    const formText = this.state.logIn ? "Log in to Packsy" : "Join Packsy";
     return (<h3 className="form-header">{formText}</h3>);
   }
 
@@ -185,38 +170,18 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const badgeStyle = {
-      backgroundColor: "#DA552F", color: 'white',
-      top: -10, right: 30
-    };
-
     if (this.props.currentUser) {
       return (
-        <nav className="navbar-right">
-          <div><h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4></div>
-          <RaisedButton label="Log Out" onTouchTap={this.handleSignout}
-            labelStyle={{color: "#797979"}} />
-          <IconButton tooltip="Go to my cart">
-            <ActionShoppingCart color="#797979" />
-          </IconButton>
-          <Badge badgeContent={10} className="cart"
-            badgeStyle={badgeStyle}>
-          </Badge>
-          <IconMenu
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-          >
-            <MenuItem primaryText="Refresh" />
-            <MenuItem primaryText="Setting" />
-            <MenuItem primaryText="Sign out" />
-          </IconMenu>
-        </nav>
+        <Greetings
+          username={this.props.currentUser.firstname}
+          signout={this.props.signout}
+          history={this.props.history} />
       );
     } else {
       return (
         <nav className="navbar-right">
           <FlatButton label="Log In" className="secondary"
             onTouchTap={this.handleOpen.bind(this, true)}
-            style={{margin: '5px'}}
             labelStyle={{color: "#DA552F"}} />
           <FlatButton label="Sign Up" className="primary"
             onTouchTap={this.handleOpen.bind(this,false)} />

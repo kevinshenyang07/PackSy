@@ -1,4 +1,4 @@
-# PackUp
+# Packsy
 
 ### tasks finished
 1. db migration / model setup

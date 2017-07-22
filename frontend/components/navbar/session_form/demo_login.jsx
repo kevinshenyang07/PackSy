@@ -112,7 +112,7 @@ class DemoLogin extends React.Component {
 
             <form className="login-form-box">
                 <br/>
-              <h3>Log in to PackUp</h3>
+              <h3>Log in to Packsy</h3>
                 <br/>
 
               <div className="login-form">
