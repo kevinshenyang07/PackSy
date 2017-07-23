@@ -23,7 +23,6 @@ const getIdsByCategoy = items => {
   return byCategory;
 };
 
-// incorrect res
 const getIdsByPrice = items => {
   const ids = Object.keys(items);
   const idPrices = ids.map(k => ({id: k, price: items[k].price }));
@@ -42,6 +41,7 @@ const ItemsReducer = (state=_nullState, action) => {
       newState.byId = action.items;
       newState.byCategory = getIdsByCategoy(action.items);
       newState.byPrice = getIdsByPrice(action.items);
+      newState.filtered = Object.keys(action.items);
       return newState;
     case RECEIVE_ITEM:
       const newItem = { [action.item.id]: action.item };

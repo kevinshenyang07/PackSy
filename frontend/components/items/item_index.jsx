@@ -1,8 +1,8 @@
 import React from 'react';
 
+
 import Paper from 'material-ui/Paper';
 import { GridList, GridTile } from 'material-ui/GridList';
-import Subheader from 'material-ui/Subheader';
 
 import IconButton from 'material-ui/IconButton';
 import ActionAddShoppingCart
@@ -10,27 +10,10 @@ import ActionAddShoppingCart
 
 import CircularProgress from 'material-ui/CircularProgress';
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    padding: 20,
-  },
-  gridList: {
-    width: 1000,
-    height: 900,
-    overflowY: 'hidden',
-    justifyContent: 'right'
-  },
-  paper: {
-    height: '100vh',
-    width: '100%',
-    textAlign: 'center',
-    display: 'inline-block',
-    padding: 20,
-  }
-};
+import FilterTopContainer from './filters/filter_top_container';
+import FilterLeftContainer from './filters/filter_left_container';
+import styles from './item_index_styles';
+
 
 class ItemIndex extends React.Component {
 
@@ -40,8 +23,8 @@ class ItemIndex extends React.Component {
   }
 
   componentDidMount() {
-    const items = this.props.items.byId;
-    if (Object.keys(items).length === 0) {
+    const items = this.props.items.filtered;
+    if (items.length === 0) {
       setTimeout(this.props.fetchItems, 1000);
     }
   }
@@ -52,7 +35,7 @@ class ItemIndex extends React.Component {
       const item = items[k];
       return (
         <GridTile
-          key={k}
+          key={`gridtile-${k}`}
           title={item.title}
           subtitle={<span>by <b>{item.producer}</b></span>}
           actionIcon={<IconButton>
@@ -66,18 +49,24 @@ class ItemIndex extends React.Component {
     // if empty
     if (Object.keys(items).length !== 0) {
       return (
-        <Paper style={styles.root} zDepth={3}>
-          <GridList cellHeight={300} style={styles.gridList}
-            cols={4}>
-            <Subheader>{``}</Subheader>
+        <Paper style={styles.root} zDepth={1}>
+
+          <FilterLeftContainer />
+
+          <Paper style={styles.main} zDepth={1}>
+            <FilterTopContainer />
+            <GridList cellHeight={300} cols={4}
+              style={styles.gridList}>
               {tiles}
-          </GridList>
+            </GridList>
+          </Paper>
+
         </Paper>
       );
     } else {
       return (
-        <Paper style={styles.paper} zDepth={3}>
-          <CircularProgress color='#DA552F' size={60} thickness={5}/>
+        <Paper style={styles.loading} zDepth={3}>
+          <CircularProgress size={60} thickness={5}/>
         </Paper>
       );
     }

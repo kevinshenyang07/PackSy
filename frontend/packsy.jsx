@@ -7,7 +7,6 @@ import configureStore from './store/store';
 
 // import merge from 'lodash/merge';
 
-
 injectTapEventPlugin();
 
 document.addEventListener('DOMContentLoaded', () => {

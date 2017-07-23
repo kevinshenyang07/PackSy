@@ -181,8 +181,7 @@ class SessionForm extends React.Component {
       return (
         <nav className="navbar-right">
           <FlatButton label="Log In" className="secondary"
-            onTouchTap={this.handleOpen.bind(this, true)}
-            labelStyle={{color: "#DA552F"}} />
+            onTouchTap={this.handleOpen.bind(this, true)} />
           <FlatButton label="Sign Up" className="primary"
             onTouchTap={this.handleOpen.bind(this,false)} />
 
