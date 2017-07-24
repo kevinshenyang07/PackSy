@@ -53,16 +53,6 @@ export const getFiltered = (state, filters) => {
   return byPriceFiltered;
 };
 
-// items: {byId: {}, byPrice: {}}
-export const getSorted = (items, sort) => {
-  if (sort === 0) return items.filtered;
-  const byPriceFiltered = items.byPrice.filter(
-    item => items.filtered.includes(item)
-  );
-  if (sort === 1) byPriceFiltered.reverse();
-  return byPriceFiltered;
-};
-
 const inPriceRange = (item, range) => {
   switch (range) {
     case "Under $50":

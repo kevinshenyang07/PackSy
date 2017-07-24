@@ -1,6 +1,6 @@
 import { RECEIVE_ITEMS, RECEIVE_ITEM, RECEIVE_FILTERS, RECEIVE_SORT }
   from '../actions/item_actions';
-import { getIdsByPrice, getIdsByFeatured, getFiltered, getSorted }
+import { getIdsByPrice, getIdsByFeatured, getFiltered }
   from './selectors';
 import merge from 'lodash/merge';
 
@@ -10,7 +10,6 @@ const _nullState = {
   featured: [],
   filters: {},
   filtered: [],
-  sorted: [],
 };
 
 const updateFilters = (oldFilter, newFilter) => {
@@ -35,7 +34,6 @@ const ItemsReducer = (state=_nullState, action) => {
       newState.byPrice = getIdsByPrice(action.items);
       newState.featured = getIdsByFeatured(action.items);
       newState.filtered = itemIds;
-      newState.sorted = itemIds;
       return newState;
     case RECEIVE_ITEM:
       const newItem = { [action.item.id]: action.item };
@@ -45,7 +43,6 @@ const ItemsReducer = (state=_nullState, action) => {
       updateFilters(newState.filters, action.filters);
       const filtered = getFiltered(newState, newState.filters);
       newState.filtered = filtered;
-      newState.sorted = filtered;
       return newState;
     case RECEIVE_SORT:
       newState = merge({}, state);
