@@ -6,6 +6,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // import merge from 'lodash/merge';
+import { fetchItem } from './actions/item_actions';
 
 injectTapEventPlugin();
 
@@ -27,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
 
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // window.merge = merge;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchItem = fetchItem;
 
   ReactDOM.render(<Root store={store} />, root);
 });

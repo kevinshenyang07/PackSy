@@ -94,7 +94,7 @@ class DemoLogin extends React.Component {
 
     return (
       <div>
-        <FlatButton label="Go Explore" className="primary"
+        <FlatButton label="Demo Login" className="primary"
           onTouchTap={this.handleOpen} style={{width: "auto"}}/>
         <Dialog
           modal={true}

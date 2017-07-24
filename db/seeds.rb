@@ -146,7 +146,123 @@ Item.create!([
       Integrated ID tag holder.
       Dual spinner wheels for ease of mobility."
   },
+  {
+    title: 'NECK CUSHION BLUE COVER',
+    producer: 'MUJI', price: 24.5, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500922133/items/012.png",
+    description:
+      "Material:Outer Shell: Nylon 80%,Elastane 20%
+      Wadding: Polystyrene Beads
+      Cover: Cotton 100%
+      Dimension: 16.5 x 67cm"
+  },
+  {
+    title: 'mens wallet summer outdoors',
+    producer: 'IngeniousBros', price: 27.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/013.jpg",
+    description:
+      " Selected Walnut hardwood(from North America) by I.B.
+      Black Box for gift designed by I.B.
+      Characteristic Edge and surface sanding with 7 different sandpapers by I.B.
+      Hand-sewed rubber band by I.B.
 
+      Hold Maximum 4~5 cards and some bills. Size: 6cm x 9cm (little bit bigger than credit card)
+      Weight: about 9 gram (include rubber band)"
+  },
+  {
+    title: 'Dachshund Doxie Handmade Sandals Flip',
+    producer: 'Anvali', price: 49.9, category: 'Shoes', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/014.jpg",
+    description:
+      "Thong Style Sandal.
+      Genuine Leather Upper (dyed & sun dried) with contrast stitching.
+      Flat Flexible (non slip) foam Sole that gives support to the back approx 1cm high ( if you want rubber thin sole please state in notes at checkout).
+      Hand-cut uppers and soles.
+      Designed in Italy
+      Handmade in Kenya
+      Can be made to order with any dog breed you like.
+      Collars beads can be color customized, they are sewn by hand.
+      Extremely comfortable
+       Narrow shape but Can be made in wide please add a note at checkout."
+  },
+  {
+    title: 'Grace Yolk Flat Leather Shoes',
+    producer: 'TamarShalem', price: 154.98, category: 'Shoes', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/015.jpg",
+    description:
+      "Grace super comfortable flat shoes with a 2 cm heel.
+      Wear during the day or night.
+      Easy to dress up or dress down. Perfect with jeans, dresses and skirts."
+  },
+  {
+    title: 'San Francisco Giants Tennis Shoes',
+    producer: 'sportshoequeen', price: 109.99, category: 'Shoes', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/016.jpg",
+    description:
+      "Handmade item
+      Primary color: Gray
+      Made to order
+      Only ships within United States.
+      these tennis shoes run a little small especially in bigger sizes."
+  },
+  {
+    title: 'Giant Wave T-shirt',
+    producer: 'RibbedShop', price: 12.05, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/017.jpg",
+    description:
+      "Handmade item
+      Primary color: White
+      Secondary color: Blue
+      Occasion: Birthday
+      Materials: katoen, cotton
+      Made to order
+      Ships worldwide from The Netherlands"
+  },
+  {
+    title: 'Pineapple Shirt',
+    producer: 'BrokenAnchorApparel', price: 14.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/018.jpg",
+    description:
+      "Gildan® Adult 6.0 Ounce Ultra Cotton® T-Shirt
+      6 oz., 100% cotton pre-shrunk jersey knit
+      Double stitched seamless collar, taped neck and shoulders
+      Soft washed garment dyed fabric with double-needle sleeve and bottom hems
+      6.1 Ounce 100% pre-shrunk cotton"
+  },
+  {
+    title: 'Boho Baby Clothes',
+    producer: 'LittleFoxNest', price: 12.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/019.jpg",
+    description:
+      "This adorable Boho Onesie® Brand bodysuit or tshirt makes the perfect addition to your little ones wardrobe or special gift
+      Perfect for Boho, Rustic, Woodland Critters, Fox Lovers and more.
+      Handmade item
+      Mad to order"
+  },
+  {
+    title: 'Keep Calm And Fish On T-Shirt',
+    producer: 'TeeHeeHeeShirt', price: 17.5, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/020.jpg",
+    description:
+      "Handmade item
+      Holiday: Father's Day
+      Material: Cotton
+      Made to order
+      Ships worldwide from Canada"
+  },
+  {
+    title: 'Christmas Long Sleeve',
+    producer: 'JoyfulMoose', price: 15.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/021.jpg",
+    description:
+      "Handmade item
+      Primary color: Red
+      Secondary color: Green
+      Holiday: Christmas
+      Material: one piece
+      Made to order
+      Ships worldwide from United States"
+  },
 ])
 
 # {

@@ -2,7 +2,9 @@ import React from 'react';
 import {Card, CardActions,
   CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
+
 import DemoLoginContainer from '../navbar/session_form/demo_login_container';
+import ItemSpecialContainer from '../items/item_special_container';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class Splash extends React.Component {
   // video version
   render() {
     return (
-      <section>
+      <section className="splash">
         <section className="hero-text">
             <h4>Where is your next destination?</h4>
             <p>Carefully selected items that make your trips more cheerful.</p>
@@ -36,6 +38,10 @@ class Splash extends React.Component {
           /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
           Your browser does not support the <code>video</code> tag.
         </video>
+        <section className="item-special">
+          <p>Today's Special</p>
+          <ItemSpecialContainer />
+        </section>
       </section>
     );
   }

@@ -1,4 +1,5 @@
-export const selectAllCategories = (state) => {
+// items slice of state
+export const selectAllCategories = state => {
   const items = state.byId;
   const categories = [];
   Object.keys(items).forEach(k => {
@@ -36,7 +37,6 @@ export const getFiltered = (state, filters) => {
 
   // left filters
   Object.keys(items).forEach(k => {
-    // debugger;
     const item = items[k];
     if (filters.categories.includes(item.category)
       && inPriceRange(item, filters.priceRange)

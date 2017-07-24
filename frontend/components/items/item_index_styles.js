@@ -34,7 +34,8 @@ const styles = {
   },
   gridList: {
     overflowY: 'hidden',
-    margin: 20,
+    // width: '80%',
+    margin: '2% 8% 2% 3%',
   },
   radioButton: {
     margin: 20,

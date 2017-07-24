@@ -8,6 +8,25 @@
 //   height: 700px;
 // }
 
+// .splash {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.item-special {
+  text-align: center;
+  position: absolute;
+  width: 14%;
+  top: 10%;
+  right: 1%;
+  color: $darker-gray;
+}
+
+.item-special > p {
+  font-size: 22px;
+  font-weight: 400;
+}
+
 .hero-text {
   color: $darkest-gray;
   text-align: left;
