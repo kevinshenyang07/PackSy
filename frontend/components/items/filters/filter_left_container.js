@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 
-import { selectAllCategories } from '../../../reducers/selectors';
 import { receiveFilters } from '../../../actions/item_actions';
 import FilterLeft from './filter_left';
 
 const mapStateToProps = state => ({
-  categories: selectAllCategories(state),
+  filters: state.items.filters,
+  categories: state.items.categories,
+  priceRanges: state.items.priceRanges,
 });
 
 const mapDispatchToProps = dispatch => ({

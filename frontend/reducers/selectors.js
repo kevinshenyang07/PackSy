@@ -1,5 +1,5 @@
 export const selectAllCategories = (state) => {
-  const items = state.items.byId;
+  const items = state.byId;
   const categories = [];
   Object.keys(items).forEach(k => {
     const item = items[k];

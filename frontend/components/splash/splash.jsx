@@ -31,7 +31,7 @@ class Splash extends React.Component {
             <p>Carefully selected items that make your trips more cheerful.</p>
             <DemoLoginContainer />
         </section>
-        <video autoPlay muted preload className="back-video">
+        <video autoPlay muted preload loop className="back-video">
          <source src="https://res.cloudinary.com/kevinsy07
           /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
           Your browser does not support the <code>video</code> tag.

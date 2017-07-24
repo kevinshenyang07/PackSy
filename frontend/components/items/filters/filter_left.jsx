@@ -1,5 +1,4 @@
 import React from 'react';
-// import merge from 'lodash/merge';
 
 import {List, ListItem} from 'material-ui/List';
 import Toggle from 'material-ui/Toggle';
@@ -15,23 +14,13 @@ import styles from '../item_index_styles';
 class FilterLeft extends React.Component {
   constructor(props) {
     super(props);
-    this.priceRanges = ["Any Price", "Under $50", "$50 to $100",
-      "$100 to $200", "Over $200"];
 
-    this.state = {
-      featuredOnly: false,
-      categories: this.props.categories,
-      priceRange: this.priceRanges[0],
-    };
+    this.state = this.props.filters;
 
     this.handleToggle = this.handleToggle.bind(this);
     this.createHandleCheck = this.createHandleCheck.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.props.receiveFilters(this.state);
-  // }
 
   handleToggle(e, toBeToggled) {
     this.setState({featuredOnly: toBeToggled},
@@ -65,7 +54,7 @@ class FilterLeft extends React.Component {
         iconStyle={styles.checkboxIcon} />
     ));
 
-    const radioBtns = this.priceRanges.map((range, i) => (
+    const radioBtns = this.props.priceRanges.map((range, i) => (
       <RadioButton key={`radiobtn-${i}`} value={range} label={range}
         style={styles.radioBtn}
         iconStyle={styles.radioBtnIcon} />

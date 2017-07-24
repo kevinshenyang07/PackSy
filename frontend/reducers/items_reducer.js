@@ -1,20 +1,31 @@
 import { RECEIVE_ITEMS, RECEIVE_ITEM, RECEIVE_FILTERS, RECEIVE_SORT }
   from '../actions/item_actions';
-import { getIdsByPrice, getIdsByFeatured, getFiltered }
+import { selectAllCategories, getIdsByPrice, getIdsByFeatured, getFiltered }
   from './selectors';
 import merge from 'lodash/merge';
+
+const priceRanges = ["Any Price", "Under $50", "$50 to $100",
+  "$100 to $200", "Over $200"];
 
 const _nullState = {
   byId: {},
   byPrice: [],
   featured: [],
-  filters: {},
+  filters: {
+    featuredOnly: false,
+    categories: [],
+    priceRange: priceRanges[0],
+    sort: 0,
+  },
   filtered: [],
+  categories: [],
+  priceRanges,
 };
 
 const updateFilters = (oldFilter, newFilter) => {
-  if (newFilter.sort) oldFilter.sort = newFilter.sort;
-  else {
+  if (newFilter.sort) {
+    oldFilter.sort = newFilter.sort;
+  } else {
     oldFilter.featuredOnly = newFilter.featuredOnly;
     oldFilter.categories = newFilter.categories;
     oldFilter.priceRange = newFilter.priceRange;
@@ -33,6 +44,9 @@ const ItemsReducer = (state=_nullState, action) => {
       newState.byId = action.items;
       newState.byPrice = getIdsByPrice(action.items);
       newState.featured = getIdsByFeatured(action.items);
+      const categories = selectAllCategories(newState);
+      newState.categories = categories;
+      newState.filters.categories = categories;
       newState.filtered = itemIds;
       return newState;
     case RECEIVE_ITEM:

@@ -39,7 +39,7 @@ class ItemIndex extends React.Component {
           key={`gridtile-${k}`}
           title={item.title}
           subtitle={<span>${price}</span>}
-          containerElement={<Paper />}
+          containerElement={<div><Paper /></div>}
           actionIcon={<IconButton>
             <ActionAddShoppingCart color="white" />
           </IconButton>}
