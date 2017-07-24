@@ -29,9 +29,9 @@ class FilterLeft extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    this.props.receiveFilters(this.state);
-  }
+  // componentDidMount() {
+  //   this.props.receiveFilters(this.state);
+  // }
 
   handleToggle(e, toBeToggled) {
     this.setState({featuredOnly: toBeToggled},

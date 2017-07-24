@@ -32,11 +32,14 @@ class ItemIndex extends React.Component {
     const items = this.props.items.filtered.map(id => byId[id]);
     const tiles = Object.keys(items).map(k => {
       const item = items[k];
+      const price = item.price.split(".")[1].length !== 2
+        ? (item.price + "0") : item.price;
       return (
         <GridTile
           key={`gridtile-${k}`}
           title={item.title}
-          subtitle={<span>by <b>{item.producer}</b> price: {item.price}</span>}
+          subtitle={<span>${price}</span>}
+          containerElement={<Paper />}
           actionIcon={<IconButton>
             <ActionAddShoppingCart color="white" />
           </IconButton>}
@@ -55,7 +58,7 @@ class ItemIndex extends React.Component {
 
           <Paper style={styles.main} zDepth={1}>
             <FilterTopContainer />
-            <GridList cellHeight={300} cols={4}
+            <GridList cellHeight={250} cols={4} padding={18}
               style={styles.gridList}>
               {tiles}
             </GridList>
