@@ -38,7 +38,7 @@ class ItemIndex extends React.Component {
       const price = item.price.split(".")[1].length !== 2
         ? (item.price + "0") : item.price;
       return (
-        <Link to={link}>
+        <Link to={link} key={k}>
           <GridTile
             key={`gridtile-${k}`}
             title={item.title}
