@@ -104,7 +104,7 @@ class SessionForm extends React.Component {
             type="text"
             value={this.state.firstname}
             onChange={this.update('firstname')}
-            className="login-input-half"
+            className="login-input"
             placeholder="First Name"
           />
           <label htmlFor="un"></label>
@@ -113,7 +113,7 @@ class SessionForm extends React.Component {
             type="text"
             value={this.state.lastname}
             onChange={this.update('lastname')}
-            className="login-input-half"
+            className="login-input"
             placeholder="Last Name"
           />
         </span>
@@ -233,7 +233,7 @@ class SessionForm extends React.Component {
                   <br/>
                   <FlatButton className="primary"
                     label={ this.state.logIn ? "Log In" : "Sign Up"}
-                    onTouchTap={this.handleSubmit} />
+                    onTouchTap={this.handleSubmit} style={{width: "100%"}} />
                   <p>or</p>
                   <RaisedButton label="Demo Login"
                     onTouchTap={this.demoLogin} style={{width: "100%"}}/>

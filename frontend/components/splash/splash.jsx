@@ -27,8 +27,8 @@ class Splash extends React.Component {
     return (
       <section>
         <section className="hero-text">
-            <h1>Let's go places</h1>
-            <h4>the right travel items, carefully chosen for you</h4>
+            <h4>Where is your next destination?</h4>
+            <p>The right travel items, carefully chosen for your trips.</p>
             <DemoLoginContainer />
         </section>
         <video autoPlay muted preload className="back-video">

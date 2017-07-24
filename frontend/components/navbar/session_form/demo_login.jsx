@@ -94,8 +94,8 @@ class DemoLogin extends React.Component {
 
     return (
       <div>
-        <FlatButton label="Demo Login" className="primary"
-          onTouchTap={this.handleOpen} />
+        <FlatButton label="Get Prepared" className="primary"
+          onTouchTap={this.handleOpen} style={{width: "auto"}}/>
         <Dialog
           modal={true}
           open={this.state.open}
@@ -137,7 +137,8 @@ class DemoLogin extends React.Component {
                   placeholder="Password"
                 />
                 <br/>
-                <RaisedButton label="Log In" style={{width: "100%"}} />
+                <FlatButton label="Log In"
+                  className="primary" style={{width: "100%"}} />
                 <p>or</p>
                 <RaisedButton label="Demo Login" style={{width: "100%"}} />
               </div>
