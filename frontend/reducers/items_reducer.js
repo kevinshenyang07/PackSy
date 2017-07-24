@@ -1,51 +1,57 @@
-import { RECEIVE_ITEMS, RECEIVE_ITEM } from '../actions/item_actions';
+import { RECEIVE_ITEMS, RECEIVE_ITEM, RECEIVE_FILTERS, RECEIVE_SORT }
+  from '../actions/item_actions';
+import { getIdsByPrice, getIdsByFeatured, getFiltered, getSorted }
+  from './selectors';
 import merge from 'lodash/merge';
 
 const _nullState = {
   byId: {},
-  byCategory :{},
   byPrice: [],
-  filtered: []
+  featured: [],
+  filters: {},
+  filtered: [],
+  sorted: [],
 };
 
-// items = {1: {id:1, category: 'a'}}
-const getIdsByCategoy = items => {
-  const byCategory = {};
-  Object.keys(items).map(k => {
-    const item = items[k];
-    const category = item.category;
-    if (category in byCategory) {
-      byCategory[category].push(k);
-    } else {
-      byCategory[category] = [k];
-    }
-  });
-  return byCategory;
+const updateFilters = (oldFilter, newFilter) => {
+  if (newFilter.sort) oldFilter.sort = newFilter.sort;
+  else {
+    oldFilter.featuredOnly = newFilter.featuredOnly;
+    oldFilter.categories = newFilter.categories;
+    oldFilter.priceRange = newFilter.priceRange;
+  }
 };
 
-const getIdsByPrice = items => {
-  const ids = Object.keys(items);
-  const idPrices = ids.map(k => ({id: k, price: items[k].price }));
-  idPrices.sort(function (a, b) {
-    return a.price < b.price ? -1 : a.price > b.price ? 1 : 0; }
-  );
-  return idPrices.map(idPrice => idPrice.id);
-};
-
+// reducer
 const ItemsReducer = (state=_nullState, action) => {
   Object.freeze(state);
+  let newState;
 
   switch(action.type) {
     case RECEIVE_ITEMS:
-      const newState = merge({}, state);
+      newState = merge({}, state);
+      const itemIds = Object.keys(action.items);
       newState.byId = action.items;
-      newState.byCategory = getIdsByCategoy(action.items);
       newState.byPrice = getIdsByPrice(action.items);
-      newState.filtered = Object.keys(action.items);
+      newState.featured = getIdsByFeatured(action.items);
+      newState.filtered = itemIds;
+      newState.sorted = itemIds;
       return newState;
     case RECEIVE_ITEM:
       const newItem = { [action.item.id]: action.item };
       return merge({}, state, { byId: newItem });
+    case RECEIVE_FILTERS:
+      newState = merge({}, state);
+      updateFilters(newState.filters, action.filters);
+      const filtered = getFiltered(newState, newState.filters);
+      newState.filtered = filtered;
+      newState.sorted = filtered;
+      return newState;
+    case RECEIVE_SORT:
+      newState = merge({}, state);
+      newState.filters.sort = action.sort;
+      newState.filtered = getFiltered(newState, newState.filters);
+      return newState;
     default: {
       return state;
     }

@@ -31,15 +31,16 @@ ActiveRecord::Schema.define(version: 20170717162238) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "title",                               null: false
-    t.string   "producer",                            null: false
-    t.decimal  "price",       precision: 6, scale: 2, null: false
-    t.string   "category",                            null: false
-    t.integer  "quantity",                            null: false
-    t.text     "description",                         null: false
-    t.string   "img_url",                             null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "title",                                               null: false
+    t.string   "producer",                                            null: false
+    t.decimal  "price",       precision: 6, scale: 2,                 null: false
+    t.string   "category",                                            null: false
+    t.integer  "quantity",                                            null: false
+    t.text     "description",                                         null: false
+    t.string   "img_url",                                             null: false
+    t.boolean  "featured",                            default: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   create_table "reviews", force: :cascade do |t|

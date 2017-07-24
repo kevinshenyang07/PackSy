@@ -54,7 +54,7 @@ Item.create!([
       Ships worldwide from United States"
   },
   {
-    title: 'Summer Outdoors Party Turquoise Choker ',
+    title: 'Summer Outdoors Party Turquoise Choker',
     producer: 'MermaidBeadsJewelry', price: 24.61, category: 'Accessories', quantity: 10,
     img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/003.jpg",
     description:
@@ -156,3 +156,11 @@ Item.create!([
 #   description:
 #     ""
 # },
+
+# randomly set featured items
+Item.all.each do |item|
+  if rand <= 0.2
+    item.featured = true
+    item.save!
+  end
+end

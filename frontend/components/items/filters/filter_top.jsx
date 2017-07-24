@@ -10,8 +10,16 @@ class FilterTop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortBy: 0,
+      sort: 0,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e, key, val) {
+    this.setState({sort: val},
+      () => this.props.receiveSort(val)
+    );
   }
 
   render() {
@@ -20,17 +28,17 @@ class FilterTop extends React.Component {
 
         <div>
           <br />
-          {`found ${this.props.itemsCount} items`}
+          {`Found ${this.props.itemsCount} items`}
         </div>
 
         <DropDownMenu
-          value={this.state.sortBy}
+          value={this.state.sort}
           onChange={this.handleChange}
-          style={{width: 200, paddingTop: 10}} autoWidth={false}
+          style={{width: 220, paddingTop: 10}} autoWidth={false}
         >
           <MenuItem value={0} primaryText="Sort by relevance" />
+          <MenuItem value={-1} primaryText="Sort by lowest Price" />
           <MenuItem value={1} primaryText="Sort by highest Price" />
-          <MenuItem value={2} primaryText="Sort by lowest Price" />
         </DropDownMenu>
       </Paper>
     );

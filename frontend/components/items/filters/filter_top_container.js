@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
 
 // import { selectAllItems } from '../../reducers/selectors';
-// import { fetchItems, fetchSearchedItems } from '../../actions/item_actions';
+import { receiveSort } from '../../../actions/item_actions';
 import FilterTop from './filter_top';
 
 const mapStateToProps = state => ({
   itemsCount: state.items.filtered.length,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchItems: () => dispatch(fetchItems()),
-//   fetchSearchedItems: searchWords =>
-//     dispatch(fetchSearchedItems(searchWords))
-// });
+const mapDispatchToProps = dispatch => ({
+  receiveSort: (sort) => dispatch(receiveSort(sort)),
+});
 
 export default connect(
-  mapStateToProps, null
-  // mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(FilterTop);

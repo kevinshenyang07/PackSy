@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
 
-// import { selectAllItems } from '../../reducers/selectors';
-// import { fetchItems, fetchSearchedItems } from '../../actions/item_actions';
+import { selectAllCategories } from '../../../reducers/selectors';
+import { receiveFilters } from '../../../actions/item_actions';
 import FilterLeft from './filter_left';
 
 const mapStateToProps = state => ({
-  items: state.items,
+  categories: selectAllCategories(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchItems: () => dispatch(fetchItems()),
-//   fetchSearchedItems: searchWords =>
-//     dispatch(fetchSearchedItems(searchWords))
-// });
+const mapDispatchToProps = dispatch => ({
+  receiveFilters: (filter) => dispatch(receiveFilters(filter)),
+});
 
 export default connect(
-  mapStateToProps, null
-  // mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(FilterLeft);

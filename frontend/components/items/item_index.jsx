@@ -3,7 +3,6 @@ import React from 'react';
 
 import Paper from 'material-ui/Paper';
 import { GridList, GridTile } from 'material-ui/GridList';
-
 import IconButton from 'material-ui/IconButton';
 import ActionAddShoppingCart
   from 'material-ui/svg-icons/action/add-shopping-cart';
@@ -23,23 +22,24 @@ class ItemIndex extends React.Component {
   }
 
   componentDidMount() {
-    const items = this.props.items.filtered;
-    if (items.length === 0) {
+    if (Object.keys(this.props.items.byId).length === 0) {
       setTimeout(this.props.fetchItems, 1000);
     }
   }
 
   render() {
-    const items = this.props.items.byId;
+    const byId = this.props.items.byId;
+    const items = this.props.items.filtered.map(id => byId[id]);
     const tiles = Object.keys(items).map(k => {
       const item = items[k];
       return (
         <GridTile
           key={`gridtile-${k}`}
           title={item.title}
-          subtitle={<span>by <b>{item.producer}</b></span>}
+          subtitle={<span>by <b>{item.producer}</b> price: {item.price}</span>}
           actionIcon={<IconButton>
-            <ActionAddShoppingCart color="white" /></IconButton>}
+            <ActionAddShoppingCart color="white" />
+          </IconButton>}
         >
           <img src={item.imgUrl} />
         </GridTile>
@@ -47,9 +47,9 @@ class ItemIndex extends React.Component {
     });
 
     // if empty
-    if (Object.keys(items).length !== 0) {
+    if (Object.keys(byId).length !== 0) {
       return (
-        <Paper style={styles.root} zDepth={1}>
+        <Paper style={styles.root} zDepth={3}>
 
           <FilterLeftContainer />
 

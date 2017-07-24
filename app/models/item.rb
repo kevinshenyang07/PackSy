@@ -9,14 +9,16 @@
 #  category    :string           not null
 #  quantity    :integer          not null
 #  description :text             not null
+#  img_url     :string           not null
+#  featured    :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Item < ApplicationRecord
 
-  validates :title, :producer, :price, :category, :quantity, :description,
-    presence: true
+  validates :title, :producer, :price, :category, :quantity,
+    :description, :img_url, presence: true
 
   has_many :reviews
 

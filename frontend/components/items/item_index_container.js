@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { selectAllItems } from '../../reducers/selectors';
+// import { selectAllItems } from '../../reducers/selectors';
 import { fetchItems, fetchSearchedItems } from '../../actions/item_actions';
 import ItemIndex from './item_index';
 

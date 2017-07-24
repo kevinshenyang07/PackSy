@@ -1,4 +1,5 @@
 import React from 'react';
+// import merge from 'lodash/merge';
 
 import {List, ListItem} from 'material-ui/List';
 import Toggle from 'material-ui/Toggle';
@@ -14,24 +15,58 @@ import styles from '../item_index_styles';
 class FilterLeft extends React.Component {
   constructor(props) {
     super(props);
-
-    this.priceRange = ["Any Price", "Under $50", "$50 to $100",
+    this.priceRanges = ["Any Price", "Under $50", "$50 to $100",
       "$100 to $200", "Over $200"];
 
+    this.state = {
+      featuredOnly: false,
+      categories: this.props.categories,
+      priceRange: this.priceRanges[0],
+    };
+
+    this.handleToggle = this.handleToggle.bind(this);
+    this.createHandleCheck = this.createHandleCheck.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.receiveFilters(this.state);
+  }
+
+  handleToggle(e, toBeToggled) {
+    this.setState({featuredOnly: toBeToggled},
+      () => this.props.receiveFilters(this.state)
+    );
+  }
+
+  createHandleCheck(category) {
+    return (e, toBeChecked) =>  {
+      let categories = [].concat(this.state.categories);
+      if (toBeChecked) { categories.push(category); }
+      else { categories = categories.filter(c => c !== category); }
+      this.setState({ categories },
+        () => this.props.receiveFilters(this.state)
+      );
+    };
+  }
+
+  handleChange(e, val) {
+    this.setState({priceRange: val},
+      () => this.props.receiveFilters(this.state)
+    );
   }
 
   render() {
-
-    // const categories = this.props.categories;
-    const categories = ["Bags & Purses", "Shoes", "Accessories"];
-    const checkBoxes = categories.map((c, i) => (
+    const checkBoxes = this.props.categories.map((c, i) => (
       <Checkbox key={`checkbox-${i}`} label={c}
+        defaultChecked={true}
+        onCheck={this.createHandleCheck(c).bind(this)}
         style={styles.checkbox}
         iconStyle={styles.checkboxIcon} />
     ));
 
-    const radioBtns = this.priceRange.map((range, i) => (
-      <RadioButton key={`radiobtn-${i}`} value={`${i}`} label={range}
+    const radioBtns = this.priceRanges.map((range, i) => (
+      <RadioButton key={`radiobtn-${i}`} value={range} label={range}
         style={styles.radioBtn}
         iconStyle={styles.radioBtnIcon} />
     ));
@@ -40,8 +75,9 @@ class FilterLeft extends React.Component {
     return (
       <Paper style={styles.filterLeft} zDepth={3}>
 
-        <Toggle label="Featured Only" style={styles.toggle}  >
-        </Toggle>
+        <Toggle label="Featured Only" style={styles.toggle}
+          defaultToggled={false}
+          onToggle={this.handleToggle} />
 
         <Divider/>
 
@@ -53,11 +89,14 @@ class FilterLeft extends React.Component {
         <Divider style={{marginTop: 14}}/>
 
         <Subheader>Price Range</Subheader>
-        <RadioButtonGroup name="priceRange" defaultSelected="0">
+        <RadioButtonGroup name="priceRanges"
+          defaultSelected={this.state.priceRange}
+          onChange={this.handleChange}>
           {radioBtns}
         </RadioButtonGroup>
 
         <Divider style={{marginTop: 14}} />
+
       </Paper>
     );
   }
