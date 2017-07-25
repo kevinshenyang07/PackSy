@@ -22,6 +22,15 @@ export const getIdsByPrice = items => {
 };
 
 // items: {1: {}}
+export const formatPrice = items => {
+  Object.keys(items).forEach(k => {
+    const item = items[k];
+    item.price = item.price.split(".")[1].length !== 2
+      ? (item.price + "0") : item.price;
+  });
+};
+
+// items: {1: {}}
 export const getIdsByFeatured = items => {
   const featured = [];
   Object.keys(items).forEach(k => {

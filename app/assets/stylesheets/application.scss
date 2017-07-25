@@ -28,6 +28,8 @@ $darker-orange: #DA552F;
 $dark-red: #C23030;
 $light-red: #F1DBDD;
 
+$background: #F5F5F1;
+
 .primary {
  background-color: $darker-orange !important;
  color: white !important;
@@ -43,7 +45,14 @@ $light-red: #F1DBDD;
  border-radius: 4px !important;
 }
 
+.all-items {
+  color: $darker-gray;
+  margin: 20px 16px 20px 16px
+}
+
 // @import "css_reset"; // 1
-@import "navbar"; // 3
-@import "splash"; // 4
-@import "session_form"; // 5
+@import "navbar"; // 2
+@import "splash"; // 3
+@import "session_form"; // 4
+@import "item_show";  // 5
+@import "cart"; // 6

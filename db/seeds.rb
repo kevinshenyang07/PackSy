@@ -128,7 +128,7 @@ Item.create!([
     producer: 'Samsonite', price: 349.99, category: 'Luggages', quantity: 10,
     img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614986/items/010.jpg",
     description:
-      "100% Polycarbonate construction.
+      "This luggage is with 100% Polycarbonate construction.
       Four multi-directional dual spinner wheels for effortless mobility.
       Ultra-protective security frame with sealed gasket closure features and integrated TSA combination lock that provides peace of mind when checking cases through security.
       Deluxe interior featuring two divider panels, two cross-straps and plenty of organizational pockets.
@@ -143,7 +143,7 @@ Item.create!([
       Leather soft touch handles and details.
       Fully featured interior.
       Recessed combination TSA lock.
-      Integrated ID tag holder.
+      Integrated ID tag holder for the luggage.
       Dual spinner wheels for ease of mobility."
   },
   {
@@ -263,6 +263,224 @@ Item.create!([
       Made to order
       Ships worldwide from United States"
   },
+  {
+    title: 'Voyage Anorak Men',
+    producer: 'Herschel', price: 69.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/022.jpg",
+    description:
+      "Signature evergreen internal trim and classic label
+      Neckline self-storage pocket with snap closure
+      Snap-fastened flap pocket with side-access hand warmer sleeve
+      Attached three-piece hood with two-snap placket
+      Embroidered under-arm air vents
+      Cinched elastic cuffs
+      Drop-back hemline and two-snap side seam"
+  },
+  {
+    title: 'Hooded Coach Jacket',
+    producer: 'Herschel', price: 109.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970278/items/023.jpg",
+    description:
+      "Waterproof coated polyester stretch fabric
+      Welded critical seams
+      Soft-touch tricot fabric interior
+      Internal signature evergreen classic label
+      Front closure with branded metal snaps
+      Two front welt pockets
+      Attached three-piece hood"
+  },
+  {
+    title: 'Strand Duffle',
+    producer: 'Herschel', price: 64.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/024.jpg",
+    description:
+      "Signature striped fabric liner
+      Two-way zipper with pebbled leather pulls
+      External center storage sleeve
+      Padded and articulated carrying handles
+      H.S.Co branded metal snaps
+      Classic woven label"
+  },
+  {
+    title: '172 Cap',
+    producer: 'Herschel', price: 34.99, category: 'Accessories', quantity: 10,
+    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500970278/items/025.jpg",
+    description:
+      "100% cotton twill
+      Self-fabric strap with ID logo embossed silver-toned clip
+      Stitched eyelets
+      Signature striped front panel liner
+      Engineered red and white striped rear tab
+      Custom Herschel Supply Trademark embroidered felt patch"
+  },
+  {
+    title: 'Voyage Poncho Women',
+    producer: 'Herschel', price: 69.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/026.jpg",
+    description:
+      "Lightweight polyester diamond dobby ripstop
+      Wind-resistant with water-repellent coating
+      Signature evergreen internal trim and classic label
+      Neckline self-storage pocket with snap closure
+      Two front patch pockets
+      Attached three-piece hood with two-snap placket
+      Snap detailed arm openings and drop-back hemline"
+  },
+  {
+    title: 'Eugene Passport Holder Limited Edition',
+    producer: 'Herschel', price: 159.99, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/027.jpg",
+    description:
+      "Full grain leather exterior
+      Signature striped fabric liner
+      Top-access passport sleeve
+      Multiple card slots
+      Rear boarding pass sleeve
+      Engineered red and white striped tab
+      Debossed classic logo"
+  },
+  {
+    title: 'Chapter Travel Kit Woven',
+    producer: 'Herschel', price: 59.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/028.jpg",
+    description:
+      "Interlaced webbing exterior
+      Internal mesh storage sleeve
+      Waterproof zipper with Icon pull-tab and custom stitched binding
+      EVA reinforced seatbelt webbing carry handle and Prusik finger loop
+      Ballistic nylon base
+      Tonal classic woven label"
+  },
+  {
+    title: 'Folio Pouch XL Studio',
+    producer: 'Herschel', price: 39.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/029.jpg",
+    description:
+      "Water resistant tarpaulin
+      Interior zippered mesh sleeve
+      Waterproof zippers
+      Gloss tipped vegetable tanned leather zipper pull
+      Screen printed detailing"
+  },
+  {
+    title: 'Apex Gilford',
+    producer: 'Herschel', price: 79.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/030.jpg",
+    description:
+      "Waterproof zipper with Icon pull-tab and reflective dock
+      Clip-fastened adjustable seatbelt webbing strap
+      Two-tone BHW woven tab"
+  },
+  {
+    title: 'Alder Crossbody Woven',
+    producer: 'Herschel', price: 39.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/031.jpg",
+    description:
+      "Interlaced webbing exterior
+      Waterproof zipper with Icon pull-tab and custom stitched binding
+      Clip-fastened removable seatbelt webbing crossbody strap
+      Prusik knot strap attachments with metal eyelet detailed ballistic nylon
+      Tonal classic woven label"
+  },
+  {
+    title: 'Multicolored Oxford flat Shoes',
+    producer: 'BackToCool', price: 109.0, category: 'Shoes', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970280/items/032.jpg",
+    description:
+      "Handmade item
+      Primary color: Rainbow
+      Secondary color: Rainbow
+      Holiday: Mother's Day
+      Materials: leather, fabric, multicolored shoes
+      Made to order
+      Ships worldwide from Greece"
+  },
+  {
+    title: 'PET CYLINDER PUMP BOTTLE',
+    producer: 'MUJI', price: 5.25, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970282/items/033.png",
+    description:
+      "Dimension: Dia.3.9x14.6cm
+      Volume: 100ml
+      Heat Tolerance: 60℃
+      Cold Tolerance: -20℃"
+  },
+  {
+    title: 'ALL IN ONE ESSENCE',
+    producer: 'MUJI', price: 10.01, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970281/items/034.png",
+    description:
+      "Volume: 1.06 oz (30g)
+      Ingredients: Water, Glycerin, Aloe Vera Juice, Butylene Glycol"
+  },
+  {
+    title: 'Vintage Running Shoes',
+    producer: 'FunAndVintageFinds', price: 249.99, category: 'Shoes', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970283/items/35.jpg",
+    description:
+      "Vintage item from the 1980s
+      Materials: suede, corduroy, rubber
+      Real Nice Vintage Condition as pictured.
+      Ships worldwide from United States"
+  },
+  {
+    title: 'Trade Luggage Small',
+    producer: 'Herschel', price: 159.99, category: 'Luggages', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970282/items/36.jpg",
+    description:
+      "Molded polycarbonate exterior
+      Black and white striped fabric liner
+      Two-way exposed zipper
+      Split design with zippered mesh storage and adjustable garment straps
+      Retractable three-stage locking trolley handle
+      Multi-directional muted wheels
+      Attached Travel Sentry® Approved TSA combination lock
+      Embossed rubber classic label"
+  },
+  {
+    title: 'Leather Boots Portuguese Traditional',
+    producer: 'BytheMountain', price: 64.75, category: 'Shoes', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970281/items/37.jpg",
+    description:
+      "Leather and handicraft production with soles made out of recycled car tire/tyre rubber that should last a lifetime.
+      These are the famous Portuguese worker boots, well know by its robustness.
+      For decades this traditional item was forgotten but the vintage tendency and preference for traditional materials are back.
+      The leather was treated with natural tallow making these waterproof boots."
+  },
+  {
+    title: 'Explorer Journal with Maps',
+    producer: 'TremundoJournals', price: 25, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970282/items/038.jpg",
+    description:
+      "journal measures: 5 x 6 inches (closed)
+      paper: 60lb unlined paper
+      pages: 220pp (front/back)
+      maps: variety of world atlas maps
+      Tri fold w/elastic closure"
+  },
+  {
+    title: 'Camping Mug',
+    producer: 'Nokkvalley', price: 21.37, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970282/items/039.jpg",
+    description:
+      "Handmade item
+      Occasion: Anniversary
+      Materials: steel, enamel
+      Ships worldwide from Poland"
+  },
+  {
+    title: 'Boho Kimono',
+    producer: 'FashionelleStudio', price: 45.45, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970285/items/040.jpg",
+    description:
+      "Handmade item
+      Primary color: Blue
+      Secondary color: White
+      Holiday: Christmas
+      Occasion: Birthday
+      Materials: Soft, Lightweight, Chiffon, Polyester
+      Ships worldwide from Canada"
+  },
 ])
 
 # {
@@ -280,3 +498,14 @@ Item.all.each do |item|
     item.save!
   end
 end
+
+reviews = [
+  "Great quality! Exactly what I've been searching for!",
+  "Got them 2 weeks ago, and I've been using them everyday.",
+  "Love the design and reasonably priced.", "Bought it for my best friend.",
+  "Love it.", "Like it for every second.", "Great for the price.",
+  "Good design, implemented OK", "Can't complaint about it.",
+  "Better than expected.", "Good quality!", "Very nice seller.",
+  
+
+]

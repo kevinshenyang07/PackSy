@@ -39,7 +39,6 @@ class Splash extends React.Component {
           Your browser does not support the <code>video</code> tag.
         </video>
         <section className="item-special">
-          <p>Today's Special</p>
           <ItemSpecialContainer />
         </section>
       </section>

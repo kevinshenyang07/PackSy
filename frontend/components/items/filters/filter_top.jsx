@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
-import styles from '../item_index_styles';
+import styles from '../item_page_styles';
 
 class FilterTop extends React.Component {
   constructor(props) {

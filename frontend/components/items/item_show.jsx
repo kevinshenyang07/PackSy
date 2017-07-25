@@ -17,25 +17,35 @@ class ItemShow extends React.Component {
     const item = this.props.item;
     if (item) {
       return (
-        <Paper>
-          <div className='item-top'>
-            <div className='item-image'>
-              <img src={item.imgUrl} alt={ item.title }></img>
-            </div>
-            <div className='item-detail'>
-              <div>
-                <ul>
-                  <li>{item.price}</li>
-                  {item.description.split('\n').map((line, i) =>
-                    <li key={i}>{line}</li>)}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className='item-reviews'>
+        <div className='item-background'>
+          <div className='item-show'>
 
+              <div className='item-top'>
+                <div className='item-image'>
+                  <img src={item.imgUrl}
+                    alt="http://via.placeholder.com/570x570">
+                  </img>
+                </div>
+
+                <div className='item-detail'>
+                  <h2>{item.title}</h2>
+                  <p>by <b>{item.producer}</b></p>
+                  <p>${item.price}</p>
+                  <br />
+                  <p><b>Overview</b></p>
+                  {item.description.split('\n').map((line, i) => {
+                      return <li key={i}><span>•</span>{line}</li>;
+                  })}
+                </div>
+              </div>
+
+              <Divider />
+
+              <div className='item-reviews'>
+                
+              </div>
           </div>
-        </Paper>
+        </div>
 
       );
     } else {

@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchItems: () => dispatch(fetchItems()),
-  fetchSearchedItems: searchWords => dispatch(fetchSearchedItems(searchWords))
 });
 
 export default connect(

@@ -1,5 +1,6 @@
 const indexLeftWidth = '18%';
 const indexRightWidth = '82%';
+const $background = '#F5F5F1';
 
 const styles = {
 
@@ -37,6 +38,16 @@ const styles = {
     // width: '80%',
     margin: '2% 8% 2% 3%',
   },
+  gridTileTitle: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    fontSize: '14px',
+  },
+  gridTileSubtitle: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    fontSize: '12px',
+  },
   radioButton: {
     margin: 20,
   },
@@ -45,7 +56,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    width: '60%',
+    width: '70%',
   },
   checkbox: {
     margin: '0px 0px 8px 16px'
@@ -58,6 +69,12 @@ const styles = {
   },
   radioBtnIcon: {
     marginRight: 6,
+  },
+  pageWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: $background,
+    width: '100vw',
   }
 };
 

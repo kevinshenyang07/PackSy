@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { receiveFilters } from '../../../actions/item_actions';
+import { fetchItems, receiveFilters } from '../../../actions/item_actions';
 import FilterLeft from './filter_left';
 
 const mapStateToProps = state => ({
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetchItems: () => dispatch(fetchItems()),
   receiveFilters: (filter) => dispatch(receiveFilters(filter)),
 });
 

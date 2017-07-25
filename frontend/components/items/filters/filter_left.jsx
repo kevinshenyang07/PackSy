@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {List, ListItem} from 'material-ui/List';
 import Toggle from 'material-ui/Toggle';
@@ -9,7 +10,7 @@ import Paper from 'material-ui/Paper';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 
-import styles from '../item_index_styles';
+import styles from '../item_page_styles';
 
 class FilterLeft extends React.Component {
   constructor(props) {
@@ -17,9 +18,16 @@ class FilterLeft extends React.Component {
 
     this.state = this.props.filters;
 
+    this.handleClick = this.handleClick.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.createHandleCheck = this.createHandleCheck.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    // this.props.receiveFilters(this.props.filters);
+    this.props.fetchItems();
   }
 
   handleToggle(e, toBeToggled) {
@@ -63,6 +71,13 @@ class FilterLeft extends React.Component {
 
     return (
       <Paper style={styles.filterLeft} zDepth={3}>
+
+        <Link to="/items" onClick={this.handleClick}
+          className="all-items">
+          All Items
+        </Link>
+
+        <Divider/>
 
         <Toggle label="Featured Only" style={styles.toggle}
           defaultToggled={false}

@@ -2,17 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Paper from 'material-ui/Paper';
-import { GridList, GridTile } from 'material-ui/GridList';
-import PaperForGridTile from './paper_for_gridtile';
-import IconButton from 'material-ui/IconButton';
-import ActionAddShoppingCart
-  from 'material-ui/svg-icons/action/add-shopping-cart';
-
+import { GridList } from 'material-ui/GridList';
 import CircularProgress from 'material-ui/CircularProgress';
 
 import FilterTopContainer from './filters/filter_top_container';
 import FilterLeftContainer from './filters/filter_left_container';
-import styles from './item_index_styles';
+import ItemTile from './item_tile';
+import styles from './item_page_styles';
 
 
 class ItemIndex extends React.Component {
@@ -24,9 +20,14 @@ class ItemIndex extends React.Component {
 
   componentDidMount() {
     // if component hasn't done RECEIVE_ITEMS
-    if (!this.props.featured) {
-      setTimeout(this.props.fetchItems, 1000);
-    }
+    // if (this.props.items.byPrice.length === 0) {
+    //   setTimeout(this.props.fetchItems, 500);
+    // }
+    setTimeout(() => {
+      if (this.props.items.byPrice.length === 0) {
+        this.props.fetchItems();
+      }
+    }, 1000);
   }
 
   render() {
@@ -34,29 +35,11 @@ class ItemIndex extends React.Component {
     const items = this.props.items.filtered.map(id => byId[id]);
     const tiles = Object.keys(items).map(k => {
       const item = items[k];
-      const link = `/items/${item.id}`;
-      const price = item.price.split(".")[1].length !== 2
-        ? (item.price + "0") : item.price;
-      return (
-        <Link to={link} key={k}>
-          <GridTile
-            key={`gridtile-${k}`}
-            title={item.title}
-            subtitle={<span>${price}</span>}
-            containerElement={<PaperForGridTile />}
-            actionIcon={<IconButton>
-              <ActionAddShoppingCart color="white" />
-            </IconButton>}
-          >
-            <img src={item.imgUrl} />
-          </GridTile>
-        </Link>
-
-      );
+      return (<ItemTile item={item} cartIcon={true} key={item.id} />);
     });
 
     // if empty
-    if (this.props.items.featured.length !== 0) {
+    if (this.props.items.byPrice.length !== 0) {
       return (
         <Paper style={styles.root} zDepth={3}>
 
