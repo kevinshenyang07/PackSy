@@ -1,5 +1,5 @@
-import { RECEIVE_ITEMS, RECEIVE_ITEM, RECEIVE_FILTERS, RECEIVE_SORT }
-  from '../actions/item_actions';
+import { RECEIVE_ITEMS, RECEIVE_ITEM, RECEIVE_FILTERS, RECEIVE_SORT,
+  RECEIVE_SEARCH_TEXT } from '../actions/item_actions';
 import { selectAllCategories, getIdsByPrice, getIdsByFeatured,
   getFiltered, formatPrice } from './selectors';
 import merge from 'lodash/merge';
@@ -20,6 +20,7 @@ const _nullState = {
   filtered: [],
   categories: [],
   priceRanges,
+  searchText: '',
 };
 
 const updateFilters = (oldFilter, newFilter) => {
@@ -65,6 +66,10 @@ const ItemsReducer = (state=_nullState, action) => {
       newState = merge({}, state);
       newState.filters.sort = action.sort;
       newState.filtered = getFiltered(newState, newState.filters);
+      return newState;
+    case RECEIVE_SEARCH_TEXT:
+      newState = merge({}, state);
+      newState.searchText = action.searchText;
       return newState;
     default: {
       return state;

@@ -506,6 +506,14 @@ reviews = [
   "Love it.", "Like it for every second.", "Great for the price.",
   "Good design, implemented OK", "Can't complaint about it.",
   "Better than expected.", "Good quality!", "Very nice seller.",
-  
-
 ]
+
+Item.all.each do |item|
+  num_reviews = rand(5..10)
+  sampled_reviews = reviews.sample(num_reviews)
+  sampled_users = User.all.sample(num_reviews)
+  sampled_users.each_with_index do |user, i|
+    Review.create!({user_id: user.id, item_id: item.id,
+      body: sampled_reviews[i], rating: rand(3..5)})
+  end
+end

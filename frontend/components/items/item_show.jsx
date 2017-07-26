@@ -1,7 +1,11 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
+
+import ReviewIndexContainer from '../reviews/review_index_container';
 
 class ItemShow extends React.Component {
   constructor(props) {
@@ -42,7 +46,7 @@ class ItemShow extends React.Component {
               <Divider />
 
               <div className='item-reviews'>
-                
+                <ReviewIndexContainer itemId={item.id}/>
               </div>
           </div>
         </div>
@@ -57,4 +61,4 @@ class ItemShow extends React.Component {
 
 }
 
-export default ItemShow;
+export default withRouter(ItemShow);

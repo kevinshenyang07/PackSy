@@ -9,9 +9,10 @@ class SearchForm extends React.Component {
       searchText: '',
     };
 
-    this.keywords = ['Outdoors', 'Luggage', 'Cotton', 'Shirt', 'Wallet',
-      'Backpack', 'Cushion', 'Red', 'Sunglasses', 'Shoes', 'Red',
-      'Stripe', 'Eye', 'Fish', 'Long Sleeve', ''];
+    this.keywords = ['outdoors', 'luggage', 'backpack', 'jacket', 'cotton',
+      'cushion', 'red', 'sunglasses', 'shoes', 'red', 'wallet', 'duffle',
+      'stripe', 'eye', 'fish', 'long sleeve', 'christmas', 'shirt', 'boot',
+      'kimono', 'shoes', 'pouch', 'poncho'];
 
     this.updateInput = this.updateInput.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -21,11 +22,13 @@ class SearchForm extends React.Component {
     this.setState({ searchText });
   }
 
-  handleSearch(keyword) {
-    if (this.state.searchText !== '') {
-      this.props.fetchSearchedItems(this.state.searchText);
-    }
-    this.props.history.push('/items');
+  handleSearch() {
+    // if (this.state.searchText !== '') {
+    const keyword = this.state.searchText;
+    this.props.fetchSearchedItems(this.state.searchText);
+    // }
+    this.setState({ searchText: ''});
+    this.props.history.push(`/search/${encodeURI(keyword)}`);
   }
 
   render() {

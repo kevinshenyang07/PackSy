@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Paper from 'material-ui/Paper';
 import DropDownMenu from 'material-ui/DropDownMenu';
@@ -23,12 +24,17 @@ class FilterTop extends React.Component {
   }
 
   render() {
+    const keyword = this.props.match.params.keyword;
+    const searchText = keyword ? keyword : 'all items';
+    const message = `Searching for ${searchText},
+      found ${this.props.itemsCount} items`;
+
     return (
       <Paper style={styles.filterTop} zDepth={0}>
 
         <div>
           <br />
-          {`Found ${this.props.itemsCount} items`}
+          {message}
         </div>
 
         <DropDownMenu
@@ -47,4 +53,4 @@ class FilterTop extends React.Component {
 
 }
 
-export default FilterTop;
+export default withRouter(FilterTop);

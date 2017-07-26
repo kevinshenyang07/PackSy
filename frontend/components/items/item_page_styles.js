@@ -8,6 +8,8 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
+    width: '100vw',
+    height: 'auto',
   },
   loading: {
     height: '100vh',
@@ -18,6 +20,7 @@ const styles = {
   },
   main: {
     width: indexRightWidth,
+    height: 'auto',
   },
   filterTop : {
     display: 'flex',
@@ -35,8 +38,9 @@ const styles = {
   },
   gridList: {
     overflowY: 'hidden',
-    // width: '80%',
     margin: '2% 8% 2% 3%',
+    width: 'inherit',
+    height: 'auto',
   },
   gridTileTitle: {
     display: 'flex',

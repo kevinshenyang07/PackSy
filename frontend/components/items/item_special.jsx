@@ -21,6 +21,7 @@ class ItemSpecial extends React.Component {
     if (!byId.includes("2")) this.props.fetchItem(2);
     if (!byId.includes("10")) this.props.fetchItem(10);
     // }
+
   }
 
   render() {

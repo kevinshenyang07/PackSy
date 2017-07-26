@@ -4,6 +4,7 @@ export const RECEIVE_ITEMS = 'RECEVIE_ITEMS';
 export const RECEIVE_ITEM = 'RECEIVE_ITEM';
 export const RECEIVE_FILTERS = 'RECEIVE_FILTERS';
 export const RECEIVE_SORT = 'RECEIVE_SORT';
+export const RECEIVE_SEARCH_TEXT = 'RECEIVE_SEARCH_TEXT';
 
 // sync actions
 export const receiveItems = items => ({
@@ -28,6 +29,11 @@ export const receiveSort = sort => ({
   sort
 });
 
+export const receiveSearchText = searchText => ({
+  type: RECEIVE_SEARCH_TEXT,
+  searchText
+});
+
 // async actions
 export const fetchItems = () => dispatch => (
   APIUtil.fetchItems().then(items => dispatch(receiveItems(items)))
@@ -37,7 +43,10 @@ export const fetchItem = id => dispatch => (
   APIUtil.fetchItem(id).then(item => dispatch(receiveItem(item)))
 );
 
-export const fetchSearchedItems = searchWords => dispatch => (
-  APIUtil.fetchSearchedItems(searchWords)
-    .then(items => dispatch(receiveItems(items)))
+export const fetchSearchedItems = searchText => dispatch => (
+  APIUtil.fetchSearchedItems(searchText)
+    .then(items =>{
+      dispatch(receiveItems(items));
+      dispatch(receiveSearchText(searchText));
+    })
 );

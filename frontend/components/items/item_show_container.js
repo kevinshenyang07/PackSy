@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import { selectItem, } from '../../reducers/selectors';  // selectReviews
 import { fetchItem } from '../../actions/item_actions';
@@ -16,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
   // fetchReviews: itemId => dispatch(fetchReviews(itemId))
 });
 
-export default withRouter(connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ItemShow));
+)(ItemShow);

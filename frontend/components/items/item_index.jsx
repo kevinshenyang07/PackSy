@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import Paper from 'material-ui/Paper';
 import { GridList } from 'material-ui/GridList';
@@ -19,15 +19,10 @@ class ItemIndex extends React.Component {
   }
 
   componentDidMount() {
-    // if component hasn't done RECEIVE_ITEMS
-    // if (this.props.items.byPrice.length === 0) {
-    //   setTimeout(this.props.fetchItems, 500);
-    // }
-    setTimeout(() => {
-      if (this.props.items.byPrice.length === 0) {
-        this.props.fetchItems();
-      }
-    }, 1000);
+    const keyword = this.props.match.params.keyword;
+    if (typeof keyword === 'undefined') {
+      this.props.fetchItems();
+    } 
   }
 
   render() {
@@ -67,4 +62,4 @@ class ItemIndex extends React.Component {
 
 }
 
-export default ItemIndex;
+export default withRouter(ItemIndex);

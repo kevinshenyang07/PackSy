@@ -53,7 +53,7 @@ class Greetings extends React.Component {
           <IconButton><ActionSettings color="#797979" />
           </IconButton>
         }>
-          <MenuItem primaryText="Refresh" onTouchTap={this.reloadPage}/>
+          <MenuItem primaryText="My Purchases" onTouchTap={this.reloadPage}/>
           <MenuItem primaryText="Creator's Github"
             onTouchTap={this.toOuterLink.bind(
               this, 'https://github.com/kevinshenyang07')} />

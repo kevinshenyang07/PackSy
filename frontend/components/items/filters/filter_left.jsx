@@ -25,9 +25,7 @@ class FilterLeft extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault();
-    // this.props.receiveFilters(this.props.filters);
-    this.props.fetchItems();
+    this.props.fetchItems().then(() => this.setState(this.props.filters));
   }
 
   handleToggle(e, toBeToggled) {
