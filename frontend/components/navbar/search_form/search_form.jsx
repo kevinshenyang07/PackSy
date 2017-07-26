@@ -24,18 +24,18 @@ class SearchForm extends React.Component {
 
   handleSearch() {
     // if (this.state.searchText !== '') {
-    const keyword = this.state.searchText;
-    this.props.fetchSearchedItems(this.state.searchText);
+    const searchText = this.state.searchText;
+    // this.props.fetchSearchedItems(this.state.searchText);
     // }
     this.setState({ searchText: ''});
-    this.props.history.push(`/search/${encodeURI(keyword)}`);
+    this.props.history.push(`/search/${encodeURI(searchText)}`);
   }
 
   render() {
     return (
       <AutoComplete
         floatingLabelText=""
-        hintText="Seach for items"
+        hintText="Search for items"
         searchText={this.state.searchText}
         filter={AutoComplete.fuzzyFilter}
         dataSource={this.keywords}

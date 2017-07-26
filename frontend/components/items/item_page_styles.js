@@ -79,6 +79,10 @@ const styles = {
     justifyContent: 'center',
     backgroundColor: $background,
     width: '100vw',
+  },
+  specials: {
+    overflow: 'hidden',
+    
   }
 };
 

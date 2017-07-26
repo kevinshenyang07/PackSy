@@ -29,7 +29,7 @@ const App = () => (
         <Route exact path="/" component={SplashContainer} />
         <Route exact path="/items" component={ ItemIndexContainer } />
         <Route exact path="/items/:itemId" component={ ItemShowContainer } />
-        <Route path="/search/:keyword" component={ ItemIndexContainer} />
+        <Route path="/search" component={ ItemIndexContainer} />
       </Switch>
     </div>
   </MuiThemeProvider>

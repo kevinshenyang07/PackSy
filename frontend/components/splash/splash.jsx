@@ -30,7 +30,8 @@ class Splash extends React.Component {
       <section className="splash">
         <section className="hero-text">
             <h4>Where is your next destination?</h4>
-            <p>Carefully selected items that make your trips more cheerful.</p>
+            <p>Explore carefully selected items that make your trips
+              more cheerful.</p>
             <DemoLoginContainer />
         </section>
         <video autoPlay muted preload loop className="back-video">

@@ -2,8 +2,6 @@ import React from 'react';
 import { GridList } from 'material-ui/GridList';
 
 import ItemTile from './item_tile';
-import styles from './item_page_styles';
-
 
 class ItemSpecial extends React.Component {
 

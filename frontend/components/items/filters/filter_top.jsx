@@ -24,8 +24,9 @@ class FilterTop extends React.Component {
   }
 
   render() {
-    const keyword = this.props.match.params.keyword;
-    const searchText = keyword ? keyword : 'all items';
+    const paths = this.props.location.pathname.split('/');
+    const searchText = paths.includes("items") ? 'all items'
+      : `"${paths[paths.length -1]}"`;
     const message = `Searching for ${searchText},
       found ${this.props.itemsCount} items`;
 

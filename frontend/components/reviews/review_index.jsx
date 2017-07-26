@@ -40,13 +40,14 @@ class ReviewIndex extends Component {
 
       return (
         <section className='reviews-section'>
-          <span>Reviews
+          <div className='review-header'>
+            <span>Reviews</span>
             <Rater interactive={false} rating={avgRating} />
             { `(${reviewCount})` }
-          </span>
-          <ul className='reviews'>
+          </div>
+          <div className='review-items'>
             {reviews}
-          </ul>
+          </div>
         </section>
       );
     } else {

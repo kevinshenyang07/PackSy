@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Paper from 'material-ui/Paper';
 import { GridList } from 'material-ui/GridList';
@@ -16,13 +16,30 @@ class ItemIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.fetchResult = this.fetchResult.bind(this);
   }
 
   componentDidMount() {
-    const keyword = this.props.match.params.keyword;
-    if (typeof keyword === 'undefined') {
-      this.props.fetchItems();
-    } 
+    // pathname : /search/keyword
+    const pathname = this.props.location.pathname;
+    this.fetchResult(pathname);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      const pathname = nextProps.location.pathname;
+      this.fetchResult(pathname);
+    }
+  }
+
+  fetchResult(pathname) {
+    const paths = pathname.split('/');
+    if (paths.includes("search")) {
+      const searchText = paths[paths.length -1];
+      this.props.fetchSearchedItems(searchText);
+    } else if (pathname === "/items") {
+      setTimeout(this.props.fetchItems, 1000);
+    }
   }
 
   render() {
@@ -62,4 +79,4 @@ class ItemIndex extends React.Component {
 
 }
 
-export default withRouter(ItemIndex);
+export default ItemIndex;

@@ -1,6 +1,28 @@
-// 
+// reviews
+.review-section {
 
-// starts
+}
+
+.review-header {
+  padding: 30px;
+}
+
+.review-header > span {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.review-header > p {
+  margin-left: 5px;
+}
+
+.review-items {
+
+}
+
+
+
+// stars
 .react-rater {
   display: inline-block;
   line-height: normal;

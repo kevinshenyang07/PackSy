@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 // import { selectAllItems } from '../../reducers/selectors';
 import { fetchItems, fetchSearchedItems } from '../../actions/item_actions';
@@ -10,9 +11,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchItems: () => dispatch(fetchItems()),
+  fetchSearchedItems: searchText => dispatch(
+    fetchSearchedItems(searchText)
+  )
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ItemIndex);
+)(ItemIndex));
