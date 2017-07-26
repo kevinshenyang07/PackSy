@@ -1,10 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
 
+import AddToCartFormContainer from '../cart_items/add_to_cart_form_container';
 import ReviewIndexContainer from '../reviews/review_index_container';
 
 class ItemShow extends React.Component {
@@ -15,7 +15,6 @@ class ItemShow extends React.Component {
   componentDidMount() {
     this.props.fetchItem(this.props.itemId);
   }
-
 
   render() {
     const item = this.props.item;
@@ -41,6 +40,10 @@ class ItemShow extends React.Component {
                       return <li key={i}><span>•</span>{line}</li>;
                   })}
                 </div>
+
+                <div className='add-to-cart'>
+                  <AddToCartFormContainer />
+                </div>
               </div>
 
               <Divider />
@@ -61,4 +64,4 @@ class ItemShow extends React.Component {
 
 }
 
-export default withRouter(ItemShow);
+export default ItemShow;

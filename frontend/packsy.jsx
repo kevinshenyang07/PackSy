@@ -7,7 +7,8 @@ import configureStore from './store/store';
 
 // import merge from 'lodash/merge';
 // import { fetchItem } from './actions/cart_item_actions';
-import { addCartItem, fetchCartItems } from './util/cart_item_api_util';
+import { createCart, fetchCarts, updateCart } from './actions/cart_actions';
+import { addCartItem, fetchCartItems } from './actions/cart_item_actions';
 
 // for material UI
 injectTapEventPlugin();
@@ -33,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.createCart = createCart;
+  window.fetchCarts = fetchCarts;
   window.addCartItem = addCartItem;
   window.fetchCartItems = fetchCartItems;
 

@@ -11,9 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchItems: () => dispatch(fetchItems()),
-  fetchSearchedItems: searchText => dispatch(
-    fetchSearchedItems(searchText)
-  )
+  fetchSearchedItems: searchText => dispatch(fetchSearchedItems(searchText))
 });
 
 export default withRouter(connect(

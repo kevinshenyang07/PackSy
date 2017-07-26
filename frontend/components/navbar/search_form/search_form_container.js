@@ -7,7 +7,7 @@ const mapStateToProps = ({ items }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchSearchedItems: keywords => dispatch(fetchSearchedItems(keywords))
+  fetchSearchedItems: searchText => dispatch(fetchSearchedItems(searchText))
 });
 
 export default connect(

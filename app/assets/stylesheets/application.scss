@@ -34,26 +34,6 @@ $react-rater-link: #ccc !default;   // color of star not rated
 $react-rater-hover: #666 !default;  // color of star on hover
 $react-rater-active: #000 !default; // color of star rated
 
-.primary {
- background-color: $darker-orange !important;
- color: white !important;
- border-radius: 4px !important;
-}
-
-.primary:hover {
- background-color: $orange !important;
-}
-
-.secondary {
- border: 1px solid $lighter-gray !important;
- border-radius: 4px !important;
-}
-
-.all-items {
-  color: $darker-gray;
-  margin: 20px 16px 20px 16px
-}
-
 // @import "css_reset"; // 1
 @import "navbar"; // 2
 @import "splash"; // 3
@@ -61,3 +41,23 @@ $react-rater-active: #000 !default; // color of star rated
 @import "item_show";  // 5
 @import "reviews"; // 6
 @import "cart"; // 7
+
+body {
+  margin: 0 !important;
+}
+
+.primary {
+  background-color: $darker-orange !important;
+  color: white !important;
+  border-radius: 4px !important;
+}
+
+.primary:hover {
+  background-color: $orange !important;
+}
+
+.secondary {
+  // border: 1px solid $light-gray !important;
+  color: $darker-orange !important;
+  border-radius: 4px !important;
+}

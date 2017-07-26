@@ -8,7 +8,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    width: '100vw',
+    width: '100%',
     height: 'auto',
   },
   loading: {
@@ -82,7 +82,7 @@ const styles = {
   },
   specials: {
     overflow: 'hidden',
-    
+
   }
 };
 

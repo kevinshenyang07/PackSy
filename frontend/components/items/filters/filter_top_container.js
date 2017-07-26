@@ -6,7 +6,6 @@ import FilterTop from './filter_top';
 
 const mapStateToProps = state => ({
   itemsCount: state.items.filtered.length,
-  searchText: state.items.searchText,
 });
 
 const mapDispatchToProps = dispatch => ({
