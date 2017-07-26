@@ -6,8 +6,10 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 // import merge from 'lodash/merge';
-import { fetchItem } from './actions/item_actions';
+// import { fetchItem } from './actions/cart_item_actions';
+import { addCartItem, fetchCartItems } from './util/cart_item_api_util';
 
+// for material UI
 injectTapEventPlugin();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     session: {
       currentUser: null,
       errors: []
-  }};
+    }
+  };
 
   if (window.currentUser) {
     preloadedState.session.currentUser = window.currentUser;
@@ -30,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchItem = fetchItem;
+  window.addCartItem = addCartItem;
+  window.fetchCartItems = fetchCartItems;
 
   ReactDOM.render(<Root store={store} />, root);
 });
