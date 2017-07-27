@@ -2,12 +2,13 @@ import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import NavBar from './navbar/navbar';
 import SplashContainer from  './splash/splash_container';
 import ItemIndexContainer from './items/item_index_container';
 import ItemShowContainer from './items/item_show_container';
+import CurrentCartContainer from './cart_items/current_cart_container';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -19,7 +20,6 @@ const muiTheme = getMuiTheme({
   },
 });
 
-        // <Route path="/cart" component={ CartItemsIndexContainer } />
 
 const App = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
@@ -29,6 +29,7 @@ const App = () => (
         <Route exact path="/" component={SplashContainer} />
         <Route exact path="/items" component={ ItemIndexContainer } />
         <Route exact path="/items/:itemId" component={ ItemShowContainer } />
+        <Route path="/cart" component={ CurrentCartContainer } />
         <Route path="/search" component={ ItemIndexContainer} />
       </Switch>
     </div>

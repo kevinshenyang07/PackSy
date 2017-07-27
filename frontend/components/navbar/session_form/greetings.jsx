@@ -41,10 +41,10 @@ class Greetings extends React.Component {
 
     return (
       <nav className="navbar-right">
-        <div><h4>{`Hi, ${this.props.username}!`}</h4></div>
+        <div><h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4></div>
 
-        <Badge badgeContent={10} style={{padding: 0}}
-          badgeStyle={badgeStyle}>
+        <Badge badgeContent={this.props.cartItemCount}
+          style={{padding: 0}} badgeStyle={badgeStyle}>
           <IconButton tooltip="Go to my cart">
             <ActionShoppingCart color="#797979" />
           </IconButton>

@@ -1,12 +1,17 @@
 class Api::CartsController < ApplicationController
 
   def create
-    @cart = current_user.carts.new(cart_params)
+    @cart = Cart.new(user_id: current_user.id)
     if @cart.save
       render :show
     else
       render json: @cart.errors.messages, status: 422
     end
+  end
+
+  def show
+    @cart = current_user.carts[-1]
+    render :show
   end
 
   def index
@@ -29,7 +34,7 @@ class Api::CartsController < ApplicationController
 
   private
   def cart_params
-    params.require(:cart).permit(:id, :purchased)
+    params.require(:cart).permit(:user_id, :purchased)
   end
 
 end

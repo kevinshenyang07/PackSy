@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import getRandomDemoUserEmail from '../../../util/demo_util';
-import Greetings from './greetings';
+import GreetingsContainer from './greetings_container';
 
 class SessionForm extends React.Component {
 
@@ -32,6 +32,7 @@ class SessionForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
+
 
   }
 
@@ -60,10 +61,11 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.state.logIn) {
-      this.props.signin(user);
+      this.props.signin(user).then(this.maybeCreateCart);
       this.setState({ email: "", password: "", open: false });
     } else {
       this.props.signup(user);
+      this.props.createCart();
       this.setState({
          email: "", password: "",
          firstname: "", lastname: "", open: false
@@ -172,10 +174,7 @@ class SessionForm extends React.Component {
   render() {
     if (this.props.currentUser) {
       return (
-        <Greetings
-          username={this.props.currentUser.firstname}
-          signout={this.props.signout}
-          history={this.props.history} />
+        <GreetingsContainer />
       );
     } else {
       return (

@@ -38,9 +38,10 @@ $react-rater-active: #000 !default; // color of star rated
 @import "navbar"; // 2
 @import "splash"; // 3
 @import "session_form"; // 4
-@import "item_show";  // 5
-@import "reviews"; // 6
-@import "cart"; // 7
+@import "filters";  // 5
+@import "item_show";  // 6
+@import "reviews"; // 7
+@import "cart"; // 8
 
 body {
   margin: 0 !important;

@@ -17,8 +17,8 @@ export const fetchCarts = () => dispatch => (
   APIUtil.fetchCarts().then(carts => dispatch(receiveCarts(carts)))
 );
 
-export const createCart = cart => dispatch => (
-  APIUtil.createCart(cart).then(resp => dispatch(receiveCart(resp)))
+export const createCart = () => dispatch => (
+  APIUtil.createCart().then(cart => dispatch(receiveCart(cart)))
 );
 
 export const updateCart = cart => dispatch => (

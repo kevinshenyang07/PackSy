@@ -15,23 +15,26 @@ class AddToCartForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCarts();
+    if (this.props.currentUser) {
+      this.props.fetchCarts();
+    }
   }
 
   handleChange(e) {
     this.setState({ quantity: e.target.value });
   }
 
+  // redirect to index page if not signed in
   handleSubmit(e) {
     e.preventDefault();
 
     if (this.props.currentUser) {
       const carts = this.props.carts;
-      const cart = carts[carts.length - 1];
-      const cartId = cart.id;
+      const mostRecentCartId = Math.max(...Object.keys(carts));
+      const cart = carts[mostRecentCartId];
       const cartItem = {
-        cart_id: cartId,
-        item_id: parseInt(this.props.params.itemId),
+        cart_id: cart.id,
+        item_id: parseInt(this.props.itemId),
         item_quantity: parseInt(this.state.quantity)
       };
 

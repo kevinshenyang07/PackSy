@@ -26,14 +26,13 @@ class ReviewIndex extends Component {
         totalRatings += reviewsById[id].rating;
        });
       const avgRating = totalRatings / reviewCount;
-      console.log(avgRating);
 
-      const reviews = Object.keys(reviewsById).map(id => {
+      const reviews = Object.keys(reviewsById).map((id, i) => {
         const review = reviewsById[id];
         return (
-          <div>
+          <div key={`review-${review.id}`}>
             <Divider />
-            <Review key={review.id} review={review} />
+            <Review review={review} />
           </div>
         );
       });
