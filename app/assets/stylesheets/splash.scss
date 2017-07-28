@@ -46,7 +46,6 @@
 
 .hero-text button {
   padding: 10px;
-  // border: 2px solid $charcoal;
   background: rgba(255, 255, 255, 0.15);
   font-family: sans-serif;
   font-size: 11px;
@@ -77,40 +76,9 @@
 }
 
 .back-video {
-  // position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
   opacity: .9;
   z-index: -99;
 }
-
-// @media (min-aspect-ratio: 16/9) {
-//   .back-video {
-//     width: 100%;
-//     height: auto;
-//     overflow: hidden;
-//   }
-// }
-//
-//
-// @media (max-aspect-ratio: 16/9) {
-//   .back-video {
-//     width: auto;
-//     height: 100%;
-//   }
-// }
-//
-// @media (min-aspect-ratio: 16/9) {
-//   .back-video {
-//     height: 300%;
-//     top: -100%;
-//   }
-// }
-//
-// @media (max-aspect-ratio: 16/9) {
-//   .back-video {
-//     width: 300%;
-//     left: -100%;
-//   }
-// }

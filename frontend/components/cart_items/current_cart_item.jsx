@@ -18,8 +18,6 @@ class CurrentCartItem extends React.Component {
     this.setState({value: e.target.value});
     this.props.updateCartItem({
       id: this.props.cartItem.id,
-      // cart_id: this.props.cartItem.cart_id,
-      // item_id: this.props.cartItem.item_id,
       item_quantity: e.target.value
     });
   }

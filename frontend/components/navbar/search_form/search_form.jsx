@@ -23,10 +23,7 @@ class SearchForm extends React.Component {
   }
 
   handleSearch() {
-    // if (this.state.searchText !== '') {
     const searchText = this.state.searchText;
-    // this.props.fetchSearchedItems(this.state.searchText);
-    // }
     this.setState({ searchText: ''});
     this.props.history.push(`/search/${encodeURI(searchText)}`);
   }

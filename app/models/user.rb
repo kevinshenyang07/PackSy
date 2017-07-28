@@ -16,7 +16,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
-  after_save :create_new_cart
+  after_create :create_new_cart
 
   validates :firstname, :lastname, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }

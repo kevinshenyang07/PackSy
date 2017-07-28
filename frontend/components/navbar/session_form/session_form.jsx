@@ -26,6 +26,7 @@ class SessionForm extends React.Component {
     this.handleClose = this.handleClose.bind(this);
 
     this.handleEnter = this.handleEnter.bind(this);
+    this.handleSessionAction = this.handleSessionAction.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.switchForms = this.switchForms.bind(this);
 
@@ -57,18 +58,21 @@ class SessionForm extends React.Component {
     }
   }
 
+  handleSessionAction(user, sessionFn) {
+    sessionFn(user).then(() => {
+      this.props.fetchCarts();
+      this.props.fetchCartItems();
+    });
+    this.setState({ email: "", password: "", open: false });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
     if (this.state.logIn) {
-      this.props.signin(user).then(() =>
-        this.setState({ email: "", password: "", open: false })
-      );
+      this.handleSessionAction(user, this.props.signin);
     } else {
-      this.props.signup(user).then(() => this.setState({
-        email: "", password: "",
-        firstname: "", lastname: "", open: false
-      }));
+      this.handleSessionAction(user, this.props.signup);
     }
   }
 

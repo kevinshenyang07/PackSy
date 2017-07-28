@@ -284,7 +284,7 @@ Item.create!([
   {
     title: '172 Cap',
     producer: 'Herschel', price: 34.99, category: 'Accessories', quantity: 10,
-    img_url: "http://res.cloudinary.com/kevinsy07/image/upload/v1500970278/items/025.jpg",
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970278/items/025.jpg",
     description:
       "100% cotton twill
       Self-fabric strap with ID logo embossed silver-toned clip

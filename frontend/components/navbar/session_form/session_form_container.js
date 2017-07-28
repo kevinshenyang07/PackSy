@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { signup, signin,
          signout, clearErrors } from '../../../actions/session_actions';
-import { fetchCarts, createCart } from '../../../actions/cart_actions';
+import { fetchCarts } from '../../../actions/cart_actions';
+import { fetchCartItems } from '../../../actions/cart_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = state => ({
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
   signup: user => dispatch(signup(user)),
   clearErrors: () => dispatch(clearErrors()),
   fetchCarts: () => dispatch(fetchCarts()),
-  createCart: () => dispatch(createCart()),
+  fetchCartItems: () => dispatch(fetchCartItems()),
 });
 
 export default connect(

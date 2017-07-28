@@ -35,7 +35,7 @@ class DemoLogin extends React.Component {
   }
 
   toItemIndexPage() {
-    this.props.history.push('/items')
+    this.props.history.push('/items');
   }
 
   update(field) {
@@ -89,9 +89,11 @@ class DemoLogin extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.signin(user);
-    this.setState({ email: "", password: "" });
-    this.handleClose();
+    this.props.signin(user).then(() => {
+      this.props.fetchCarts();
+      this.props.fetchCartItems();
+    });
+    this.setState({ email: "", password: "", open: false});
   }
 
   render() {

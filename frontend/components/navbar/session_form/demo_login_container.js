@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
-import { signin, clearErrors } from '../../../actions/session_actions';
+
+import { signin } from '../../../actions/session_actions';
+import { fetchCarts } from '../../../actions/cart_actions';
+import { fetchCartItems } from '../../../actions/cart_actions';
 import DemoLogin from './demo_login';
 
 const mapStateToProps = ({ session }) => ({
@@ -9,7 +12,8 @@ const mapStateToProps = ({ session }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   signin: user => dispatch(signin(user)),
-  clearErrors: () => dispatch(clearErrors())
+  fetchCarts: () => dispatch(fetchCarts()),
+  fetchCartItems: () => dispatch(fetchCartItems()),
 });
 
 export default connect(

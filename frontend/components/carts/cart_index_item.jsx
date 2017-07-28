@@ -28,9 +28,9 @@ class CartIndexItem extends React.Component {
           </li>
         </div>
         <div className='cart-item-details-right'>
-          <p>{`Quantity: ${cartItem.itemQuantity}`}</p>
-          <p>{`Price: $${parseFloat(cartItem.price).toFixed(2)}`}</p>
           <p>{`Bought on: ${cartItem.updatedAt.slice(0, 10)}`}</p>
+          <p>{`Price: $${parseFloat(cartItem.price).toFixed(2)}`}</p>
+          <p>{`Quantity: ${cartItem.itemQuantity}`}</p>
         </div>
         <div className='cart-item-review'>
           <li>

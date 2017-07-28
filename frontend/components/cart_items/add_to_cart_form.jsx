@@ -15,12 +15,6 @@ class AddToCartForm extends React.Component {
     this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
-  componentDidMount() {
-    if (this.props.currentUser) {
-      this.props.fetchCarts();
-    }
-  }
-
   handleChange(e) {
     this.setState({ quantity: e.target.value });
   }
@@ -56,7 +50,6 @@ class AddToCartForm extends React.Component {
         item_id: parseInt(this.props.itemId),
         item_quantity: parseInt(this.state.quantity)
       };
-
       this.props.addCartItem(cartItem);
       this.props.history.push('/cart');
     } else {

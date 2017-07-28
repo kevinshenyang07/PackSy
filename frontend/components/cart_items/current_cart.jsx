@@ -95,7 +95,7 @@ class CurrentCart extends Component {
                 <FlatButton className='primary' label='Make a purchase'
                   onTouchTap={this.handleSubmit} style={{width: '100%'}}/>
                 <p>No worries, it's just a demo and
-                  you're not going to be charged.</p>
+                  you are not going to be charged.</p>
               </div>
             </div>
           </div>

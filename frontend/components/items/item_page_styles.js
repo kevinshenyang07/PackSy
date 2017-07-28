@@ -46,15 +46,9 @@ const styles = {
     height: 'auto',
   },
   gridTileTitle: {
-    // display: 'flex',
-    // justifyContent: 'flex-start',
-    // fontSize: '14px',
     paddingRight: 10,
   },
   gridTileSubtitle: {
-    // display: 'flex',
-    // justifyContent: 'flex-start',
-    // fontSize: '12px',
   },
   radioButton: {
     margin: 20,
