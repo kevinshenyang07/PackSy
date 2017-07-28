@@ -19,26 +19,18 @@ class CartIndexItem extends React.Component {
             </Link>
           </li>
         </ul>
-        <div className='purchased-cart-item-details'>
-          <ul className='cart-item-details-left'>
-            <li className='cart-item-name'>
-              {cartItem.title}
-            </li>
-            <li className='cart-item-seller'>
-              {`by: ${cartItem.producer}`}
-            </li>
-          </ul>
-          <ul className='cart-item-details-right'>
-            <li className='cart-item-quantity'>
-              {cartItem.itemQuantity}
-            </li>
-            <li className='cart-item-price'>
-              {parseFloat(cartItem.price).toFixed(2)}
-            </li>
-            <li className='cart-item-purchased'>
-              {cartItem.updatedAt.slice(0, 10)}
-            </li>
-          </ul>
+        <div className='cart-item-details-left'>
+          <span className='cart-item-name'>
+            { this.props.cartItem.title }
+          </span>
+          <li className='cart-item-seller'>
+            {`Sold by: ${this.props.cartItem.producer}`}
+          </li>
+        </div>
+        <div className='cart-item-details-right'>
+          <p>{`Quantity: ${cartItem.itemQuantity}`}</p>
+          <p>{`Price: $${parseFloat(cartItem.price).toFixed(2)}`}</p>
+          <p>{`Bought on: ${cartItem.updatedAt.slice(0, 10)}`}</p>
         </div>
         <div className='cart-item-review'>
           <li>

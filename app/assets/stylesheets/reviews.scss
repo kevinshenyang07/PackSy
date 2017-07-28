@@ -1,4 +1,24 @@
-// reviews
+// review form in cart index page
+.review-description {
+  font-size: 16px;
+}
+
+.review-description > textarea {
+  border: 1px solid #e1e3df;
+  border-radius: 4px;
+  width: 210px;
+  height: 51px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.review-rating {
+  padding-bottom: 18px;
+  font-size: 16px
+}
+
+// reviews in item show page
 .review-section {
 
 }

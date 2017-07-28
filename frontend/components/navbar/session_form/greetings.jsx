@@ -65,9 +65,7 @@ class Greetings extends React.Component {
             </IconButton>
           </Badge>
           <IconMenu iconButtonElement={
-            <IconButton><ActionSettings color="#797979" />
-            </IconButton>
-          }>
+            <IconButton><ActionSettings color="#797979" /></IconButton>}>
             <MenuItem primaryText="My Purchases" onTouchTap={this.toPurchases}/>
             <MenuItem primaryText="Creator's Github"
               onTouchTap={this.toOuterLink.bind(

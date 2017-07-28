@@ -32,14 +32,17 @@ end
 
 Item.create!([
   {
-    title: 'Tiny Jewelry Making Tassels, New FALL Pantone Colors',
-    producer: 'Seibels', price: 12.99, category: 'Accessories', quantity: 10,
-    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613786/items/001.jpg",
+    title: 'Voyage Anorak Men',
+    producer: 'Herschel', price: 69.99, category: 'Clothing', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/022.jpg",
     description:
-      "Craft type: Hat making & hair crafts, Jewelry making, Kids' crafts, Party & gifting, Sewing
-       Secondary color: Rainbow
-       Materials: tassels, tassel, jewelry making tassels, tassels for making jewelry, tassels for bracelets, tassels for jewelry, tiny tassels, short tassels, mini tassels, small tassels, handmade tassels, cotton tassels, silver binding tassels
-       Ships worldwide from United States"
+      "Signature evergreen internal trim and classic label
+      Neckline self-storage pocket with snap closure
+      Snap-fastened flap pocket with side-access hand warmer sleeve
+      Attached three-piece hood with two-snap placket
+      Embroidered under-arm air vents
+      Cinched elastic cuffs
+      Drop-back hemline and two-snap side seam"
   },
   {
     title: 'red/white striped slide',
@@ -54,15 +57,16 @@ Item.create!([
       Ships worldwide from United States"
   },
   {
-    title: 'Summer Outdoors Party Turquoise Choker',
-    producer: 'MermaidBeadsJewelry', price: 24.61, category: 'Accessories', quantity: 10,
-    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/003.jpg",
+    title: 'Strand Duffle',
+    producer: 'Herschel', price: 64.99, category: 'Bags & Purses', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/024.jpg",
     description:
-      "Handmade item
-      Occasion: Graduation
-      Materials: Wrap Bracelet, Choker Necklace, Tiger Eye Beads, Turquoise Beads, Pearl Beads, Chain and clasp, Antique Gold Plated
-      Made to order
-      Ships worldwide from United States"
+      "Signature striped fabric liner
+      Two-way zipper with pebbled leather pulls
+      External center storage sleeve
+      Padded and articulated carrying handles
+      H.S.Co branded metal snaps
+      Classic woven label"
   },
   {
     title: 'Summer Outdoors Cactus Clutch Purse',
@@ -263,19 +267,7 @@ Item.create!([
       Made to order
       Ships worldwide from United States"
   },
-  {
-    title: 'Voyage Anorak Men',
-    producer: 'Herschel', price: 69.99, category: 'Clothing', quantity: 10,
-    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/022.jpg",
-    description:
-      "Signature evergreen internal trim and classic label
-      Neckline self-storage pocket with snap closure
-      Snap-fastened flap pocket with side-access hand warmer sleeve
-      Attached three-piece hood with two-snap placket
-      Embroidered under-arm air vents
-      Cinched elastic cuffs
-      Drop-back hemline and two-snap side seam"
-  },
+
   {
     title: 'Hooded Coach Jacket',
     producer: 'Herschel', price: 109.99, category: 'Clothing', quantity: 10,
@@ -288,18 +280,6 @@ Item.create!([
       Front closure with branded metal snaps
       Two front welt pockets
       Attached three-piece hood"
-  },
-  {
-    title: 'Strand Duffle',
-    producer: 'Herschel', price: 64.99, category: 'Bags & Purses', quantity: 10,
-    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500970279/items/024.jpg",
-    description:
-      "Signature striped fabric liner
-      Two-way zipper with pebbled leather pulls
-      External center storage sleeve
-      Padded and articulated carrying handles
-      H.S.Co branded metal snaps
-      Classic woven label"
   },
   {
     title: '172 Cap',
@@ -480,6 +460,27 @@ Item.create!([
       Occasion: Birthday
       Materials: Soft, Lightweight, Chiffon, Polyester
       Ships worldwide from Canada"
+  },
+  {
+    title: 'Tiny Jewelry Making Tassels, New FALL Pantone Colors',
+    producer: 'Seibels', price: 12.99, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613786/items/001.jpg",
+    description:
+      "Craft type: Hat making & hair crafts, Jewelry making, Kids' crafts, Party & gifting, Sewing
+       Secondary color: Rainbow
+       Materials: tassels, tassel, jewelry making tassels, tassels for making jewelry, tassels for bracelets, tassels for jewelry, tiny tassels, short tassels, mini tassels, small tassels, handmade tassels, cotton tassels, silver binding tassels
+       Ships worldwide from United States"
+  },
+  {
+    title: 'Summer Outdoors Party Turquoise Choker',
+    producer: 'MermaidBeadsJewelry', price: 24.61, category: 'Accessories', quantity: 10,
+    img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500613790/items/003.jpg",
+    description:
+      "Handmade item
+      Occasion: Graduation
+      Materials: Wrap Bracelet, Choker Necklace, Tiger Eye Beads, Turquoise Beads, Pearl Beads, Chain and clasp, Antique Gold Plated
+      Made to order
+      Ships worldwide from United States"
   },
 ])
 

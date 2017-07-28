@@ -43,12 +43,12 @@ class ReviewForm extends React.Component {
   render() {
     return (
       <ul>
-        <li>Rating</li>
-        <Rater onRate={this.handleRate} />
+        <li className="review-rating">
+          Rating <Rater onRate={this.handleRate} />
+        </li>
         <li>Description</li>
-        <li>
+        <li className='review-description'>
           <textarea
-            className='review-description'
             value={ this.state.reviewBody }
             onChange={ this.handleChange }
           />
