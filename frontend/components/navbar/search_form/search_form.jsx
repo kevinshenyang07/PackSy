@@ -10,7 +10,7 @@ class SearchForm extends React.Component {
     };
 
     this.keywords = ['outdoors', 'luggage', 'backpack', 'jacket', 'cotton',
-      'cushion', 'red', 'sunglasses', 'shoes', 'red', 'wallet', 'duffle',
+      'cushion', 'red', 'sunglasses', 'shoes', 'wallet', 'duffle',
       'stripe', 'eye', 'fish', 'long sleeve', 'christmas', 'shirt', 'boot',
       'kimono', 'shoes', 'pouch', 'poncho'];
 

@@ -4,7 +4,7 @@
 
 Packsy is a single-page e-commerce web application that's inspired by Etsy.
 
-![EtsAClone](https://github.com/christinewang319/etsaclone/blob/master/app/assets/images/etsaclone.png)
+![Packsy](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/packsy.png)
 
 ## Technologies Used
 
@@ -13,7 +13,6 @@ Packsy is a single-page e-commerce web application that's inspired by Etsy.
 * React
 * Redux
 * PostgreSQL
-* AWS
 * HTML5
 * CSS3
 
@@ -21,17 +20,21 @@ Packsy is a single-page e-commerce web application that's inspired by Etsy.
 
 ### User Authentication
 
-EtsAClone has a full end-to-end authentication system where users can register or sign in, and continue to explore the site without a redirect. When a user registers, his/her password is encrypted into a password hash with BCrypt before it's stored in the database. When a user signs in, his/her password is, again, encrypted with BCrypt and compared with the stored password hash for that user. Although registering or signing in isn't required to explore the site, it's required to add items to a shopping cart and to make a purchase. The two forms are shown below:
+Packsy has a full end-to-end authentication system where users can register or sign in, and continue to explore the site without a redirect. When a user registers, his/her password is encrypted into a password hash with BCrypt before it's stored in the database. When a user signs in, his/her password is, again, encrypted with BCrypt and compared with the stored password hash for that user. Although registering or signing in isn't required to explore the site, it's required to add items to a shopping cart and to make a purchase. The two forms are shown below:
 
-![Register](https://github.com/christinewang319/etsaclone/blob/master/app/assets/images/register.png)
+![Signup](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/signup.png)
 
-![Sign In](https://github.com/christinewang319/etsaclone/blob/master/app/assets/images/sign_in.png)
+![Sign In](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/signin.png)
+
+### Item Index
+![Item Index](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/filters.png)
+
 
 ### Item Listings
 
 Users can browse the latest items from the home page or all the items from the All Jewelry page. When a user clicks on an item, he/she will be directed to the item page, where the user can read all the reviews for that item and/or select a quantity before adding the item to his/her shopping cart. An example of an item page is shown below:
 
-![Item Page](https://github.com/christinewang319/etsaclone/blob/master/app/assets/images/item_page.png)
+![Item Page](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/item_page.png)
 
 At the database level, all the items are stored in the items table, which holds the seller_id, name, description, price, quantity, created_at, updated_at, image_file_name, image_content_type, image_file_size, and image_updated_at information for each item. For scaleability and performance reasons, I chose to store all the images in Amazon S3 using Paperclip.
 
