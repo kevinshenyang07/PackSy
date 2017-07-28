@@ -31,7 +31,7 @@ class ItemSpecial extends React.Component {
                  className="item-special" />;
       });
     }
-    // if empty
+    // if loaded
     if (this.specials["2"] && this.specials["10"]) {
       return (
         <div>

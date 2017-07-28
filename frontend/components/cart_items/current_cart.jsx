@@ -12,7 +12,6 @@ class CurrentCart extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.createNewCart = this.createNewCart.bind(this);
   }
 
   componentDidMount() {
@@ -25,12 +24,8 @@ class CurrentCart extends Component {
     const firstCartItemId = Object.keys(cartItems)[0];
     const currentCartId = cartItems[firstCartItemId].cartId;
     this.props.updateCart({id: currentCartId, purchased: true})
-      .then(() => this.createNewCart())
+      .then(() => this.props.createCart({ user_id: this.props.currentUser.id }))
       .then(() => this.props.history.push('/purchases'));
-  }
-
-  createNewCart() {
-    this.props.createCart({ user_id: this.props.currentUser.id });
   }
 
   render() {

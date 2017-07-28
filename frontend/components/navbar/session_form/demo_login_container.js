@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { signin } from '../../../actions/session_actions';
 import { fetchCarts } from '../../../actions/cart_actions';
-import { fetchCartItems } from '../../../actions/cart_actions';
+import { fetchCartItems } from '../../../actions/cart_item_actions';
 import DemoLogin from './demo_login';
 
 const mapStateToProps = ({ session }) => ({

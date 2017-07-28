@@ -32,6 +32,9 @@ class Greetings extends React.Component {
 
   componentDidMount() {
     this.props.fetchCartItems().then(() => this.setState({ loaded: true }));
+    if (!this.props.cartLoaded) {
+      this.props.fetchCarts();
+    }
   }
 
   handleSignout(e) {

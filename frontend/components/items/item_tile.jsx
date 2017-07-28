@@ -15,7 +15,6 @@ class ItemTile extends React.Component {
     super(props);
 
     this.addToCart = this.addToCart.bind(this);
-
   }
 
   // imeplement if need to directly add to cart
@@ -41,9 +40,7 @@ class ItemTile extends React.Component {
           subtitle={<span>${item.price}</span>}
           containerElement={<PaperForGridTile />}
           actionIcon={actionIcon}
-          style={styles.gridTiel}
           titleStyle={styles.gridTileTitle}
-          subtitleStyle={styles.gridTileSubtitle}
         >
           <img src={item.imgUrl} />
         </GridTile>

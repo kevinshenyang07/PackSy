@@ -520,9 +520,9 @@ Item.all.each do |item|
 end
 
 demo_users.each do |user|
-  sampled_cart_items = Item.all.sample(5)
+  sampled_cart_items = Item.all.sample(3)
   cart = user.carts[0]
   sampled_cart_items.each do |item|
-    CartItem.create!(cart_id: cart.id, item_id: item.id, item_quantity: rand(1..3))
+    CartItem.create!(cart_id: cart.id, item_id: item.id, item_quantity: rand(1..2))
   end
 end

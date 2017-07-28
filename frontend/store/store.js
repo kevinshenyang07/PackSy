@@ -7,8 +7,8 @@ const middlewares = [thunk];
 let composeEnhancers;
 
 if (process.env.NODE_ENV !== 'production') {
-  const createLogger = require('redux-logger');
-  middlewares.push(createLogger());
+  // const createLogger = require('redux-logger');
+  // middlewares.push(createLogger());
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 } else {
   composeEnhancers = compose;

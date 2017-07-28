@@ -45,8 +45,8 @@ class ItemIndex extends React.Component {
   }
 
   decideCols() {
-    return window.innerWidth >= 1280 ? 4 :
-            window.innerWidth >= 1024 ? 3 :
+    return window.innerWidth >= 1200 ? 4 :
+            window.innerWidth >= 1000 ? 3 :
               window.innerWidth >= 768 ? 2 : 1;
   }
 

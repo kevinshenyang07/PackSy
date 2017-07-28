@@ -10,7 +10,7 @@ const styles = {
     justifyContent: 'space-between',
     width: '100%',
     height: 'auto',
-    minWidth: 1280,
+    minWidth: 1000,
     minHeight: '100vh',
   },
   loading: {
@@ -18,7 +18,7 @@ const styles = {
     width: '100%',
     textAlign: 'center',
     display: 'inline-block',
-    padding: 40 ,
+    padding: 40,
   },
   main: {
     width: indexRightWidth,
@@ -46,12 +46,8 @@ const styles = {
     width: 'inherit',
     height: 'auto',
   },
-  gridTile: {
-  },
   gridTileTitle: {
     paddingRight: 10,
-  },
-  gridTileSubtitle: {
   },
   radioButton: {
     margin: 20,
@@ -83,7 +79,6 @@ const styles = {
   },
   specials: {
     overflow: 'hidden',
-
   }
 };
 
