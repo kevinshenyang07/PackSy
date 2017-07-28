@@ -53,10 +53,9 @@ class ReviewForm extends React.Component {
             onChange={ this.handleChange }
           />
         </li>
-        <li>
-          <FlatButton label="Submit review" className="secondary"
-            onTouchTap={this.handleSubmit} />
-        </li>
+        <p className="submit-review" onClick={this.handleSubmit}>
+          Submit Review
+        </p>
       </ul>
     );
   }
