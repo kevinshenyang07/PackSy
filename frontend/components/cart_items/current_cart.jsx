@@ -19,7 +19,7 @@ class CurrentCart extends Component {
   }
 
   componentWillReceiveProps() {
-    
+
   }
 
   handleSubmit(e) {
@@ -93,7 +93,7 @@ class CurrentCart extends Component {
                 </div>
                 <FlatButton className='primary' label='Make a purchase'
                   onTouchTap={this.handleSubmit} style={{width: '100%'}}/>
-                <p>No worries, it's just a demo and
+                <p>No worries, it's a demo and
                   you are not going to be charged.</p>
               </div>
             </div>
