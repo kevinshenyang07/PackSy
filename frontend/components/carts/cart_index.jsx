@@ -28,7 +28,7 @@ class CartIndex extends Component {
 
     // cart item starting from most recent
     let cartItems = [];
-    const purchasedItems = Object.keys(this.props.carts).reverse().slice(1);
+    const purchasedItems = Object.keys(this.props.carts).reverse();  //.slice(1);
     purchasedItems.forEach(id => {
       const cart = this.props.carts[id];
       const itemsInOneCart = Object.keys(cart.cartItems).map(k =>
