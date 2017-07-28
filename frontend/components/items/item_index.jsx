@@ -39,8 +39,8 @@ class ItemIndex extends React.Component {
       const searchText = paths[paths.length -1];
       this.props.fetchSearchedItems(searchText);
     } else if (pathname === "/items") {
-      // to showcase the loading phase
-      setTimeout(this.props.fetchItems, 1000);
+      // to emulate the delay
+      setTimeout(this.props.fetchItems, 500);
     }
   }
 

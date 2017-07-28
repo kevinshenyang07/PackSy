@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { fetchItem } from '../../actions/item_actions';
-// import { fetchCarts } from '../../actions/item_actions';
-// import { fetchCartItems } from '../../actions/cart_item_actions';
+
 import ItemShow from './item_show';
 
 const mapStateToProps = (state, { match }) => ({
@@ -14,8 +13,6 @@ const mapStateToProps = (state, { match }) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchItem: id => dispatch(fetchItem(id)),
-  // fetchCarts: () => dispatch(fetchCarts()),
-  // fetchCartItems: () => dispatch(fetchCartItems()),
 });
 
 export default withRouter(connect(

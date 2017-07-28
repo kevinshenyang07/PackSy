@@ -11,12 +11,19 @@ class AddToCartForm extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handlePurchase = this.handlePurchase.bind(this);
     this.handleBuyItNow = this.handleBuyItNow.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   handleChange(e) {
     this.setState({ quantity: e.target.value });
+  }
+
+  handlePurchase(cartId) {
+    this.props.updateCart({id: cartId, purchased: true})
+    .then(() => this.props.createCart({ user_id: this.props.currentUser.id }))
+    .then(() => this.props.history.push('/purchases'));
   }
 
   handleBuyItNow(e) {
@@ -30,11 +37,8 @@ class AddToCartForm extends React.Component {
         item_id: parseInt(this.props.itemId),
         item_quantity: parseInt(this.state.quantity)
       };
-      this.props.addCartItem(cartItem);
-      // make a purchase
-      this.props.updateCart({id: cart.id, purchased: true})
-      .then(() => this.props.createCart({ user_id: this.props.currentUser.id }))
-      .then(() => this.props.history.push('/purchases'));
+      this.props.addCartItem(cartItem)
+        .then(() => this.handlePurchase(cart.id));
     } else {
       this.props.history.push('/');
     }
@@ -50,8 +54,8 @@ class AddToCartForm extends React.Component {
         item_id: parseInt(this.props.itemId),
         item_quantity: parseInt(this.state.quantity)
       };
-      this.props.addCartItem(cartItem);
-      this.props.history.push('/cart');
+      this.props.addCartItem(cartItem)
+        .then(() => this.props.history.push('/cart'));
     } else {
       this.props.history.push('/');
     }

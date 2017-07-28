@@ -1,6 +1,8 @@
 import { RECEIVE_CART, RECEIVE_CARTS } from '../actions/cart_actions';
 import merge from 'lodash/merge';
 
+// carts = { 1: {id: 1, userId: 1, purchase: true, cartItems: {...}}}
+
 const CartsReducer = (state = {}, action) => {
   Object.freeze(state);
 
