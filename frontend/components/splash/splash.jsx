@@ -27,21 +27,23 @@ class Splash extends React.Component {
   // video version
   render() {
     return (
-      <section className="splash">
+      <div className="splash">
         <section className="hero-text">
             <h4>Where is your next destination?</h4>
             <p>Explore items that make your trips more cheerful.</p>
             <DemoLoginContainer />
         </section>
-        <video autoPlay muted preload loop className="back-video">
-         <source src="https://res.cloudinary.com/kevinsy07
-          /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
-          Your browser does not support the <code>video</code> tag.
-        </video>
+        <div className="back-video-container">
+          <video autoPlay muted preload loop className="back-video">
+           <source src="https://res.cloudinary.com/kevinsy07
+            /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
+            Your browser does not support the <code>video</code> tag.
+          </video>
+        </div>
         <section className="item-special">
           <ItemSpecialContainer />
         </section>
-      </section>
+      </div>
     );
   }
 

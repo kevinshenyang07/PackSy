@@ -30,7 +30,7 @@ class ReviewIndex extends Component {
       const reviews = Object.keys(reviewsById).map((id, i) => {
         const review = reviewsById[id];
         return (
-          <div key={`review-${review.id}`}>
+          <div key={`review-${review.id}`} className="single-review">
             <Divider />
             <Review review={review} />
           </div>

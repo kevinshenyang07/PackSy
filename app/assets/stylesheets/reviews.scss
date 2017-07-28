@@ -20,7 +20,49 @@
 
 }
 
+.single-review {
+  padding: 0px 30px 0px 30px;
+}
 
+.review-content {
+  width: 100%;
+  display: flex;
+}
+
+.reviewer {
+  width: 20%;
+  height: 100%;
+}
+
+.reviewer > p {
+  padding-left: 30px;
+}
+
+.reviewed-by {
+  color: $darker-gray;
+}
+
+.review-right {
+  width: 80%;
+  height: auto;
+  padding-right: 30px;
+}
+
+.review-rating-date {
+  height: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.review-rating-date > span {
+  color: $darker-gray;
+}
+
+.review-body {
+  width: 75%;
+  height: 60%;
+}
 
 // stars
 .react-rater {

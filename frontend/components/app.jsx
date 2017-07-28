@@ -9,6 +9,8 @@ import SplashContainer from  './splash/splash_container';
 import ItemIndexContainer from './items/item_index_container';
 import ItemShowContainer from './items/item_show_container';
 import CurrentCartContainer from './cart_items/current_cart_container';
+import CartIndexContainer from './carts/cart_index_container';
+import Footer from './footer';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -29,9 +31,11 @@ const App = () => (
         <Route exact path="/" component={SplashContainer} />
         <Route exact path="/items" component={ ItemIndexContainer } />
         <Route exact path="/items/:itemId" component={ ItemShowContainer } />
-        <Route path="/cart" component={ CurrentCartContainer } />
         <Route path="/search" component={ ItemIndexContainer} />
+        <ProtectedRoute path="/cart" component={ CurrentCartContainer } />
+        <ProtectedRoute path="/purchases" component={ CartIndexContainer } />
       </Switch>
+      <Footer />
     </div>
   </MuiThemeProvider>
 );

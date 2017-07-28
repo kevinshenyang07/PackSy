@@ -18,8 +18,9 @@ const CartItemsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return {};
     case REMOVE_CART_ITEM:
+      console.log(action);
       const nextState = merge({}, state);
-      delete nextState[action.cartItem.cart_item_id];
+      delete nextState[action.cartItem.id];
       return nextState;
     default:
       return state;

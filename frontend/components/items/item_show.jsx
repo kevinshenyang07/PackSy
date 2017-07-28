@@ -18,7 +18,15 @@ class ItemShow extends React.Component {
 
   render() {
     const item = this.props.item;
+
     if (item) {
+
+      const overview = item.description.split('\n')
+        .map((line, i) => {
+          return <li key={i}><span>•</span>{line}</li>;
+        }
+      );
+
       return (
         <div className='item-background'>
           <div className='item-show'>
@@ -33,17 +41,18 @@ class ItemShow extends React.Component {
                 <div className='item-detail'>
                   <h2>{item.title}</h2>
                   <p>by <b>{item.producer}</b></p>
-                  <p>${item.price}</p>
+                  <p><b>${item.price}</b></p>
                   <br />
-                  <p><b>Overview</b></p>
-                  {item.description.split('\n').map((line, i) => {
-                      return <li key={i}><span>•</span>{line}</li>;
-                  })}
+
+                  <AddToCartFormContainer />
+
+                  <Divider />
+                  <div className='overview'>
+                    <p><b>Overview</b></p>
+                    <ul>{overview}</ul>
+                  </div>
                 </div>
 
-                <div className='add-to-cart'>
-                  <AddToCartFormContainer />
-                </div>
               </div>
 
               <Divider />
@@ -51,6 +60,7 @@ class ItemShow extends React.Component {
               <div className='item-reviews'>
                 <ReviewIndexContainer itemId={item.id}/>
               </div>
+              
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/cart_api_util';
+import { fetchCartItems } from './cart_item_actions';
 
 export const RECEIVE_CARTS = 'RECEIVE_CARTS';
 export const RECEIVE_CART = 'RECEIVE_CART';
@@ -18,7 +19,10 @@ export const fetchCarts = () => dispatch => (
 );
 
 export const createCart = () => dispatch => (
-  APIUtil.createCart().then(cart => dispatch(receiveCart(cart)))
+  APIUtil.createCart().then(cart => {
+    dispatch(receiveCart(cart));
+    dispatch(fetchCartItems());
+  })
 );
 
 export const updateCart = cart => dispatch => (

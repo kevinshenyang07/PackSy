@@ -1,3 +1,7 @@
+.splash {
+  height: auto;
+}
+
 .item-special {
   text-align: center;
   position: absolute;
@@ -19,6 +23,7 @@
   width: 25%;
   padding: 17px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-text > h4 {
@@ -65,41 +70,47 @@
 
 }
 
-.back-video {
-  position: absolute;
+.back-video-container {
   width: 100%;
-  // height: auto;
-  // overflow: hidden;
+  height: auto;
+  overflow: hidden;
+}
+
+.back-video {
+  // position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   opacity: .9;
   z-index: -99;
 }
 
-@media (min-aspect-ratio: 16/9) {
-  .back-video {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
-}
-
-
-@media (max-aspect-ratio: 16/9) {
-  .back-video {
-    width: auto;
-    height: 100%;
-  }
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .back-video {
-    height: 300%;
-    top: -100%;
-  }
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .back-video {
-    width: 300%;
-    left: -100%;
-  }
-}
+// @media (min-aspect-ratio: 16/9) {
+//   .back-video {
+//     width: 100%;
+//     height: auto;
+//     overflow: hidden;
+//   }
+// }
+//
+//
+// @media (max-aspect-ratio: 16/9) {
+//   .back-video {
+//     width: auto;
+//     height: 100%;
+//   }
+// }
+//
+// @media (min-aspect-ratio: 16/9) {
+//   .back-video {
+//     height: 300%;
+//     top: -100%;
+//   }
+// }
+//
+// @media (max-aspect-ratio: 16/9) {
+//   .back-video {
+//     width: 300%;
+//     left: -100%;
+//   }
+// }

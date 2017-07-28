@@ -16,11 +16,13 @@ class User < ApplicationRecord
   attr_reader :password
 
   after_initialize :ensure_session_token
+  after_save :create_new_cart
 
   validates :firstname, :lastname, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, :email, uniqueness: true
 
+  has_many :items
   has_many :carts
   has_many :cart_items,
     through: :carts,
@@ -62,6 +64,10 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= self.class.generate_session_token
+  end
+
+  def create_new_cart
+    Cart.create!(user_id: self.id)
   end
 
 end

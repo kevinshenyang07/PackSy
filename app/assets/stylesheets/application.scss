@@ -34,6 +34,51 @@ $react-rater-link: #ccc !default;   // color of star not rated
 $react-rater-hover: #666 !default;  // color of star on hover
 $react-rater-active: #000 !default; // color of star rated
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  padding-left: 0px;
+
+}
+
+body ul {
+  list-style: none;
+  padding-left: 0px;
+  // overflow: auto;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body select {
+  display: block;
+  padding: 10px 70px 10px 13px !important;
+  max-width: 100%; height: auto !important;
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+  background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat;
+  background-color: #fff;
+  color: #444444;
+  font-size: 12px;
+  line-height: 16px !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 // @import "css_reset"; // 1
 @import "navbar"; // 2
 @import "splash"; // 3
@@ -42,10 +87,8 @@ $react-rater-active: #000 !default; // color of star rated
 @import "item_show";  // 6
 @import "reviews"; // 7
 @import "cart"; // 8
+@import "cart_items"; // 9
 
-body {
-  margin: 0 !important;
-}
 
 .primary {
   background-color: $darker-orange !important;
@@ -58,7 +101,26 @@ body {
 }
 
 .secondary {
-  // border: 1px solid $light-gray !important;
   color: $darker-orange !important;
   border-radius: 4px !important;
+}
+
+.footer {
+  border-top: 1px solid $light-gray;
+  font-size: 16px;
+  padding: 0.8rem;
+  text-align: center;
+  color: $darker-gray;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #efefef;
+}
+
+.my-info {
+  display: flex;
+  justify-content: center;
+  color: $darker-orange;
 }

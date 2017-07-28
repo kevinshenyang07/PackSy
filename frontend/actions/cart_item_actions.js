@@ -2,7 +2,7 @@ import * as APIUtil from '../util/cart_item_api_util';
 
 export const RECEIVE_CART_ITEM = 'RECEIVE_CART_ITEM';
 export const RECEIVE_CART_ITEMS = 'RECEIVE_CART_ITEMS';
-export const REMOVE_CART_ITEM = 'DELETE_CART_ITEM';
+export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
 
 
 //sync actions
@@ -29,8 +29,7 @@ export const addCartItem = cartItem => dispatch => (
 );
 
 export const fetchCartItems = () => dispatch => (
-  APIUtil.fetchCartItems().then(resp =>
-    dispatch(receiveCartItems(resp)))
+  APIUtil.fetchCartItems().then(resp => dispatch(receiveCartItems(resp)))
 );
 
 export const updateCartItem = cartItem => dispatch => (

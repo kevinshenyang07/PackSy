@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { addCartItem } from '../../actions/cart_item_actions';
-import { fetchCarts, createCart } from '../../actions/cart_actions';
+import { fetchCarts, createCart, updateCart } from '../../actions/cart_actions';
 import AddToCartForm from './add_to_cart_form';
 
 const mapStateToProps = (state, { match }) => ({
@@ -14,6 +14,7 @@ const mapStateToProps = (state, { match }) => ({
 const mapDispatchToProps = dispatch => ({
   createCart: () => dispatch(createCart()),
   fetchCarts: () => dispatch(fetchCarts()),
+  updateCart: cart => dispatch(updateCart(cart)),
   addCartItem: cartItem => dispatch(addCartItem(cartItem)),
 });
 

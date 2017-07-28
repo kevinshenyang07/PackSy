@@ -10,6 +10,7 @@ const styles = {
     justifyContent: 'space-between',
     width: '100%',
     height: 'auto',
+    minHeight: '100vh',
   },
   loading: {
     height: '100vh',
@@ -21,6 +22,7 @@ const styles = {
   main: {
     width: indexRightWidth,
     height: 'auto',
+    paddingBottom: '150px'
   },
   filterTop : {
     display: 'flex',
@@ -35,6 +37,7 @@ const styles = {
     width: indexLeftWidth,
     minWidth: 140,
     padding: 0,
+    paddingBottom: '150px',
   },
   gridList: {
     overflowY: 'hidden',
@@ -43,14 +46,15 @@ const styles = {
     height: 'auto',
   },
   gridTileTitle: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    fontSize: '14px',
+    // display: 'flex',
+    // justifyContent: 'flex-start',
+    // fontSize: '14px',
+    paddingRight: 10,
   },
   gridTileSubtitle: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    fontSize: '12px',
+    // display: 'flex',
+    // justifyContent: 'flex-start',
+    // fontSize: '12px',
   },
   radioButton: {
     margin: 20,

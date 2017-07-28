@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -16,13 +16,15 @@ class DemoLogin extends React.Component {
       open: false,
     };
 
+    this.toItemIndexPage = this.toItemIndexPage.bind(this);
+
+    // demo login
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
     this.demoLogin = this.demoLogin.bind(this);
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -32,23 +34,26 @@ class DemoLogin extends React.Component {
     }
   }
 
+  toItemIndexPage() {
+    this.props.history.push('/items')
+  }
+
   update(field) {
     return e => {
       this.setState({[field]: e.currentTarget.value});
     };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
-    this.props.signin(user);
-    this.setState({ email: "", password: "" });
-    this.handleClose();
-    // this.props.history.push('/items');
+  handleOpen() {
+    this.setState({open: true});
+    this.demoLogin();
+  }
+
+  handleClose() {
+    this.setState({open: false});
   }
 
   demoLogin(e) {
-    // e.preventDefault();
     this.setState({ email: "", password: "", logIn: true });
     const demoUserEmail = getRandomDemoUserEmail();
     const emailChars = demoUserEmail.split("");
@@ -81,73 +86,83 @@ class DemoLogin extends React.Component {
     }
   }
 
-  handleOpen() {
-    this.setState({open: true});
-    this.demoLogin();
-  }
-
-  handleClose() {
-    this.setState({open: false});
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = this.state;
+    this.props.signin(user);
+    this.setState({ email: "", password: "" });
+    this.handleClose();
   }
 
   render() {
+    if (this.props.currentUser) {
+      return (
+        <div>
+          <FlatButton label="Go Back to Shopping" className="primary"
+            onTouchTap={this.toItemIndexPage} style={{width: "auto"}}/>
+        </div>
+      );
 
-    return (
-      <div>
-        <FlatButton label="Demo Login" className="primary"
-          onTouchTap={this.handleOpen} style={{width: "auto"}}/>
-        <Dialog
-          modal={true}
-          open={this.state.open}
-          contentStyle={{width: "30%", minWidth: "300px"}}
-        >
+    } else {
 
-          <div className="login-form-container">
-            <div className="x-button">
-              <button onClick={this.handleClose}>
-                <i className="fa fa-times" aria-hidden="true"></i>
-              </button>
+      return (
+        <div>
+          <FlatButton label="Demo Login" className="primary"
+            onTouchTap={this.handleOpen} style={{width: "auto"}}/>
+          <Dialog
+            modal={true}
+            open={this.state.open}
+            contentStyle={{width: "30%", minWidth: "300px"}}
+          >
+
+            <div className="login-form-container">
+              <div className="x-button">
+                <button onClick={this.handleClose}>
+                  <i className="fa fa-times" aria-hidden="true"></i>
+                </button>
+              </div>
+
+
+              <form className="login-form-box">
+                  <br/>
+                <h3>Log in to Packsy</h3>
+                  <br/>
+
+                <div className="login-form">
+
+                  <label htmlFor="un"></label>
+                  <br/>
+                  <input id="un"
+                    type="text"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    className="login-input"
+                    placeholder="Email"
+                  />
+
+                  <label htmlFor="pw"></label>
+
+                  <input id="pw"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="login-input"
+                    placeholder="Password"
+                  />
+                  <br/>
+                  <FlatButton label="Log In"
+                    className="primary" style={{width: "100%"}} />
+                  <p>or</p>
+                  <RaisedButton label="Demo Login" style={{width: "100%"}} />
+                </div>
+              </form>
             </div>
 
+          </Dialog>
+        </div>
+      );
+    }
 
-            <form className="login-form-box">
-                <br/>
-              <h3>Log in to Packsy</h3>
-                <br/>
-
-              <div className="login-form">
-
-                <label htmlFor="un"></label>
-                <br/>
-                <input id="un"
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                  className="login-input"
-                  placeholder="Email"
-                />
-
-                <label htmlFor="pw"></label>
-
-                <input id="pw"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                  placeholder="Password"
-                />
-                <br/>
-                <FlatButton label="Log In"
-                  className="primary" style={{width: "100%"}} />
-                <p>or</p>
-                <RaisedButton label="Demo Login" style={{width: "100%"}} />
-              </div>
-            </form>
-          </div>
-
-        </Dialog>
-      </div>
-    );
   }
 }
 

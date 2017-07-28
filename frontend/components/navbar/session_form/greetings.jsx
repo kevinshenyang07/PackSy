@@ -10,13 +10,28 @@ import ActionShoppingCart
   from 'material-ui/svg-icons/action/shopping-cart';
 import ActionSettings from 'material-ui/svg-icons/action/settings';
 
+const badgeStyle = {
+  backgroundColor: "#DA552F", color: 'white',
+  top: -4, right: -4
+};
+
+
 class Greetings extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      loaded: false
+    };
+
     this.handleSignout = this.handleSignout.bind(this);
-    this.reloadPage = this.reloadPage.bind(this);
+    this.toCart = this.toCart.bind(this);
+    this.toPurchases = this.toPurchases.bind(this);
     this.toOuterLink = this.toOuterLink.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchCartItems().then(() => this.setState({ loaded: true }));
   }
 
   handleSignout(e) {
@@ -25,8 +40,12 @@ class Greetings extends React.Component {
     this.props.history.push('/');
   }
 
-  reloadPage() {
-    window.location.reload();
+  toCart() {
+    this.props.history.push('/cart');
+  }
+
+  toPurchases() {
+    this.props.history.push('/purchases');
   }
 
   toOuterLink(url) {
@@ -34,37 +53,38 @@ class Greetings extends React.Component {
   }
 
   render() {
-    const badgeStyle = {
-      backgroundColor: "#DA552F", color: 'white',
-      top: -4, right: -4
-    };
+    if (this.state.loaded) {
+      return (
+        <nav className="navbar-right">
+          <div><h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4></div>
 
-    return (
-      <nav className="navbar-right">
-        <div><h4>{`Hi, ${this.props.currentUser.firstname}!`}</h4></div>
+          <Badge badgeContent={this.props.cartItemCount}
+            style={{padding: 0}} badgeStyle={badgeStyle}>
+            <IconButton onTouchTap={this.toCart} tooltip="Go to my cart" >
+              <ActionShoppingCart color="#797979" />
+            </IconButton>
+          </Badge>
+          <IconMenu iconButtonElement={
+            <IconButton><ActionSettings color="#797979" />
+            </IconButton>
+          }>
+            <MenuItem primaryText="My Purchases" onTouchTap={this.toPurchases}/>
+            <MenuItem primaryText="Creator's Github"
+              onTouchTap={this.toOuterLink.bind(
+                this, 'https://github.com/kevinshenyang07')} />
+            <MenuItem primaryText="Creator's LinkedIn"
+              onTouchTap={this.toOuterLink.bind(
+                this, 'https://www.linkedin.com/in/kevinshenyang07')} />
+            <Divider />
+            <MenuItem primaryText="Sign out" onTouchTap={this.handleSignout}/>
+          </IconMenu>
+        </nav>
+      );
 
-        <Badge badgeContent={this.props.cartItemCount}
-          style={{padding: 0}} badgeStyle={badgeStyle}>
-          <IconButton tooltip="Go to my cart">
-            <ActionShoppingCart color="#797979" />
-          </IconButton>
-        </Badge>
-        <IconMenu iconButtonElement={
-          <IconButton><ActionSettings color="#797979" />
-          </IconButton>
-        }>
-          <MenuItem primaryText="My Purchases" onTouchTap={this.reloadPage}/>
-          <MenuItem primaryText="Creator's Github"
-            onTouchTap={this.toOuterLink.bind(
-              this, 'https://github.com/kevinshenyang07')} />
-          <MenuItem primaryText="Creator's LinkedIn"
-            onTouchTap={this.toOuterLink.bind(
-              this, 'https://www.linkedin.com/in/kevinshenyang07')} />
-          <Divider />
-          <MenuItem primaryText="Sign out" onTouchTap={this.handleSignout}/>
-        </IconMenu>
-      </nav>
-    );
+    } else {
+      return <div></div>;
+    }
+
   }
 }
 

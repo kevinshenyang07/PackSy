@@ -61,15 +61,14 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     if (this.state.logIn) {
-      this.props.signin(user).then(this.maybeCreateCart);
-      this.setState({ email: "", password: "", open: false });
+      this.props.signin(user).then(() =>
+        this.setState({ email: "", password: "", open: false })
+      );
     } else {
-      this.props.signup(user);
-      this.props.createCart();
-      this.setState({
-         email: "", password: "",
-         firstname: "", lastname: "", open: false
-      });
+      this.props.signup(user).then(() => this.setState({
+        email: "", password: "",
+        firstname: "", lastname: "", open: false
+      }));
     }
   }
 

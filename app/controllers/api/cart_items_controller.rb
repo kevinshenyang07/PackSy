@@ -1,6 +1,11 @@
 class Api::CartItemsController < ApplicationController
   def index
-    @cart_items = current_user.carts[-1].cart_items
+    carts = current_user.carts
+    if carts.empty?
+      @cart_items = []
+    else
+      @cart_items = current_user.carts[-1].cart_items
+    end
     render :index
   end
 

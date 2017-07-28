@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FlatButton from 'material-ui/FlatButton';
 
 class CurrentCartItem extends React.Component {
   constructor(props) {
@@ -10,64 +11,66 @@ class CurrentCartItem extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.fetchCartItems();
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   handleChange(e) {
     this.setState({value: e.target.value});
-    this.props.updateCartItem({ id: this.props.cartItem.id, cart_id: this.props.cartItem.cart_id, item_id: this.props.cartItem.item_id, item_quantity: e.target.value});
+    this.props.updateCartItem({
+      id: this.props.cartItem.id,
+      // cart_id: this.props.cartItem.cart_id,
+      // item_id: this.props.cartItem.item_id,
+      item_quantity: e.target.value
+    });
   }
 
-  handleClick() {
+  handleRemove() {
     this.props.deleteCartItem(this.props.cartItem.id);
   }
 
   render() {
-    if (this.props.cartItem) {
+    const cartItem = this.props.cartItem;
+    const price = parseFloat(this.props.cartItem.price).toFixed(2);
+
+    if (cartItem) {
       return (
         <li className='cart-item'>
           <ul>
             <li>
-              <Link to={ `/items/${this.props.cartItem.item_id}` }>
-                <img className='cart-item-image' src={ this.props.cartItem.item_image } alt={ this.props.cartItem.item_name } />
+              <Link to={ `/items/${cartItem.itemId}` }>
+                <img className='cart-item-image' src={cartItem.imgUrl} />
               </Link>
             </li>
           </ul>
-          <ul className='cart-item-details'>
-            <li className='cart-item-name'>
-              { this.props.cartItem.item_name }
-            </li>
+          <div className='cart-item-details'>
+            <span className='cart-item-name'>
+              { this.props.cartItem.title }
+            </span>
             <li className='cart-item-seller'>
-              { `${this.props.cartItem.item_seller.first_name} ${this.props.cartItem.item_seller.last_name}` }
+              {`Sold by: ${this.props.cartItem.producer}`}
             </li>
             <li className='remove-button'>
-              <button onClick={this.handleClick}>
-                <input type='submit' value='Remove' />
-              </button>
+              <p className="remove-button" onClick={this.handleRemove}>
+                Remove
+              </p>
             </li>
-          </ul>
-          <ul>
-            <li className='cart-item-quantity'>
-              <form>
-                <select value={this.state.value} onChange={this.handleChange}>
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                  <option value='5'>5</option>
-                </select>
-              </form>
+          </div>
+          <div className='cart-item-quantity'>
+            <form>
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+              </select>
+            </form>
+          </div>
+          <div className='cart-item-price'>
+            <li >
+              <b>{`$${price}`}</b>
             </li>
-          </ul>
-          <ul>
-            <li className='cart-item-price'>
-              { `$${this.props.cartItem.item_price}.00` }
-            </li>
-          </ul>
+          </div>
         </li>
       );
     } else {

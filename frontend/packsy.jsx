@@ -7,6 +7,7 @@ import configureStore from './store/store';
 
 // import merge from 'lodash/merge';
 // import { fetchItem } from './actions/cart_item_actions';
+import { signout } from './actions/session_actions';
 import { createCart, fetchCarts, updateCart } from './actions/cart_actions';
 import { addCartItem, fetchCartItems } from './actions/cart_item_actions';
 
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchCarts = fetchCarts;
   window.addCartItem = addCartItem;
   window.fetchCartItems = fetchCartItems;
+  window.signout = signout;
 
   ReactDOM.render(<Root store={store} />, root);
 });

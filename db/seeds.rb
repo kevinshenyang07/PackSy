@@ -509,7 +509,7 @@ reviews = [
 ]
 
 Item.all.each do |item|
-  num_reviews = rand(5..10)
+  num_reviews = rand(8..15)
   sampled_reviews = reviews.sample(num_reviews)
   sampled_users = User.all.sample(num_reviews)
   sampled_users.each_with_index do |user, i|

@@ -4,20 +4,21 @@ import Rater from 'react-rater';
 
 const Review = ({ review }) => {
   return (
-      <div className='review'>
-        <ul className='reviewer'>
-          <li className='reviewed-by'>Reviewed by</li>
-          <li>{ `${review.user.firstname} ${review.user.lastname}`}</li>
-        </ul>
-        <ul className='reviewer-review'>
-          <li className='star'>
-            <Rater rating={ review.rating } interactive={false} />
-          </li>
-          <li>{ review.body }</li>
-        </ul>
-        <ul className='reviewer-review-date'>
-          <li>{ review.updatedAt.slice(0, 10) }</li>
-        </ul>
+      <div className='review-content'>
+        <div className='reviewer'>
+          <p className='reviewed-by'>Reviewed by</p>
+          <p>{ `${review.user.firstname} ${review.user.lastname}`}</p>
+        </div>
+        <div className="review-right">
+          <div className='review-rating-date'>
+            <Rater rating={review.rating} interactive={false} />
+            <span>{review.updatedAt.slice(0, 10)}</span>
+          </div>
+          <div className='review-body'>
+            <p>{ review.body }</p>
+          </div>
+        </div>
+
       </div>
   );
 };

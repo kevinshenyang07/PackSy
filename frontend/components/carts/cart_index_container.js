@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { fetchCarts } from '../../actions/cart_actions';
-import CartsIndex from './carts_index';
+import CartIndex from './cart_index';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
@@ -12,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
   fetchCarts: () => dispatch(fetchCarts())
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(CartsIndex);
+)(CartIndex));

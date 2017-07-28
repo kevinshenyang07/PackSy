@@ -47,7 +47,7 @@ class ItemIndex extends React.Component {
     const items = this.props.items.filtered.map(id => byId[id]);
     const tiles = Object.keys(items).map(k => {
       const item = items[k];
-      return (<ItemTile item={item} cartIcon={true} key={item.id} />);
+      return (<ItemTile item={item} hasCartIcon={false} key={item.id} />);
     });
 
     // if empty
