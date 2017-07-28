@@ -10,6 +10,7 @@ const styles = {
     justifyContent: 'space-between',
     width: '100%',
     height: 'auto',
+    minWidth: 1280,
     minHeight: '100vh',
   },
   loading: {
@@ -20,7 +21,7 @@ const styles = {
     padding: 40 ,
   },
   main: {
-    minWidth: 1280,
+    width: indexRightWidth,
     height: 'auto',
     paddingBottom: '150px'
   },
