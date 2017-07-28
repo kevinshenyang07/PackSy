@@ -17,6 +17,7 @@ class ItemIndex extends React.Component {
     super(props);
 
     this.fetchResult = this.fetchResult.bind(this);
+    this.decideCols = this.decideCols.bind(this);
   }
 
   componentDidMount() {
@@ -38,8 +39,15 @@ class ItemIndex extends React.Component {
       const searchText = paths[paths.length -1];
       this.props.fetchSearchedItems(searchText);
     } else if (pathname === "/items") {
+      // to showcase the loading phase
       setTimeout(this.props.fetchItems, 1000);
     }
+  }
+
+  decideCols() {
+    return window.innerWidth >= 1280 ? 4 :
+            window.innerWidth >= 1024 ? 3 :
+              window.innerWidth >= 768 ? 2 : 1;
   }
 
   render() {
@@ -59,7 +67,7 @@ class ItemIndex extends React.Component {
 
           <Paper style={styles.main} zDepth={1}>
             <FilterTopContainer />
-            <GridList cellHeight={250} cols={4} padding={18}
+            <GridList cellHeight={250} cols={this.decideCols()} padding={18}
               style={styles.gridList}>
               {tiles}
             </GridList>

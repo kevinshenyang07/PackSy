@@ -41,6 +41,7 @@ class ItemTile extends React.Component {
           subtitle={<span>${item.price}</span>}
           containerElement={<PaperForGridTile />}
           actionIcon={actionIcon}
+          style={styles.gridTiel}
           titleStyle={styles.gridTileTitle}
           subtitleStyle={styles.gridTileSubtitle}
         >

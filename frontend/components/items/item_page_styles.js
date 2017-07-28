@@ -6,7 +6,7 @@ const styles = {
 
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'nowrap',
     justifyContent: 'space-between',
     width: '100%',
     height: 'auto',
@@ -20,7 +20,7 @@ const styles = {
     padding: 40 ,
   },
   main: {
-    width: indexRightWidth,
+    minWidth: 1280,
     height: 'auto',
     paddingBottom: '150px'
   },
@@ -44,6 +44,8 @@ const styles = {
     margin: '2% 8% 2% 3%',
     width: 'inherit',
     height: 'auto',
+  },
+  gridTile: {
   },
   gridTileTitle: {
     paddingRight: 10,
