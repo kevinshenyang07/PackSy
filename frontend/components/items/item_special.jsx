@@ -14,12 +14,9 @@ class ItemSpecial extends React.Component {
   }
 
   componentDidMount() {
-    // if (Object.keys(this.props.items.byId).length <= 2) {
     const byId = Object.keys(this.props.items.byId);
     if (!byId.includes("2")) this.props.fetchItem(2);
     if (!byId.includes("10")) this.props.fetchItem(10);
-    // }
-
   }
 
   render() {
@@ -30,7 +27,8 @@ class ItemSpecial extends React.Component {
       this.specials["10"] = byId["10"];
       tiles = Object.keys(this.specials).map(id => {
         const item = this.specials[id];
-        return <ItemTile item={item} cartIcon={false} key={item.id}/>;
+        return <ItemTile item={item} cartIcon={false} key={item.id}
+                 className="item-special" />;
       });
     }
     // if empty

@@ -14,6 +14,7 @@ class ItemShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchItem(this.props.itemId);
+    window.scroll(0, 0);
   }
 
   render() {
@@ -60,7 +61,7 @@ class ItemShow extends React.Component {
               <div className='item-reviews'>
                 <ReviewIndexContainer itemId={item.id}/>
               </div>
-              
+
           </div>
         </div>
 

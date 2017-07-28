@@ -62,8 +62,9 @@ class SessionForm extends React.Component {
     sessionFn(user).then(() => {
       this.props.fetchCarts();
       this.props.fetchCartItems();
-    });
-    this.setState({ email: "", password: "", open: false });
+    }).then(() =>
+      this.setState({ email: "", password: "", open: false })
+    );
   }
 
   handleSubmit(e) {

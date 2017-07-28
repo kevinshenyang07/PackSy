@@ -15,7 +15,7 @@ Review.destroy_all
 Cart.destroy_all
 
 # demo users
-User.create!([
+demo_users = User.create!([
   {firstname: 'Norris', lastname: 'Kwan', email: 'norris.k@gmail.com', password: '123456'},
   {firstname: 'Aaron', lastname: 'Wayne', email: 'aaron.wayne@gmail.com', password: '123456'},
   {firstname: 'Dallas', lastname: 'Tall', email: 'dallas.tall@gmail.com', password: '123456'},
@@ -516,5 +516,13 @@ Item.all.each do |item|
   sampled_users.each_with_index do |user, i|
     Review.create!({user_id: user.id, item_id: item.id,
       body: sampled_reviews[i], rating: rand(3..5)})
+  end
+end
+
+demo_users.each do |user|
+  sampled_cart_items = Item.all.sample(5)
+  cart = user.carts[0]
+  sampled_cart_items.each do |item|
+    CartItem.create!(cart_id: cart.id, item_id: item.id, item_quantity: rand(1..3))
   end
 end
