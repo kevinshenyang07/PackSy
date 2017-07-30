@@ -18,10 +18,6 @@ class CurrentCart extends Component {
     this.props.fetchCartItems().then(() => this.setState({loaded: true}));
   }
 
-  componentWillReceiveProps() {
-
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const cartItems = this.props.cartItems;

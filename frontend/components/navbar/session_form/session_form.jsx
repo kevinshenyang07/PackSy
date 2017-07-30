@@ -34,7 +34,6 @@ class SessionForm extends React.Component {
     this.fillDemoEmail = this.fillDemoEmail.bind(this);
     this.fillDemoPassword = this.fillDemoPassword.bind(this);
 
-
   }
 
   componentWillReceiveProps(nextProps) {
