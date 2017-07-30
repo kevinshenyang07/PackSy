@@ -8,6 +8,8 @@ It uses Ruby on Rails on the backend, a Postgres database, and React / Redux on 
 
 ![Packsy](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/packsy.png)
 
+![Sign Up](https://github.com/kevinshenyang07/Packsy/blob/master/app/assets/images/signup.png)
+
 ## Features and Implementation
 
 ### Item Index With Filters
