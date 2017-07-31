@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { signup, signin,
          signout, clearErrors } from '../../../actions/session_actions';
 import { fetchCarts } from '../../../actions/cart_actions';
-import { fetchCartItems } from '../../../actions/cart_actions';
+import { fetchCartItems } from '../../../actions/cart_item_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = state => ({
