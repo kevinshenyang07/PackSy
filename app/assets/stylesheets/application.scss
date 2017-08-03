@@ -15,11 +15,11 @@
 
 $dark-white: #F9F9F9;
 $linen: #F8F3ED;
-$lightest-gray: #F7F7F5;
-$lighter-gray: #F0F0F0;
-$light-gray: #C0C0C0;
-$darker-gray: #797979;
-$darkest-gray: #353535;
+$lightest-grey: #F7F7F5;
+$lighter-grey: #F0F0F0;
+$light-grey: #C0C0C0;
+$darker-grey: #797979;
+$darkest-grey: #353535;
 $charcoal: #202020;
 
 $orange: #F56400;
@@ -67,7 +67,7 @@ body select {
   display: block;
   padding: 10px 70px 10px 13px !important;
   max-width: 100%; height: auto !important;
-  border: 1px solid $light-gray;
+  border: 1px solid $light-grey;
   border-radius: 3px;
   background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat;
   background-color: #fff;
@@ -106,11 +106,11 @@ body select {
 }
 
 .footer {
-  border-top: 1px solid $light-gray;
+  border-top: 1px solid $light-grey;
   font-size: 16px;
   padding: 0.8rem;
   text-align: center;
-  color: $darker-gray;
+  color: $darker-grey;
 
   position: absolute;
   right: 0;

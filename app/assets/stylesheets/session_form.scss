@@ -1,5 +1,5 @@
 .form-header {
- color: $darkest-gray !important;
+ color: $darkest-grey !important;
 }
 
 .login-form-container {
@@ -24,16 +24,16 @@
   background-color: white;
   font-size: 20px;
   display: flex-start;
-  color: $darker-gray;
+  color: $darker-grey;
 }
 
 .x-button > button:hover {
   cursor: pointer;
-  color: $darkest-gray;
+  color: $darkest-grey;
 }
 
 .login-form-box > h3 {
-  color: $darkest-gray;
+  color: $darkest-grey;
   font-size: 20px;
   padding: 0px;
   margin: 0px;
@@ -60,7 +60,7 @@
   margin-bottom: 15px;
   width: 260px;
 
-  color: $darker-gray;
+  color: $darker-grey;
 }
 
 .login-form button {
@@ -68,10 +68,10 @@
   margin: 15px 0px;
   text-align: center;
   cursor: pointer;
-  border: 2px solid $darker-gray;
+  border: 2px solid $darker-grey;
 
   font-size: 11px;
-  background-color: $lighter-gray;
+  background-color: $lighter-grey;
   color: black;
   text-transform: uppercase;
   border-radius: 2px;
@@ -79,8 +79,8 @@
 }
 
 .login-form button:hover {
-  background-color: $light-gray;
-  color: $darkest-gray;
+  background-color: $light-grey;
+  color: $darkest-grey;
 }
 
 .login-form button,
@@ -91,9 +91,9 @@
 }
 
 .login-form input {
-  border-bottom: 2px $light-gray solid;
+  border-bottom: 2px $light-grey solid;
   background-color: white;
-  color: $darker-gray;
+  color: $darker-grey;
   font-size: 14px;
   padding: 10px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -103,12 +103,12 @@
 
 .login-form input:focus {
   outline: none;
-  border-bottom: 2px $darkest-gray solid;
+  border-bottom: 2px $darkest-grey solid;
   box-shadow: rgba(0, 0, 0, 0);
 }
 
 ::-webkit-input-placeholder {
-  color: $darker-gray;
+  color: $darker-grey;
   font-size: 16px
 }
 
@@ -119,7 +119,7 @@
   text-align: center;
   margin: 10px 0px;
 
-  color: $darker-gray;
+  color: $darker-grey;
 }
 
 .login-form a > p:hover {

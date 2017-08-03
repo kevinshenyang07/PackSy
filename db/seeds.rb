@@ -99,7 +99,7 @@ Item.create!([
       Ships worldwide from South Korea"
   },
   {
-    title: 'New Square Backpack (Charcoal Gray)',
+    title: 'New Square Backpack (Charcoal Grey)',
     producer: 'BagDoRi', price: 98, category: 'Bags & Purses', quantity: 10,
     img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614985/items/007.jpg",
     description:
@@ -120,7 +120,7 @@ Item.create!([
       Ships worldwide from Lithuania"
   },
   {
-    title: 'COTTON JERSEY EYE MASK NAVYXGRAY',
+    title: 'COTTON JERSEY EYE MASK NAVYX Grey',
     producer: 'MUJI', price: 12, category: 'Accessories', quantity: 10,
     img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500614988/items/009.png",
     description:
@@ -204,7 +204,7 @@ Item.create!([
     img_url: "https://res.cloudinary.com/kevinsy07/image/upload/v1500929156/items/016.jpg",
     description:
       "Handmade item
-      Primary color: Gray
+      Primary color: Grey
       Made to order
       Only ships within United States.
       these tennis shoes run a little small especially in bigger sizes."

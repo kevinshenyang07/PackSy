@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import Rater from 'react-rater';
 
 const Review = ({ review }) => {

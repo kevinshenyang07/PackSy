@@ -3,7 +3,7 @@
   width: 1000px;
   height: 100%;
   background-color: white;
-  border: 1px solid $light-gray;
+  border: 1px solid $light-grey;
 
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -14,7 +14,7 @@
   margin: 34px 0 34px 34px;
   font-family: sans-serif;
   font-size: 22px;
-  color: $darkest-gray;
+  color: $darkest-grey;
 }
 
 .cart-items-top {
@@ -27,11 +27,11 @@
   width: 120px;
   margin-right: 20px;
   padding: 6px 0;
-  border: 1px solid $light-gray;
+  border: 1px solid $light-grey;
   border-radius: 4px;
   background-color: white;
   text-align: center;
-  color: $darkest-gray;
+  color: $darkest-grey;
   font-size: 14px;
 }
 
@@ -62,7 +62,7 @@
 .cart-item {
   width: 100%;
   font-size: 14px;
-  color: $darkest-gray;
+  color: $darkest-grey;
   padding: 0px 20px 0px 34px;
 }
 
@@ -71,7 +71,7 @@
   height: 155px;
   overflow: hidden;
   // margin-left: 34px;
-  border: 1px solid $light-gray;
+  border: 1px solid $light-grey;
   border-radius: 4px;
   object-fit: cover;
 }
@@ -116,7 +116,7 @@
 .cart-item-seller {
   font-size: 14px;
   padding-bottom: 10px;
-  color: $darker-gray;
+  color: $darker-grey;
 }
 
 .cart-item-quantity {
@@ -135,20 +135,20 @@
 
 .cart-details-flex-right {
   width: 34%;
-  border-left: 1px solid $light-gray;
+  border-left: 1px solid $light-grey;
   margin-bottom: 34px;
   padding: 0px 20px 0px 20px;
 }
 
 .cart-details-flex-right {
-  color: $darker-gray;
+  color: $darker-grey;
 }
 
 .items-total {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  color: $darkest-gray;
+  color: $darkest-grey;
   padding-bottom: 16px;
 }
 
@@ -157,7 +157,7 @@
   margin-top: -140px;
   font-family: sans-serif;
   font-size: 14px;
-  color: $darkest-gray;
+  color: $darkest-grey;
 }
 
 .cart-item-review {
