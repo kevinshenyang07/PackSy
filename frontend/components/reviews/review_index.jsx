@@ -32,7 +32,8 @@ class ReviewIndex extends Component {
         return (
           <div key={`review-${review.id}`} className="single-review">
             <Divider />
-            <Review review={review} />
+            <Review review={review} currentUser={this.props.currentUser}
+              deleteReview={this.props.deleteReview.bind(this, review.id)} />
           </div>
         );
       });

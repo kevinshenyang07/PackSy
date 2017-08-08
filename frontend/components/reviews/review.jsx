@@ -1,7 +1,19 @@
 import React from 'react';
 import Rater from 'react-rater';
 
-const Review = ({ review }) => {
+const fromCurrentUser = (review, currentUser) => {
+  if (currentUser.firstname === review.user.firstname &&
+        currentUser.lastname === review.user.lastname)
+    return true;
+  else {
+    return false;
+  }
+};
+
+const Review = ({ review, currentUser, deleteReview }) => {
+  const maybeRemoveLink = fromCurrentUser(review, currentUser) ?
+    <span onClick={deleteReview}>remove</span> : <span></span>;
+
   return (
       <div className='review-content'>
         <div className='reviewer'>
@@ -14,7 +26,8 @@ const Review = ({ review }) => {
             <span>{review.updatedAt.slice(0, 10)}</span>
           </div>
           <div className='review-body'>
-            <p>{ review.body }</p>
+            <p>{review.body}</p>
+            <span>{maybeRemoveLink}</span>
           </div>
         </div>
 

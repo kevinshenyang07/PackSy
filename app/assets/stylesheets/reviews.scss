@@ -80,8 +80,24 @@
 }
 
 .review-body {
-  width: 75%;
+  width: 100%;
   height: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-body > p {
+  display: inline-block;
+}
+
+.review-body > span {
+  color: $darker-grey;
+}
+
+.review-body > span:hover {
+  cursor: pointer;
+  color: $darker-orange;
 }
 
 .submit-review {
