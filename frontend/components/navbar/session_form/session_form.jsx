@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
@@ -18,7 +17,6 @@ class SessionForm extends React.Component {
       lastname: '',
       email: '',
       password: '',
-      open: false,
       logIn: false,
     };
 
@@ -42,13 +40,19 @@ class SessionForm extends React.Component {
     }
   }
 
-  handleOpen(logIn) {
-    this.setState({open: true, logIn});
+  handleOpen(modalType) {
+    if (modalType === "LOG_IN") {
+      this.setState({ logIn: true }, () =>
+        this.props.showModal(modalType)
+      );
+    } else {
+      this.props.showModal(modalType);
+    }
   }
 
   handleClose() {
-    this.setState({open: false});
     this.props.clearErrors();
+    this.props.hideModal();
   }
 
   handleEnter(e) {
@@ -61,9 +65,10 @@ class SessionForm extends React.Component {
     sessionFn(user).then(() => {
       this.props.fetchCarts();
       this.props.fetchCartItems();
-    }).then(() =>
-      this.setState({ email: "", password: "", open: false })
-    );
+    }).then(() => {
+      this.setState({ email: "", password: ""});
+      this.props.hideModal();
+    });
   }
 
   handleSubmit(e) {
@@ -183,13 +188,13 @@ class SessionForm extends React.Component {
       return (
         <nav className="navbar-right">
           <FlatButton label="Log In" className="secondary"
-            onTouchTap={this.handleOpen.bind(this, true)} />
+            onTouchTap={this.handleOpen.bind(this, "LOG_IN")} />
           <FlatButton label="Sign Up" className="primary"
-            onTouchTap={this.handleOpen.bind(this,false)} />
+            onTouchTap={this.handleOpen.bind(this, "SIGN_UP")} />
 
           <Dialog
             modal={true}
-            open={this.state.open}
+            open={this.props.modalOpen}
             autoScrollBodyContent={true}
             contentStyle={{width: "30%", minWidth: "300px"}}
             >
@@ -232,16 +237,15 @@ class SessionForm extends React.Component {
                     className="login-input"
                     placeholder="Password"
                   />
-                  <br/>
+                  <br />
                   <FlatButton className="primary"
                     label={ this.state.logIn ? "Log In" : "Sign Up"}
                     onTouchTap={this.handleSubmit} style={{width: "100%"}} />
                   <p>or</p>
                   <RaisedButton label="Demo Login"
                     onTouchTap={this.demoLogin} style={{width: "100%"}}/>
-                  <a href="/#" onClick={this.switchForms}>
-                    {this.switchButton()}
-                  </a>
+                  <br />
+                  <p onClick={this.switchForms}>{this.switchButton()}</p>
                 </div>
               </form>
             </div>
@@ -252,4 +256,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(SessionForm);
+export default SessionForm;

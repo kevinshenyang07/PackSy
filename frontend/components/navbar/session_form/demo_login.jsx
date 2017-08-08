@@ -13,7 +13,6 @@ class DemoLogin extends React.Component {
     this.state = {
       email: '',
       password: '',
-      open: false,
     };
 
     this.toItemIndexPage = this.toItemIndexPage.bind(this);
@@ -45,16 +44,16 @@ class DemoLogin extends React.Component {
   }
 
   handleOpen() {
-    this.setState({open: true});
+    this.props.showModal();
     this.demoLogin();
   }
 
   handleClose() {
-    this.setState({open: false});
+    this.props.hideModal();
   }
 
   demoLogin(e) {
-    this.setState({ email: "", password: "", logIn: true });
+    this.setState({ email: "", password: "" });
     const demoUserEmail = getRandomDemoUserEmail();
     const emailChars = demoUserEmail.split("");
     this.fillDemoEmail(emailChars);
@@ -93,7 +92,8 @@ class DemoLogin extends React.Component {
       this.props.fetchCarts();
       this.props.fetchCartItems();
     });
-    this.setState({ email: "", password: "", open: false});
+    this.setState({ email: "", password: ""});
+    this.handleClose();
   }
 
   render() {
@@ -113,7 +113,7 @@ class DemoLogin extends React.Component {
             onTouchTap={this.handleOpen} style={{width: "auto"}}/>
           <Dialog
             modal={true}
-            open={this.state.open}
+            open={this.props.modalOpen}
             contentStyle={{width: "30%", minWidth: "300px"}}
           >
 

@@ -51,6 +51,11 @@
   margin: 10px 30px 10px 30px
 }
 
+.login-form-box p:last-child:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .login-form {
   margin: 10px 40px 10px 40px;
 }

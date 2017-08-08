@@ -7,7 +7,7 @@ class AddToCartForm extends React.Component {
     super(props);
 
     this.state = {
-      quantity: '1'
+      quantity: '1',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +40,7 @@ class AddToCartForm extends React.Component {
       this.props.addCartItem(cartItem)
         .then(() => this.handlePurchase(cart.id));
     } else {
-      this.props.history.push('/');
+      this.props.showModal();
     }
   }
 
@@ -57,7 +57,7 @@ class AddToCartForm extends React.Component {
       this.props.addCartItem(cartItem)
         .then(() => this.props.history.push('/cart'));
     } else {
-      this.props.history.push('/');
+      this.props.showModal();
     }
   }
 
