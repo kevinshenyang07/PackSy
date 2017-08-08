@@ -6,9 +6,9 @@ Packsy is a single-page e-commerce web application that's inspired by Etsy. A us
 
 It uses Ruby on Rails on the backend, a Postgres database, and React / Redux on the frontend. It conforms to the general styles of Etsy but at the same time apply the Material Design to enhance user experience.
 
-![Packsy](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/packsy.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398918/screenshots/packsy.png" style="width: 60%" >
 
-![Sign Up](https://github.com/kevinshenyang07/Packsy/blob/master/app/assets/images/signup.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398910/screenshots/signup.png" style="width: 60%" >
 
 ## Features and Implementation
 

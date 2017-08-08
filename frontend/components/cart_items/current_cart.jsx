@@ -87,7 +87,7 @@ class CurrentCart extends Component {
                   <span>{`Item(s) total: `}</span>
                   <span>{`$${totalPrice.toFixed(2)}`}</span>
                 </div>
-                <FlatButton className='primary' label='Make a purchase'
+                <FlatButton className='primary' label='Check Out'
                   onTouchTap={this.handleSubmit} style={{width: '100%'}}/>
                 <p>No worries, it's a demo and
                   you are not going to be charged.</p>
