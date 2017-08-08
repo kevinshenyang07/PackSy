@@ -6,9 +6,9 @@ Packsy is a single-page e-commerce web application that's inspired by Etsy. A us
 
 It uses Ruby on Rails on the backend, a Postgres database, and React / Redux on the frontend. It conforms to the general styles of Etsy but at the same time apply the Material Design to enhance user experience.
 
-![Packsy](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/packsy.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398918/screenshots/packsy.png" style="width: 60%" >
 
-![Sign Up](https://github.com/kevinshenyang07/Packsy/blob/master/app/assets/images/signup.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398910/screenshots/signup.png" style="width: 60%" >
 
 ## Features and Implementation
 
@@ -16,7 +16,7 @@ It uses Ruby on Rails on the backend, a Postgres database, and React / Redux on 
 
 Filters are strategically placed on the left and upper-right part of the item index page. User can combine arbitrary number of filters to quickly narrow down their choices.
 
-Using a combination of React's lifecycle methods to distinguish request by index or by keyword
+Using a combination of React's lifecycle methods to distinguish request by index or by keyword:
 
 ```javascript
 componentDidMount() {
@@ -60,8 +60,8 @@ Use Javascript ES6's feature ```Promise``` to make sure the "Buy it Now" action 
 ```javascript
 handlePurchase(cartId) {
   this.props.updateCart({id: cartId, purchased: true})
-  .then(() => this.props.createCart({ 
-    user_id: this.props.currentUser.id 
+  .then(() => this.props.createCart({
+    user_id: this.props.currentUser.id
   }))
   // error handling can also be conveniently added to a promise using .fail()
   .then(() => this.props.history.push('/purchases'));
