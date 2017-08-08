@@ -17,7 +17,7 @@ class SessionForm extends React.Component {
       lastname: '',
       email: '',
       password: '',
-      logIn: false,
+      logIn: this.props.logIn,
     };
 
     this.handleOpen = this.handleOpen.bind(this);
@@ -38,16 +38,16 @@ class SessionForm extends React.Component {
     if (!this.props.currentUser && nextProps.currentUser) {
       this.props.history.push('/items');
     }
+    if (this.props.modalOpen !== "DEMO" && nextProps.modalOpen === "DEMO") {
+      this.demoLogin();
+    }
   }
 
   handleOpen(modalType) {
-    if (modalType === "LOG_IN") {
-      this.setState({ logIn: true }, () =>
-        this.props.showModal(modalType)
-      );
-    } else {
-      this.props.showModal(modalType);
-    }
+    const logIn = (modalType === "LOG_IN") ? true : false;
+    this.setState({ logIn }, () =>
+      this.props.showModal(modalType)
+    );
   }
 
   handleClose() {
@@ -145,7 +145,7 @@ class SessionForm extends React.Component {
   }
 
   demoLogin(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.props.clearErrors();
     this.setState({ email: "", password: "", logIn: true });
     const demoUserEmail = getRandomDemoUserEmail();
@@ -194,7 +194,7 @@ class SessionForm extends React.Component {
 
           <Dialog
             modal={true}
-            open={this.props.modalOpen}
+            open={Boolean(this.props.modalOpen)}
             autoScrollBodyContent={true}
             contentStyle={{width: "30%", minWidth: "300px"}}
             >

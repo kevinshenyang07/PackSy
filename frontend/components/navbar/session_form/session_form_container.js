@@ -9,12 +9,23 @@ import { showModal, hideModal } from '../../../actions/modal_actions';
 import SessionForm from './session_form';
 
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser,
-  errors: state.session.errors,
-  carts: state.carts,
-  modalOpen: state.modal.open["LOG_IN"] || state.modal.open["SIGN_UP"],
-});
+const findOpenModal = state => {
+  const open = state.modal.open;
+  const opened = ["DEMO", "LOG_IN", "SIGN_UP"].filter(t => open[t])[0];
+  const logIn = (opened === "SIGN_UP") ? false : true;
+  return { opened, logIn };
+};
+
+const mapStateToProps = state => {
+  const modalState = findOpenModal(state);
+  return {
+    currentUser: state.session.currentUser,
+    errors: state.session.errors,
+    carts: state.carts,
+    modalOpen: modalState.opened,
+    logIn: modalState.logIn,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   signin: user => dispatch(signin(user)),

@@ -1,14 +1,25 @@
 import React from 'react';
+import FlatButton from 'material-ui/FlatButton';
 import {Card, CardActions,
   CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
-
-import DemoLoginContainer from '../navbar/session_form/demo_login_container';
 import ItemSpecialContainer from '../items/item_special_container';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
+
+    this.toItemIndexPage = this.toItemIndexPage.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+
+  }
+
+  toItemIndexPage() {
+    this.props.history.push('/items');
+  }
+
+  handleOpen() {
+    this.props.showModal();
   }
 
   // pic version
@@ -26,12 +37,18 @@ class Splash extends React.Component {
 
   // video version
   render() {
+    const splashButton = this.props.hasCurrentUser ?
+      <FlatButton label="Go Back to Shopping" className="primary"
+        onTouchTap={this.toItemIndexPage} style={{width: "auto"}}/> :
+      <FlatButton label="Demo Login" className="primary"
+        onTouchTap={this.handleOpen} style={{width: "auto"}}/>;
+
     return (
       <div className="splash">
         <section className="hero-text">
             <h4>Where is your next destination?</h4>
             <p>Explore items that make your trips more cheerful.</p>
-            <DemoLoginContainer />
+            {splashButton}
         </section>
         <div className="back-video-container">
           <video autoPlay muted preload loop className="back-video">
@@ -45,8 +62,8 @@ class Splash extends React.Component {
         </section>
       </div>
     );
-  }
 
+  }
 }
 
 export default Splash;
