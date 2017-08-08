@@ -500,6 +500,8 @@ Item.all.each do |item|
   end
 end
 
+
+# randomly create reviews
 reviews = [
   "Great quality! Exactly what I've been searching for!",
   "Got them 2 weeks ago, and I've been using them everyday.",
@@ -519,8 +521,10 @@ Item.all.each do |item|
   end
 end
 
+
+# randomly set cart items for demo users
 demo_users.each do |user|
-  sampled_cart_items = Item.all.sample(3)
+  sampled_cart_items = Item.all.sample(2)
   cart = user.carts[0]
   sampled_cart_items.each do |item|
     CartItem.create!(cart_id: cart.id, item_id: item.id, item_quantity: rand(1..2))

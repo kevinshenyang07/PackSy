@@ -55,7 +55,8 @@ class AddToCartForm extends React.Component {
         item_quantity: parseInt(this.state.quantity)
       };
       this.props.addCartItem(cartItem)
-        .then(() => this.props.history.push('/cart'));
+        .then(
+          () => this.props.history.push('/cart'));
     } else {
       this.props.showModal();
     }
