@@ -16,7 +16,8 @@ class Api::CartItemsController < ApplicationController
       item_id: cart_item_params[:item_id]
     )
     if @cart_item
-      if @cart_item.update(item_quantity: cart_item_params[:item_quantity])
+      new_quantity = @cart_item.item_quantity + cart_item_params[:item_quantity].to_i
+      if @cart_item.update(item_quantity: new_quantity)
         render :show
       else
         render json: @cart_item.errors.messages, status: 422

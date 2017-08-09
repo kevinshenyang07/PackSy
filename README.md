@@ -85,6 +85,8 @@ handleBuyItNow(e) {
 }
 ```
 
+### Manage Modal with Redux
+
 ### Auto-complete Search Bar
 
 Packsy has a site-wide search bar that can be accessed from every page. The search bar was implemented with Postgres full-text search on the backend and fuzzy matcher on the frontend.

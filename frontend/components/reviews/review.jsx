@@ -2,6 +2,7 @@ import React from 'react';
 import Rater from 'react-rater';
 
 const fromCurrentUser = (review, currentUser) => {
+  if (!currentUser) return false;
   if (currentUser.firstname === review.user.firstname &&
         currentUser.lastname === review.user.lastname)
     return true;
