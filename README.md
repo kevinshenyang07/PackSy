@@ -6,9 +6,9 @@ Packsy is a single-page e-commerce web application that's inspired by Etsy. A us
 
 It uses Ruby on Rails on the backend, a Postgres database, and React / Redux on the frontend. It conforms to the general styles of Etsy but at the same time apply the Material Design to enhance user experience.
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398918/screenshots/packsy.png" width="400" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398918/screenshots/packsy.png" width="600" />
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398910/screenshots/signup.png" width="400" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398910/screenshots/signup.png" width="600" />
 
 ## Features and Implementation
 
@@ -43,20 +43,25 @@ fetchResult(pathname) {
 }
 ```
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398917/screenshots/item_index.png" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398917/screenshots/item_index.png" width="600" />
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398903/screenshots/filters.png" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398903/screenshots/filters.png" width="600" />
 
 
 ### From Item Show Page to Purchase - Shortening the Path
 
-In the item show page, a user can chose to directly finish their purchase (similar to Amazon's one-click ordering) or add it the cart.
+In the item show page, a user can chose to directly finish their purchase (similar to Amazon's one-click ordering) or add it the cart. The challenge here is to handle different situations after a user click one of the two buttons.
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398902/screenshots/item_page.png" />
+The flow to handle the click is listed below:
+1. If a user hasn't logged in, open the login modal (by sending a modal state update to Redux).
+2. If the item is already in the cart, add that quantity to that cart item (handled by Rails cart_items_controller).
+3. If the item is not in the cart, create a new cart item (handled by Rails cart_items_controller).
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398908/screenshots/purchase_page.png" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398902/screenshots/item_page.png" width="600" />
 
-Use Javascript ES6's feature ```Promise``` to make sure the "Buy it Now" action is executed in correct order:
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398908/screenshots/purchase_page.png" width="600" />
+
+Hence, Packsy uses Javascript ES6's feature ```Promise``` to make sure the "Buy it Now" action is executed in correct order.
 
 ```javascript
 handlePurchase(cartId) {
@@ -81,18 +86,45 @@ handleBuyItNow(e) {
     this.props.addCartItem(cartItem)
       .then(() => this.handlePurchase(cart.id));
   } else {
-    this.props.history.push('/');
+    this.props.showModal();
   }
 }
 ```
 
 ### Manage Modal with Redux
 
+To avoid writing a modal for each button and race conditions for different modals, Packsy uses redux to manage the state of modal. It implements a ```ModalReducer```, a few modal actions including ```showModal``` and ```hideModal```, and a React component ```Dialog```.
+
+The ```Dialog``` component behaves exactly the same as other portal-based implementations of React modals. It stays with a regular component and remains hidden until redux update its ```modalOpen``` state and pass that as a updated prop.
+
+```JavaScript
+// use .setState() to trigger re-rendering on click
+handleOpen(modalType) {
+  const logIn = (modalType === "LOG_IN") ? true : false;
+  this.setState({ logIn }, () =>
+    this.props.showModal(modalType)
+  );
+}
+
+// in render function, use .bind() to open different modals using one method
+return (
+  <FlatButton label="Log In" className="secondary"
+    onTouchTap={this.handleOpen.bind(this, "LOG_IN")} />
+  <FlatButton label="Sign Up" className="primary"
+    onTouchTap={this.handleOpen.bind(this, "SIGN_UP")} />
+
+  <Dialog
+    modal={true}
+    open={Boolean(this.props.modalOpen)}
+  >
+)
+```
+
 ### Auto-complete Search Bar
 
 Packsy has a site-wide search bar that can be accessed from every page. The search bar was implemented with Postgres full-text search on the backend and fuzzy matcher on the frontend.
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398898/screenshots/autocomplete_search.png" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398898/screenshots/autocomplete_search.png" width="600"/>
 
 
 #### Discussion On Using Google's Libarary 'Material-UI'
