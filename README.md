@@ -6,9 +6,9 @@ Packsy is a single-page e-commerce web application that's inspired by Etsy. A us
 
 It uses Ruby on Rails on the backend, a Postgres database, and React / Redux on the frontend. It conforms to the general styles of Etsy but at the same time apply the Material Design to enhance user experience.
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398918/screenshots/packsy.png" style="width: 400px" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398918/screenshots/packsy.png" width="400" />
 
-<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398910/screenshots/signup.png" style="width: 400px" />
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398910/screenshots/signup.png" width="400" />
 
 ## Features and Implementation
 
@@ -43,17 +43,18 @@ fetchResult(pathname) {
 }
 ```
 
-![Item Index](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/item_index.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398917/screenshots/item_index.png" />
 
-![Item Index With Filters](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/filters.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398903/screenshots/filters.png" />
+
 
 ### From Item Show Page to Purchase - Shortening the Path
 
 In the item show page, a user can chose to directly finish their purchase (similar to Amazon's one-click ordering) or add it the cart.
 
-![Item Page](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/item_page.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398902/screenshots/item_page.png" />
 
-![Cart Page](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/cart_page.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398908/screenshots/purchase_page.png" />
 
 Use Javascript ES6's feature ```Promise``` to make sure the "Buy it Now" action is executed in correct order:
 
@@ -91,9 +92,7 @@ handleBuyItNow(e) {
 
 Packsy has a site-wide search bar that can be accessed from every page. The search bar was implemented with Postgres full-text search on the backend and fuzzy matcher on the frontend.
 
-![Auto-complete](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/autocomplete_search.png)
-
-![Search Result](https://github.com/kevinshenyang07/packsy/blob/master/app/assets/images/search_result.png)
+<img src="https://res.cloudinary.com/kevinsy07/image/upload/v1501398898/screenshots/autocomplete_search.png" />
 
 
 #### Discussion On Using Google's Libarary 'Material-UI'
