@@ -11,6 +11,7 @@ const fromCurrentUser = (review, currentUser) => {
   }
 };
 
+// functional component displayed in item show page
 const Review = ({ review, currentUser, deleteReview }) => {
   const maybeRemoveLink = fromCurrentUser(review, currentUser) ?
     <span onClick={deleteReview}>remove</span> : <span></span>;

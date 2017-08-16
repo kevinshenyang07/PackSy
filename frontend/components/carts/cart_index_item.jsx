@@ -12,19 +12,17 @@ class CartIndexItem extends React.Component {
     const cartItem = this.props.cartItem;
     return (
       <li className='cart-item'>
-        <ul>
-          <li>
+        <div>
             <Link to={ `/items/${cartItem.id}` }>
               <img className='cart-item-image' src={cartItem.imgUrl} />
             </Link>
-          </li>
-        </ul>
+        </div>
         <div className='cart-item-details-left'>
           <span className='cart-item-name'>
-            { this.props.cartItem.title }
+            {cartItem.title}
           </span>
           <li className='cart-item-seller'>
-            {`Sold by: ${this.props.cartItem.producer}`}
+            {`Sold by: ${cartItem.producer}`}
           </li>
         </div>
         <div className='cart-item-details-right'>

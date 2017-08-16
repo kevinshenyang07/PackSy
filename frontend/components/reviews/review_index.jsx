@@ -43,7 +43,7 @@ class ReviewIndex extends Component {
           <div className='review-header'>
             <span>Reviews</span>
             <Rater interactive={false} rating={avgRating} />
-            { `(${reviewCount})` }
+            {`(${reviewCount})`}
           </div>
           <div className='review-items'>
             {reviews}

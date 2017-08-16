@@ -42,21 +42,22 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <ul>
-        <li className="review-rating">
-          Rating <Rater onRate={this.handleRate} />
-        </li>
-        <li>Description</li>
-        <li className='review-description'>
+      <div>
+        <div className="review-rating">
+          Rating
+          <Rater onRate={this.handleRate} />
+        </div>
+        <div>Description</div>
+        <div className='review-description'>
           <textarea
-            value={ this.state.reviewBody }
-            onChange={ this.handleChange }
+            value={this.state.reviewBody}
+            onChange={this.handleChange}
           />
-        </li>
+        </div>
         <p className="submit-review" onClick={this.handleSubmit}>
           Submit Review
         </p>
-      </ul>
+      </div>
     );
   }
 }
