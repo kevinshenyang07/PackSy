@@ -52,8 +52,10 @@ class Splash extends React.Component {
         </section>
         <div className="back-video-container">
           <video autoPlay muted preload loop className="back-video">
-           <source src="https://res.cloudinary.com/kevinsy07
-            /video/upload/v1500527170/bg-video_e8rso7.mp4" type="video/mp4" />
+           <source 
+             src="https://res.cloudinary.com/kevinsy07/video/upload/v1500527170/bg-video_e8rso7.mp4"
+             type="video/mp4" 
+           />
             Your browser does not support the <code>video</code> tag.
           </video>
         </div>
