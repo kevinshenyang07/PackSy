@@ -56,7 +56,7 @@ class Splash extends React.Component {
              src="https://res.cloudinary.com/kevinsy07/video/upload/ac_none/v1500527170/bg-video_e8rso7.mp4"
              type="video/mp4" 
            />
-           <img src="https://res.cloudinary.com/kevinsy07/image/upload/v1529172407/bg-backup_hdzxy0.jpg" >
+           <img src="https://res.cloudinary.com/kevinsy07/image/upload/v1529172407/bg-backup_hdzxy0.jpg"  />
           </video>
         </div>
         <section className="item-special">
